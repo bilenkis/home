@@ -1,12 +1,1 @@
-*
-!/.vim/**/plug.vim
-!.vimrc
-!.vimrc.local
-!*.bashrc
-!.gitignore
-!.zshrc
-!/.config
-/.config/*
-!/.config/openbox/**
-!/.config/tint2/**
-*.swp
+/*

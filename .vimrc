@@ -30,7 +30,12 @@
   set backspace=indent,eol,start        " more powerful backspacing
 
 " Now we set some defaults for the editor
-  set autoindent        " always set autoindenting on
+  set noautoindent        " always set autoindenting on
+  set nocindent        " always set autoindenting on
+  set nosmartindent        " always set autoindenting on
+  set indentexpr=
+  filetype indent off
+  filetype plugin indent off
 " set linebreak         " Don't wrap words by default
   set textwidth=0       " Don't wrap lines by default
   set nobackup          " Don't keep a backup file
@@ -68,13 +73,6 @@
 "   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 "     \| exe "normal g'\"" | endif
 " endif
-
-" Uncomment the following to have Vim load indentation rules according to the
-" detected filetype. Per default Debian Vim only load filetype specific
-" plugins.
-  if has("autocmd")
-    filetype indent on
-  endif
 
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.

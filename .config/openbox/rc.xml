@@ -173,7 +173,19 @@
         <wrap>no</wrap>
       </action>
     </keybind>
+    <keybind key="C-A-j">
+      <action name="DesktopLeft">
+        <dialog>no</dialog>
+        <wrap>no</wrap>
+      </action>
+    </keybind>
     <keybind key="C-A-Right">
+      <action name="DesktopRight">
+        <dialog>no</dialog>
+        <wrap>no</wrap>
+      </action>
+    </keybind>
+    <keybind key="C-A-k">
       <action name="DesktopRight">
         <dialog>no</dialog>
         <wrap>no</wrap>
