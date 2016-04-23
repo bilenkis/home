@@ -287,6 +287,15 @@
         <desktop>yes</desktop>
       </action>
     </keybind>
+    <keybind key="C-S">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>true</name>
+        </startupnotify>
+        <command>true</command>
+      </action>
+    </keybind>
     <!-- Keybindings for running applications -->
     <keybind key="W-e">
       <action name="Execute">
