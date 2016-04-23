@@ -1,0 +1,16 @@
+xrandr --output LVDS1 --off --output VGA1 --off --output HDMI1 --preferred --primary &
+xset b off &
+
+numlockx on &
+kbdd &
+tint2 &
+xscreensaver -no-splash &
+xset r rate 210 25 &
+roxterm &
+keepassx &
+google-chrome &
+dropbox start &
+/opt/google/chrome/google-chrome --profile-directory=Default --app-id=clhhggbfdinjmjhajaheehoeibfljjno &
+skype &
+
+#/opt/viber/Viber &

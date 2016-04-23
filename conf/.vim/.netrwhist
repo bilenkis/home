@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/bilen/src/staff/etc'
+let g:netrw_dirhist_2='/home/bilen/src/staff'
+let g:netrw_dirhist_3='/home/bilen/src'
+let g:netrw_dirhist_4='/home/bilen'
+let g:netrw_dirhist_5='/home/bilen/downloads'
+let g:netrw_dirhist_6='/home/bilen/src/opencv'
+let g:netrw_dirhist_7='/home/bilen/src/haproxy'
+let g:netrw_dirhist_8='/home/bilen/src/dadmin/.git'
+let g:netrw_dirhist_9='/home/bilen/src/influxdb'
