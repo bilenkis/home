@@ -1,5 +1,16 @@
 #!/bin/bash
 PATH=/usr/local/bin:/usr/bin:/bin
 
-src=`find conf/ -type f`
-echo "$src"
+bak=`find conf/ -type f | sed s";^conf/;$HOME/;g"`
+
+# do backup
+for i in $bak; do
+    mv $i{,.bak}
+done
+
+for i in `find conf/ -type f`; do
+     src=`pwd`/$i
+     dst=`echo "$i" | sed s";^conf/;$HOME/;g"`
+     echo -e "[$src]\t[$dst]"
+     ln -s $src $dst
+done
