@@ -11,6 +11,5 @@ done
 for i in `find conf/ -type f`; do
      src=`pwd`/$i
      dst=`echo "$i" | sed s";^conf/;$HOME/;g"`
-     echo -e "[$src]\t[$dst]"
      ln -s $src $dst
 done
