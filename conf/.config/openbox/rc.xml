@@ -351,27 +351,6 @@
         <command>xset r rate 210 25</command>
       </action>
     </keybind>
-    <!--
-    <keybind key="W-o">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>opera</name>
-        </startupnotify>
-        <command>opera</command>
-      </action>
-    </keybind> 
-
-    <keybind key="0x31">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>urxvt-guake</name>
-        </startupnotify>
-        <command>/home/yura/bin/test4.sh</command>
-      </action>
-    </keybind> 
--->
     <keybind key="W-a">
       <!-- Begin the keychains to manage windows -->
       <keybind key="r">
@@ -391,6 +370,46 @@
           <name>htop</name>
         </startupnotify>
         <command>guake -n htop -e htop -t</command>
+      </action>
+    </keybind>
+    <keybind key="C-A-minus">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+        </startupnotify>
+        <command>amixer set Master 5%-</command>
+      </action>
+    </keybind>
+    <keybind key="C-A-plus">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+        </startupnotify>
+        <command>amixer set Master 5%+</command>
+      </action>
+    </keybind>
+    <keybind key="C-A-p">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+        </startupnotify>
+        <command>ncmpcpp toggle</command>
+      </action>
+    </keybind>
+    <keybind key="C-A-Prior">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+        </startupnotify>
+        <command>ncmpcpp prev</command>
+      </action>
+    </keybind>
+    <keybind key="C-A-Next">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+        </startupnotify>
+        <command>ncmpcpp next</command>
       </action>
     </keybind>
   </keyboard>
