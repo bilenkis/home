@@ -342,10 +342,9 @@ alias go='git checkout '
 alias gk='gitk --all&'
 alias gx='gitx --all'
 alias gp='git push '
-
 alias got='git '
 alias get='git '
 
 alias ssh='ssh -t'
-
+alias atop='atop -a -c -A 3'
 ## END OF FILE #################################################################
