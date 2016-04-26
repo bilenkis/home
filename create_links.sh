@@ -10,6 +10,8 @@ done
 # vim backup
 mv $HOME/.vim{,.bak}
 mkdir -p $HOME/.vim/autoload
+mv $HOME/.zsh{,.bak}
+mkdir -p $HOME/.zsh/completion
 
 # create links to new config
 for i in `find conf/ -type f`; do
