@@ -1883,6 +1883,7 @@ if zrcautoload vcs_info; then
     fi
 
     zstyle ':vcs_info:*' max-exports 2
+    zstyle ':vcs_info:*' check-for-changes true
 
     if [[ -o restricted ]]; then
         zstyle ':vcs_info:*' enable NONE
@@ -1899,7 +1900,7 @@ grml_vcs_plain_formats=(
 )
 
 grml_vcs_coloured_formats=(
-    format "${MAGENTA}(${NO_COLOR}%s${MAGENTA})${YELLOW}-${MAGENTA}[${GREEN}%b${MAGENTA}]${NO_COLOR} "
+    format "${MAGENTA}(${NO_COLOR}%s${MAGENTA})${YELLOW}-${MAGENTA}[${GREEN}%b${MAGENTA}${MAGENTA}]${RED}%c${GREEN}%u${NO_COLOR} "
     actionformat "${MAGENTA}(${NO_COLOR}%s${MAGENTA})${YELLOW}-${MAGENTA}[${GREEN}%b${YELLOW}|${RED}%a${MAGENTA}]${NO_COLOR} "
     rev-branchformat "%b${RED}:${YELLOW}%r"
 )
