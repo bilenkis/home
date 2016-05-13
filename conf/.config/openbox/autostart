@@ -1,5 +1,7 @@
 xrandr --output LVDS1 --off --output VGA1 --off --output HDMI1 --preferred --primary &
 xset b off &
+xset -dpms
+xset s off
 
 numlockx on &
 kbdd &
@@ -13,5 +15,3 @@ dropbox start &
 /opt/google/chrome/google-chrome --profile-directory=Default --app-id=clhhggbfdinjmjhajaheehoeibfljjno &
 /opt/google/chrome/google-chrome --profile-directory=Default --app-id=eifdbcbnlahelniokpkpdlhaocgjdcje &
 skype &
-
-#/opt/viber/Viber &
