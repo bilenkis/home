@@ -9,4 +9,4 @@ aptitude install -qq \
     tint2 \
     keepassx
 
-sh create_links.sh
+sh copy_configs.sh
