@@ -344,6 +344,7 @@ alias gx='gitx --all'
 alias gp='git push '
 alias got='git '
 alias get='git '
+alias gh='git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short'
 
 alias ssh='ssh -t'
 alias atop='atop -a -c -A 3'
