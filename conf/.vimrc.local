@@ -19,11 +19,12 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree', { 'tag': '4.2.0' }
 let NERDTreeIgnore=[]
+let NERDTreeShowHidden=1
 nmap <silent> <Leader>t :NERDTreeToggle<CR>
 
 Plug 'jlanzarotta/bufexplorer', { 'tag': 'v7.4.6' }
 let g:bufExplorerShowRelativePath=1
-let g:bufExplorerSortBy='fullpath'
+let g:bufExplorerSortBy='mru'
 nmap <silent> <Leader>e :BufExplorer<CR>
 
 call plug#end()
