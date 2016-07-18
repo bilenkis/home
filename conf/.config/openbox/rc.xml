@@ -871,11 +871,25 @@
       <skip_taskbar>yes</skip_taskbar>
       <maximized>Horizontal</maximized>
     </application>
-    <!--    
-    <application name="xfreerdp" class="">
-      <decor>no</decor>
-      <maximized>true</maximized>
+    <application title="Slacky">
+      <desktop>3</desktop>
+      <maximized>Vertical</maximized>
+      <position force="no">
+        <x>-1</x>
+        <y>center</y>
+      </position>
     </application>
--->
+    <application title="Telegram">
+      <desktop>3</desktop>
+      <maximized>Vertical</maximized>
+      <position force="no">
+        <x>1</x>
+        <y>center</y>
+      </position>
+    </application>
+    <application name="google-chrome">
+      <desktop>2</desktop>
+      <maximized>yes</maximized>
+    </application>
   </applications>
 </openbox_config>
