@@ -266,7 +266,7 @@
     </keybind>
     <keybind key="Print">
       <action name="Execute">
-        <execute>gnome-screenshot</execute>
+        <execute>gnome-screenshot -ap</execute>
       </action>
     </keybind>
     <keybind key="A-Print">
@@ -871,25 +871,25 @@
       <skip_taskbar>yes</skip_taskbar>
       <maximized>Horizontal</maximized>
     </application>
-    <application title="Slacky">
-      <desktop>3</desktop>
+    <application class="Slack">
       <maximized>Vertical</maximized>
       <position force="no">
         <x>-1</x>
         <y>center</y>
       </position>
+      <desktop>3</desktop>
     </application>
     <application title="Telegram">
-      <desktop>3</desktop>
       <maximized>Vertical</maximized>
       <position force="no">
         <x>1</x>
         <y>center</y>
       </position>
+      <desktop>3</desktop>
     </application>
     <application name="google-chrome">
-      <desktop>2</desktop>
       <maximized>yes</maximized>
+      <desktop>2</desktop>
     </application>
   </applications>
 </openbox_config>
