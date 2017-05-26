@@ -1,0 +1,30 @@
+" show existing tab with 4 spaces width
+set tabstop=4
+" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+" On pressing tab, insert 4 spaces
+set expandtab
+
+" disable auto indent
+set noautoindent
+set nocindent
+set nosmartindent
+set indentexpr=
+set paste
+filetype indent off
+filetype plugin indent off
+ 
+" plugins
+call plug#begin('~/.vim/plugged')
+
+Plug 'scrooloose/nerdtree', { 'tag': '4.2.0' }
+let NERDTreeIgnore=[]
+let NERDTreeShowHidden=1
+nmap <silent> <Leader>t :NERDTreeToggle<CR>
+
+Plug 'jlanzarotta/bufexplorer', { 'tag': 'v7.4.6' }
+let g:bufExplorerShowRelativePath=1
+let g:bufExplorerSortBy='mru'
+nmap <silent> <Leader>e :BufExplorer<CR>
+
+call plug#end()

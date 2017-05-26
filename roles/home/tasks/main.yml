@@ -6,12 +6,14 @@
     - openbox
     - tint2
     - keepassx
+  become: yes
 
-- name: copy configs
-  copy:
-    src: "{{ item.from }}"
-    dest: "{{ item.to }}"
-  with_dict:
-    - from: 
-      to: 
+- name: synchronize configs
+  synchronize:
+    src: home/
+    dest: "/home/{{ ansible_env.SUDO_USER }}/"
+    archive: yes
 
+- name: init vim plugins
+  shell: >
+    vim +PlugInstall +qall
