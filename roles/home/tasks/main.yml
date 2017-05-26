@@ -1,0 +1,17 @@
+- name: installing packages
+  apt: name={{ item }} state=present update_cache=yes
+  with_items:
+    - vim
+    - zsh
+    - openbox
+    - tint2
+    - keepassx
+
+- name: copy configs
+  copy:
+    src: "{{ item.from }}"
+    dest: "{{ item.to }}"
+  with_dict:
+    - from: 
+      to: 
+
