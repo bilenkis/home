@@ -25,6 +25,20 @@
     - alsa-utils
   become: yes
 
+- name: install grml zsh
+  get_url:
+    url: https://git.grml.org/f/grml-etc-core/etc/zsh/zshrc
+    dest: "/home/{{ ansible_env.SUDO_USER }}/.zshrc"
+    owner: "{{ ansible_env.SUDO_USER }}"
+    force: yes
+
+- name: configuring grml
+  lineinfile:
+    dest: "/home/{{ ansible_env.SUDO_USER }}/.zshrc"
+    line: '\1format "${MAGENTA}(${NO_COLOR}%s${MAGENTA})${YELLOW}-${MAGENTA}[${GREEN}%b${MAGENTA}${MAGENTA}]${RED}%c${GREEN}%u${NO_COLOR} "'
+    regexp: '(\s+)format \"\$\{MAGENTA\}.*'
+    backrefs: yes
+
 - name: synchronize configs
   synchronize:
     src: home/
