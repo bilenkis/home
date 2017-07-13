@@ -38,7 +38,6 @@ panel_layer = bottom
 # TASKBAR
 #---------------------------------------------
 taskbar_mode = multi_desktop
-#taskbar_mode = single_desktop
 taskbar_padding = 0 0 0
 taskbar_background_id = 3
 #---------------------------------------------
@@ -51,7 +50,6 @@ task_centered = 1
 task_padding = 2 2
 task_font = Droid sans 9
 task_font_color = #51B4DB 90
-#task_active_font_color = #5894dc 100
 task_active_font_color = #ffffff 90
 task_background_id = 0
 task_active_background_id = 2

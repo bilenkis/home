@@ -19,6 +19,10 @@
     - kbdd
     - xscreensaver
     - keepassx
+    - htop
+    - ncmpcpp
+    - alsa-base
+    - alsa-utils
   become: yes
 
 - name: synchronize configs

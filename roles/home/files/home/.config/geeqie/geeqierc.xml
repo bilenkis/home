@@ -31,7 +31,7 @@
             file_ops.confirm_delete = "true" 
             file_ops.enable_delete_key = "true" 
             file_ops.safe_delete_enable = "false" 
-            file_ops.safe_delete_path = "/home/yura/.local/share/geeqie/trash" 
+            file_ops.safe_delete_path = "~" 
             file_ops.safe_delete_folder_maxsize = "128" 
             properties.tabs_order = "" 
             image.zoom_mode = "2" 
@@ -177,7 +177,7 @@
         show_thumbnails = "false" 
         show_directory_date = "false" 
         home_path = "" 
-        last_path = "/home/bilen/Dropbox/Camera Uploads" 
+        last_path = "~" 
         startup_path = "0" 
         exit_on_close = "false" 
 

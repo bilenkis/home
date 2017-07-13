@@ -112,7 +112,3 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-if [ $(tty) == "/dev/tty6" ]; then
-sleep 10
-startx &
-fi
