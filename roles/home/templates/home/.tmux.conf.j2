@@ -104,7 +104,7 @@ set-window-option -g window-status-current-attr bright
 
 # show host name and IP address on left side of status bar
 set -g status-left-length 70
-set -g status-left "#[fg=yellow]#(ip addr show eth0 | awk '/inet / {print \"eth0 \" $2}') #(ip addr show eth1 | awk '/inet / {print \"eth1 \" $2}') #[fg=red]#(ip addr show tun0 | awk '/inet / {print \"vpn \" $2}') "
+set -g status-left "#[fg=yellow]#(ip addr show {{ ansible_default_ipv4.interface }} | awk '/inet / {print \"{{ ansible_default_ipv4.interface }} \" $2}') #[fg=red]#(ip addr show tun0 | awk '/inet / {print \"vpn \" $2}') "
 
 # show session name, window & pane number, date and time on right side of
 # status bar

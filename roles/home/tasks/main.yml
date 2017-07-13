@@ -1,10 +1,23 @@
+---
+
 - name: installing packages
   apt: name={{ item }} state=present update_cache=yes
   with_items:
     - vim
     - zsh
+    - roxterm
+    - sshfs
+    - unzip
+    - xinit
+    - consolekit
     - openbox
     - tint2
+    - firefox
+    - gmrun
+    - geeqie
+    - numlockx
+    - kbdd
+    - xscreensaver
     - keepassx
   become: yes
 
@@ -14,6 +27,18 @@
     dest: "/home/{{ ansible_env.SUDO_USER }}/"
     archive: yes
 
+- name: templating autostart
+  template:
+    src: home/.config/openbox/autostart.j2
+    dest: "/home/{{ ansible_env.SUDO_USER }}/.config/openbox/autostart"
+
+- name: templating tmux
+  template:
+    src: home/.tmux.conf.j2
+    dest: "/home/{{ ansible_env.SUDO_USER }}/.tmux.conf"
+
 - name: init vim plugins
   shell: >
     vim +PlugInstall +qall
+
+# vi:syntax=yaml
