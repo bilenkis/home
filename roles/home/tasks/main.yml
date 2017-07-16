@@ -39,6 +39,27 @@
     regexp: '(\s+)format \"\$\{MAGENTA\}.*'
     backrefs: yes
 
+- name: configuring openvpn
+  file:
+    path: "/home/{{ ansible_env.SUDO_USER }}/.ovpn"
+    state: directory
+    owner: "{{ ansible_env.SUDO_USER }}"
+
+- stat:
+    path: "/home/{{ ansible_env.SUDO_USER }}/.ovpn/update-resolv-conf"
+  register: f
+
+- copy:
+    src: '/etc/openvpn/update-resolv-conf'
+    dest: "/home/{{ ansible_env.SUDO_USER }}/.ovpn/update-resolv-conf"
+    owner: "{{ ansible_env.SUDO_USER }}"
+    mode: u=rwx,g=,o=
+  when: not f.stat.exists
+
+- template:
+    src: etc/sudoers.d/openvpn.conf
+    dest: "/etc/sudoers.d/openvpn.conf"
+
 - name: synchronize configs
   synchronize:
     src: home/
