@@ -25,6 +25,10 @@
     - alsa-utils
   become: yes
 
+- name: install python libs
+  pip:
+    name: virtualenv
+
 - name: install grml zsh
   get_url:
     url: https://git.grml.org/f/grml-etc-core/etc/zsh/zshrc
@@ -38,6 +42,7 @@
     line: '\1format "${MAGENTA}(${NO_COLOR}%s${MAGENTA})${YELLOW}-${MAGENTA}[${GREEN}%b${MAGENTA}${MAGENTA}]${RED}%c${GREEN}%u${NO_COLOR} "'
     regexp: '(\s+)format \"\$\{MAGENTA\}.*'
     backrefs: yes
+
 
 - name: configuring openvpn
   file:
@@ -59,6 +64,7 @@
 - template:
     src: etc/sudoers.d/openvpn.conf
     dest: "/etc/sudoers.d/openvpn.conf"
+
 
 - name: synchronize configs
   synchronize:
