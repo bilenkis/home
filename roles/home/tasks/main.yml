@@ -6,6 +6,7 @@
     - vim
     - zsh
     - roxterm
+    - mosh
     - sshfs
     - unzip
     - apt-transport-https
