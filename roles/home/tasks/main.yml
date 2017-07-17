@@ -8,6 +8,8 @@
     - roxterm
     - sshfs
     - unzip
+    - apt-transport-https
+    - software-properties-common
     - xinit
     - consolekit
     - openbox
@@ -25,6 +27,20 @@
     - alsa-utils
   become: yes
 
+- name: install docker
+  apt_key:
+    url: "https://download.docker.com/linux/ubuntu/gpg"
+    state: present
+- apt_repository:
+    repo: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable'
+    state: present
+    filename: docker
+- apt: name=docker-ce state=present update_cache=yes
+- user:
+    name: "{{ ansible_env.SUDO_USER }}"
+    groups: docker
+    append: yes
+
 - name: install python libs
   pip:
     name: "{{ item }}"
@@ -38,7 +54,6 @@
     dest: "/home/{{ ansible_env.SUDO_USER }}/.zshrc"
     owner: "{{ ansible_env.SUDO_USER }}"
     force: yes
-
 - name: configuring grml
   lineinfile:
     dest: "/home/{{ ansible_env.SUDO_USER }}/.zshrc"
@@ -52,18 +67,15 @@
     path: "/home/{{ ansible_env.SUDO_USER }}/.ovpn"
     state: directory
     owner: "{{ ansible_env.SUDO_USER }}"
-
 - stat:
     path: "/home/{{ ansible_env.SUDO_USER }}/.ovpn/update-resolv-conf"
   register: f
-
 - copy:
     src: '/etc/openvpn/update-resolv-conf'
     dest: "/home/{{ ansible_env.SUDO_USER }}/.ovpn/update-resolv-conf"
     owner: "{{ ansible_env.SUDO_USER }}"
     mode: u=rwx,g=,o=
   when: not f.stat.exists
-
 - template:
     src: etc/sudoers.d/openvpn.conf
     dest: "/etc/sudoers.d/openvpn.conf"
