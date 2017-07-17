@@ -27,7 +27,10 @@
 
 - name: install python libs
   pip:
-    name: virtualenv
+    name: "{{ item }}"
+  with_items:
+    - virtualenv
+    - docker-compose
 
 - name: install grml zsh
   get_url:
