@@ -357,4 +357,6 @@ alias grset='git remote set-url'
 
 alias ssh='ssh -t'
 alias atop='atop -a -c -A 3'
+
+alias brew='HOMEBREW_NO_GITHUB_API=1 brew'
 ## END OF FILE #################################################################
