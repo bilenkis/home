@@ -77,6 +77,8 @@
     owner: "{{ ansible_env.SUDO_USER }}"
     mode: u=rwx,g=,o=
   when: not f.stat.exists
+- command: "which openvpn"
+  register: openvpn_path
 - template:
     src: etc/sudoers.d/openvpn.conf
     dest: "/etc/sudoers.d/openvpn.conf"
