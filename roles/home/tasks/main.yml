@@ -80,8 +80,8 @@
 - command: "which openvpn"
   register: openvpn_path
 - template:
-    src: etc/sudoers.d/openvpn.conf
-    dest: "/etc/sudoers.d/openvpn.conf"
+    src: etc/sudoers.d/openvpn
+    dest: "/etc/sudoers.d/openvpn"
 
 
 - name: synchronize configs
