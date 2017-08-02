@@ -86,6 +86,16 @@
     dest: "/etc/sudoers.d/openvpn"
 
 
+- name: install java
+  apt_repository:
+    repo: 'ppa:webupd8team/java'
+- debconf: name=oracle-java8-installer question='shared/accepted-oracle-license-v1-1' value='true' vtype='select'
+- apt: name={{ item }} state=present update_cache=yes
+  with_items:
+    - oracle-java8-installer
+    - oracle-java8-set-default
+
+
 - name: synchronize configs
   synchronize:
     src: home/
