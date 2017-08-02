@@ -11,6 +11,7 @@
     - unzip
     - apt-transport-https
     - software-properties-common
+    - openvpn
     - xinit
     - consolekit
     - openbox
