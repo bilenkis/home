@@ -13,6 +13,7 @@
     - software-properties-common
     - openvpn
     - xinit
+    - x11-xserver-utils
     - consolekit
     - openbox
     - tint2
