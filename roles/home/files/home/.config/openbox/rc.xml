@@ -266,12 +266,12 @@
     </keybind>
     <keybind key="Print">
       <action name="Execute">
-        <execute>gnome-screenshot -ap</execute>
+        <execute>scrot -zs '%Y-%m-%d-%H-%S.png' -e 'mv $f ~/Downloads/'</execute>
       </action>
     </keybind>
     <keybind key="A-Print">
       <action name="Execute">
-        <execute>gnome-screenshot -w</execute>
+        <execute>scrot -z '%Y-%m-%d-%H-%S.png' -e 'mv $f ~/Downloads/'</execute>
       </action>
     </keybind>
     <!-- Keybindings for window switching -->
