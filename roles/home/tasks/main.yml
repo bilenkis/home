@@ -29,7 +29,6 @@
     - ncmpcpp
     - alsa-base
     - alsa-utils
-  become: yes
 
 - name: install docker
   apt_key:
@@ -44,6 +43,7 @@
     name: "{{ ansible_env.SUDO_USER }}"
     groups: docker
     append: yes
+    shell: /usr/bin/zsh
 
 - name: install python libs
   pip:
@@ -116,5 +116,13 @@
 - name: init vim plugins
   shell: >
     vim +PlugInstall +qall
+
+- name: set right file owner
+  file:
+    path: "/home/{{ ansible_env.SUDO_USER }}"
+    state: directory
+    recurse: yes
+    owner: "{{ ansible_env.SUDO_USER }}"
+    group: "{{ ansible_env.SUDO_USER }}"
 
 # vi:syntax=yaml
