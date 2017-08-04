@@ -61,9 +61,14 @@
 - name: configuring grml
   lineinfile:
     dest: "/home/{{ ansible_env.SUDO_USER }}/.zshrc"
-    line: '\1format "${MAGENTA}(${NO_COLOR}%s${MAGENTA})${YELLOW}-${MAGENTA}[${GREEN}%b${MAGENTA}${MAGENTA}]${RED}%c${GREEN}%u${NO_COLOR} "'
-    regexp: '(\s+)format \"\$\{MAGENTA\}.*'
+    line: "{{ item.to }}"
+    regexp: "{{ item.from }}"
     backrefs: yes
+  with_items:
+    - from: '(\s+)format \"\$\{MAGENTA\}.*'
+      to: '\1format "${MAGENTA}(${NO_COLOR}%s${MAGENTA})${YELLOW}-${MAGENTA}[${GREEN}%b${MAGENTA}${MAGENTA}]${RED}%c${GREEN}%u${NO_COLOR} "'
+    - from: "^(bind2maps.*insert-datestamp)"
+      to: '#\1'
 
 
 - name: configuring openvpn
