@@ -1,6 +1,9 @@
 - homebrew:
-    name: md5sha1sum
+    name: "{{ item }}"
     state: present
+  with_items:
+    - md5sha1sum
+    - python3
   become: no
 
 - name: install python libs
