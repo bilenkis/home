@@ -15,7 +15,6 @@
     url: https://git.grml.org/f/grml-etc-core/etc/zsh/zshrc
     dest: "/Users/{{ ansible_env.SUDO_USER }}/.zshrc"
     owner: "{{ ansible_env.SUDO_USER }}"
-    force: yes
 - name: configuring grml
   lineinfile:
     dest: "/Users/{{ ansible_env.SUDO_USER }}/.zshrc"
