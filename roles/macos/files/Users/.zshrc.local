@@ -360,4 +360,5 @@ alias atop='atop -a -c -A 3'
 
 # MacOS aliases
 alias brew='HOMEBREW_NO_GITHUB_API=1 brew'
+export PATH=~/Library/Python/3.6/bin:$PATH
 ## END OF FILE #################################################################
