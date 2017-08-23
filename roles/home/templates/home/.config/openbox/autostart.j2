@@ -3,7 +3,7 @@ xrandr --output DFP5 --mode 2560x1080 --output DFP9 --mode 1920x1080 --right-of 
 cd ~/.ovpn && sudo openvpn --config client.ovpn --daemon && cd - &
 {% elif ansible_hostname == 'bilen' -%} 
 sleep 1 && xrandr --output LVDS1 --off --output VGA1 --off --output HDMI1 --preferred --primary &
-synclient VertEdgeScroll=1 VertTwoFingerScroll=1 PalmDetect=1 TapButton3=2 VertScrollDelta=-200 HorizScrollDelta=-200 &
+synclient VertTwoFingerScroll=1 HorizTwoFingerScroll=1 PalmDetect=1 TapButton3=2 VertScrollDelta=-200 HorizScrollDelta=-200 &
 {% endif -%}
 xset b off &
 xset s off &
