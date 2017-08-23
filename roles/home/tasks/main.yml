@@ -121,6 +121,17 @@
 - name: init vim plugins
   command: vim +PlugInstall +qall
 
+- name: configure dhclient
+  lineinfile:
+    dest: "/etc/dhcp/dhclient.conf"
+    line: "{{ item.to }}"
+    regexp: "{{ item.from }}"
+    backrefs: yes
+  with_items:
+    - from: '^timeout.*'
+      to: 'timeout 20;'
+
+
 - name: set right file owner
   file:
     path: "/home/{{ ansible_env.SUDO_USER }}"
