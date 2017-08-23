@@ -1,9 +1,9 @@
 
 [roxterm shortcuts scheme]
-File/New Window=<Control>n
-File/New Tab=<Control>t
+File/New Window=<Alt>n
+File/New Tab=<Alt>t
 File/Close Window=<Shift><Control>q
-File/Close Tab=<Control>w
+File/Close Tab=<Alt>w
 Tabs/Previous Tab=<Alt>Left
 Tabs/Next Tab=<Alt>Right
 Edit/Copy=<Alt>c
