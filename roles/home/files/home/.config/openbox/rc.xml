@@ -403,6 +403,23 @@
         <command>ncmpcpp next</command>
       </action>
     </keybind>
+  <!-- Brightness control -->
+    <keybind key="XF86MonBrightnessUp">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+        </startupnotify>
+        <command>xbacklight -inc 10</command>
+      </action>
+    </keybind>
+    <keybind key="XF86MonBrightnessDown">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+        </startupnotify>
+        <command>xbacklight -dec 10</command>
+      </action>
+    </keybind>
   </keyboard>
   <mouse>
     <dragThreshold>8</dragThreshold>

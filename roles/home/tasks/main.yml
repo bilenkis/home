@@ -12,6 +12,7 @@
     - apt-transport-https
     - software-properties-common
     - openvpn
+    - xbacklight
     - xinit
     - x11-xserver-utils
     - consolekit
