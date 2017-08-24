@@ -12,6 +12,7 @@
     - apt-transport-https
     - software-properties-common
     - openvpn
+    - xbacklight
     - xinit
     - x11-xserver-utils
     - consolekit
@@ -118,8 +119,18 @@
     dest: "/home/{{ ansible_env.SUDO_USER }}/.tmux.conf"
 
 - name: init vim plugins
-  shell: >
-    vim +PlugInstall +qall
+  command: vim +PlugInstall +qall
+
+- name: configure dhclient
+  lineinfile:
+    dest: "/etc/dhcp/dhclient.conf"
+    line: "{{ item.to }}"
+    regexp: "{{ item.from }}"
+    backrefs: yes
+  with_items:
+    - from: '^timeout.*'
+      to: 'timeout 20;'
+
 
 - name: set right file owner
   file:
