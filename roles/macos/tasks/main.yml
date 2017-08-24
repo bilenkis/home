@@ -1,80 +1,37 @@
-- name: install DNU utils
+- name: install GNU utils
   homebrew:
     name: "{{ item.name }}"
     state: present
     install_options: "{{ item.opts }}"
   become: no
   with_items:
-    - name: python3
-    - name: coreutils
-    - name: binutils
-    - name: diffutils
-    - name: gawk
-    - name: gnutls
-    - name: gzip
-    - name: screen
-    - name: watch
-    - name: wget
-    - name: wdiff
-      opts: 'with-gettext'
-    - name: ed
-      opts: 'with-default-names'
-    - name: findutils
-      opts: 'with-default-names'
-    - name: gnu-indent
-      opts: 'with-default-names'
-    - name: gnu-sed
-      opts: 'with-default-names'
-    - name: gnu-tar
-      opts: 'with-default-names'
-    - name: gnu-which
-      opts: 'with-default-names'
-    - name: grep
-      opts: 'with-default-names'
-    - name: file-formula
-    - name: git
-    - name: openssh
-    - name: perl
-    - name: python
-    - name: rsync
-    - name: unzip
-    - name: vim
-      opts: 'override-system-vi'
-    - name: macvim
-      opts: 'override-system-vim,custom-system-icons'
-    - name: zsh
-
-#- name: install DNU utils
-#  homebrew:
-#    name: "{{ item }}"
-#    state: present
-#  become: no
-#  with_items:
-#    - python3
-#    - coreutils
-#    - binutils
-#    - diffutils
-#    - gawk
-#    - gnutls
-#    - gzip
-#    - screen
-#    - watch
-#    - wget
-
-#- homebrew:
-#    name: "{{ item.name }}"
-#    state: present
-#    install_options: "{{ item.opts }}"
-#  become: no
-#  with_items:
-#    - { name: 'wdiff', opts: 'with-gettext' }
-#    - { name: 'ed', opts: 'with-default-names' }
-#    - { name: 'findutils', opts: 'with-default-names' }
-#    - { name: 'gnu-indent', opts: 'with-default-names' }
-#    - { name: 'gnu-sed', opts: 'with-default-names' }
-#    - { name: 'gnu-tar', opts: 'with-default-names' }
-#    - { name: 'gnu-which', opts: 'with-default-names' }
-#    - { name: 'grep', opts: 'with-default-names' }
+    - { name: 'python3', opts: '' }
+    - { name: 'coreutils', opts: '' }
+    - { name: 'binutils', opts: '' }
+    - { name: 'diffutils', opts: '' }
+    - { name: 'gawk', opts: '' }
+    - { name: 'gnutls', opts: '' }
+    - { name: 'gzip', opts: '' }
+    - { name: 'screen', opts: '' }
+    - { name: 'watch', opts: '' }
+    - { name: 'wget', opts: '' }
+    - { name: 'wdiff', opts: 'with-gettext' }
+    - { name: 'ed', opts: 'with-default-names' }
+    - { name: 'findutils', opts: 'with-default-names' }
+    - { name: 'gnu-indent', opts: 'with-default-names' }
+    - { name: 'gnu-sed', opts: 'with-default-names' }
+    - { name: 'gnu-tar', opts: 'with-default-names' }
+    - { name: 'gnu-which', opts: 'with-default-names' }
+    - { name: 'grep', opts: 'with-default-names' }
+    - { name: 'file-formula', opts: '' }
+    - { name: 'git', opts: '' }
+    - { name: 'openssh', opts: '' }
+    - { name: 'perl', opts: '' }
+    - { name: 'python', opts: '' }
+    - { name: 'rsync', opts: '' }
+    - { name: 'unzip', opts: '' }
+    - { name: 'vim', opts: 'override-system-vi' }
+    - { name: 'zsh', opts: '' }
 
 - name: install python libs
   pip:
