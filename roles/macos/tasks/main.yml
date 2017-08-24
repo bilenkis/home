@@ -33,6 +33,11 @@
     - { name: 'vim', opts: 'override-system-vi' }
     - { name: 'zsh', opts: '' }
 
+- name: unlink gnu-ls without color
+  file:
+    path: '/usr/local/opt/coreutils/libexec/gnubin/ls'
+    state: absent
+
 - name: install python libs
   pip:
     name: "{{ item }}"
