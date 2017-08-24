@@ -4,6 +4,8 @@ set tabstop=2
 set shiftwidth=2
 " On pressing tab, insert 2 spaces
 set expandtab
+" disable bell on error
+set t_vb=
 
 " disable auto indent
 set noautoindent
