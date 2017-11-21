@@ -5,6 +5,7 @@
     install_options: "{{ item.opts }}"
   become: no
   with_items:
+    - { name: 'bash', opts: '' }
     - { name: 'python3', opts: '' }
     - { name: 'coreutils', opts: '' }
     - { name: 'binutils', opts: '' }
@@ -35,6 +36,7 @@
     - { name: 'sshfs', opts: '' }
     - { name: 'sshuttle', opts: '' }
     - { name: 'nmap', opts: '' }
+    - { name: 'mpd', opts: '' }
 
 - name: unlink gnu-ls without color
   file:
@@ -77,6 +79,15 @@
     src: Users/.gitconfig
     dest: "/Users/{{ ansible_env.SUDO_USER }}/.gitconfig"
 
+- name: creating mpd config dirs
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ ansible_env.SUDO_USER }}"
+    group: "staff"
+  with_items:
+    - "/Users/{{ ansible_env.SUDO_USER }}/.config/mpd"
+    - "/usr/local/etc/mpd"
 - name: templating mpd
   template:
     src: Users/.config/mpd/mpd.conf
