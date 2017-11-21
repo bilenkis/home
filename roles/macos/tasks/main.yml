@@ -32,6 +32,9 @@
     - { name: 'unzip', opts: '' }
     - { name: 'vim', opts: 'override-system-vi' }
     - { name: 'zsh', opts: '' }
+    - { name: 'sshfs', opts: '' }
+    - { name: 'sshuttle', opts: '' }
+    - { name: 'nmap', opts: '' }
 
 - name: unlink gnu-ls without color
   file:
