@@ -19,12 +19,12 @@ filetype plugin indent off
 " plugins
 call plug#begin('~/.vim/plugged')
 
-Plug 'scrooloose/nerdtree', { 'tag': '4.2.0' }
+Plug 'scrooloose/nerdtree', { 'tag': '5.0.0' }
 let NERDTreeIgnore=[]
 let NERDTreeShowHidden=1
 nmap <silent> <Leader>t :NERDTreeToggle<CR>
 
-Plug 'jlanzarotta/bufexplorer', { 'tag': 'v7.4.6' }
+Plug 'jlanzarotta/bufexplorer', { 'tag': 'v7.4.19' }
 let g:bufExplorerShowRelativePath=1
 let g:bufExplorerSortBy='mru'
 nmap <silent> <Leader>e :BufExplorer<CR>

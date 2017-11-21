@@ -74,6 +74,17 @@
     src: Users/.gitconfig
     dest: "/Users/{{ ansible_env.SUDO_USER }}/.gitconfig"
 
+- name: templating mpd
+  template:
+    src: Users/.config/mpd/mpd.conf
+    dest: "/Users/{{ ansible_env.SUDO_USER }}/.config/mpd/mpd.conf"
+- name: creating symlink to mpd config
+  file:
+    dest: /usr/local/etc/mpd/mpd.conf
+    src: "/Users/{{ ansible_env.SUDO_USER }}/.config/mpd/mpd.conf"
+    state: link
+    force: yes
+
 - name: init vim plugins
   shell: >
     vim +PlugInstall +qall
