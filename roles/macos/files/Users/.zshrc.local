@@ -335,6 +335,7 @@ bindkey -M menuselect 'j' vi-down-line-or-history # bottom
 #vimpm ()      { vim `perldoc -l $1 | sed -e 's/pod$/pm/'` }
 #vimhelp ()    { vim -c "help $1" -c on -c "au! VimEnter *" }
 
+alias c='~/bin/c.sh'
 alias gs='git status '
 alias ga='git add '
 alias gb='git branch '
@@ -360,7 +361,10 @@ alias atop='atop -a -c -A 3'
 
 # MacOS aliases
 alias brew='HOMEBREW_NO_GITHUB_API=1 brew'
+export PATH="~/Library/Python/2.7/bin:$PATH"
 export PATH="~/Library/Python/3.6/bin:$PATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+#export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 ## END OF FILE #################################################################
