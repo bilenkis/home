@@ -111,7 +111,8 @@
     - ForwardAgent yes
     - StrictHostKeyChecking no
     - ControlMaster auto
-    - ControlPath ~/.ssh/%r@%h:%p
+    - ControlPath /tmp/%r@%h:%p
+    - ControlPersist 2h
 
 - name: set right file owner
   file:
