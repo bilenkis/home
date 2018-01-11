@@ -102,6 +102,17 @@
   shell: >
     vim +PlugInstall +qall
 
+- name: configure ssh client
+  lineinfile:
+    dest: ~/.ssh/config
+    line: "{{ item }}"
+  with_items:
+    - Host *
+    - ForwardAgent yes
+    - StrictHostKeyChecking no
+    - ControlMaster auto
+    - ControlPath ~/.ssh/%r@%h:%p
+
 - name: set right file owner
   file:
     path: "/Users/{{ ansible_env.SUDO_USER }}"
