@@ -36,6 +36,7 @@
     - { name: 'sshuttle', opts: '' }
     - { name: 'nmap', opts: '' }
     - { name: 'mpd', opts: '' }
+    - { name: 'ripgrep', opts: '' }
 
 - name: unlink gnu-ls without color
   file:
