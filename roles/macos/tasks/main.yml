@@ -105,8 +105,10 @@
 
 - name: configure ssh client
   lineinfile:
-    dest: ~/.ssh/config
+    dest: "/Users/{{ ansible_env.SUDO_USER }}/.ssh/config"
     line: "{{ item }}"
+    owner: "{{ ansible_env.SUDO_USER }}"
+    group: "staff"
   with_items:
     - Host *
     - ForwardAgent yes
