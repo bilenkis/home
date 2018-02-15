@@ -39,7 +39,7 @@ nmap <silent> <Leader>t :NERDTreeToggle<CR>
 nmap <silent> <Leader>e :Buffers<CR>
 " [Buffers] Jump to the existing window if possible
 let g:fzf_buffers_jump = 1
-nmap <silent> <Leader>o :Files<CR>
+nmap <silent> <Leader>b :Files<CR>
 
 " --column: Show column number
 " --line-number: Show line number
