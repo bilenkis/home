@@ -39,6 +39,13 @@
     - { name: 'ripgrep', opts: '' }
     - { name: 'tmux', opts: '' }
     - { name: 'p7zip', opts: '' }
+    - { name: 'htop', opts: '' }
+
+# install awless
+- name: install awless
+  shell: >
+    brew tap wallix/awless; brew install awless
+  become: no
 
 - name: unlink gnu-ls without color
   file:
@@ -51,6 +58,12 @@
   with_items:
     - virtualenv
     - docker-compose
+
+- name: install awscli
+  pip:
+    name: "awscli"
+    extra_args: --user --upgrade
+  become: no
 
 - name: install grml zsh
   get_url:
