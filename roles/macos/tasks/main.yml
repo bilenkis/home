@@ -68,6 +68,14 @@
       to: '\1format "${MAGENTA}(${NO_COLOR}%s${MAGENTA})${YELLOW}-${MAGENTA}[${GREEN}%b${MAGENTA}${MAGENTA}]${RED}%c${GREEN}%u${NO_COLOR} "'
     - from: "^(bind2maps.*insert-datestamp)"
       to: '#\1'
+- name: add zsh to official shell
+  lineinfile:
+    path: "/etc/shells"
+    line: "/usr/local/bin/zsh"
+- name: change users shell
+  user:
+    name: "{{ ansible_env.SUDO_USER }}"
+    shell: "/usr/local/bin/zsh"
 
 
 - name: synchronize configs
@@ -119,6 +127,7 @@
     - ControlMaster auto
     - ControlPath /tmp/%r@%h:%p
     - ControlPersist 10m
+    - Include ~/.ssh/config.d/*
 
 - name: set right file owner
   file:
