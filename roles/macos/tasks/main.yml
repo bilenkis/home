@@ -37,6 +37,8 @@
     - { name: 'nmap', opts: '' }
     - { name: 'mpd', opts: '' }
     - { name: 'ripgrep', opts: '' }
+    - { name: 'tmux', opts: '' }
+    - { name: 'p7zip', opts: '' }
 
 - name: unlink gnu-ls without color
   file:
@@ -109,6 +111,7 @@
     line: "{{ item }}"
     owner: "{{ ansible_env.SUDO_USER }}"
     group: "staff"
+    create: yes
   with_items:
     - Host *
     - ForwardAgent yes
