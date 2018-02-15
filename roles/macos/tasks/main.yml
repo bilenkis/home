@@ -40,6 +40,7 @@
     - { name: 'tmux', opts: '' }
     - { name: 'p7zip', opts: '' }
     - { name: 'htop', opts: '' }
+    - { name: 'awscli', opts: '' }
 
 # install awless
 - name: install awless
@@ -58,12 +59,6 @@
   with_items:
     - virtualenv
     - docker-compose
-
-- name: install awscli
-  pip:
-    name: "awscli"
-    extra_args: --user --upgrade
-  become: no
 
 - name: install grml zsh
   get_url:
