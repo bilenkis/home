@@ -48,6 +48,14 @@
     brew tap wallix/awless; brew install awless
   become: no
 
+- name: configure screenshots dir
+  file:
+    path: "/Users/{{ ansible_env.SUDO_USER }}/Screenshots"
+    state: directory
+- shell: >
+    defaults write com.apple.screencapture location ~/Screenshots
+  become: no
+
 - name: unlink gnu-ls without color
   file:
     path: '/usr/local/opt/coreutils/libexec/gnubin/ls'
