@@ -42,6 +42,7 @@
     - { name: 'htop', opts: '' }
     - { name: 'awscli', opts: '' }
     - { name: 'mosh', opts: '' }
+    - { name: 'pwgen', opts: '' }
 
 # install awless
 - name: install awless
