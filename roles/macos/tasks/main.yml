@@ -41,6 +41,7 @@
     - { name: 'p7zip', opts: '' }
     - { name: 'htop', opts: '' }
     - { name: 'awscli', opts: '' }
+    - { name: 'mosh', opts: '' }
 
 # install awless
 - name: install awless
