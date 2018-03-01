@@ -376,6 +376,7 @@ alias grrm='git remote remove'
 alias grset='git remote set-url'
 alias ssh='ssh -t'
 alias atop='atop -a -c -A 3'
+alias gup='git pull --rebase --prune --autostash origin HEAD'
 
 # MacOS aliases
 alias brew='HOMEBREW_NO_GITHUB_API=1 brew'
