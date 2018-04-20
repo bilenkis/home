@@ -20,6 +20,26 @@
 ## /etc/zsh/zshrc was installed as ~/.zshrc.global and
 ## ~/.zshrc.local does not exist yet.
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# --files: List files that would be searched but do not search
+# --no-ignore: Do not respect .gitignore, etc...
+# --hidden: Search hidden files and folders
+# --follow: Follow symlinks
+# --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+
+if [ -r ~/.zshrc -a -r ~/.zshrc.global -a ! -r ~/.zshrc.local ] ; then
+    printf '-!-\n'
+    printf '-!- Looks like you are using the old zshrc layout of grml.\n'
+    printf '-!- Please read the notes in the grml-zsh-refcard, being'
+    printf '-!- available at: http://grml.org/zsh/\n'
+    printf '-!-\n'
+    printf '-!- If you just want to get rid of this warning message execute:\n'
+    printf '-!-        touch ~/.zshrc.local\n'
+    printf '-!-\n'
+fi
+
 ## Settings for umask
 #if (( EUID == 0 )); then
 #    umask 002
@@ -325,36 +345,11 @@ bindkey -M menuselect 'j' vi-down-line-or-history # bottom
 #vimpm ()      { vim `perldoc -l $1 | sed -e 's/pod$/pm/'` }
 #vimhelp ()    { vim -c "help $1" -c on -c "au! VimEnter *" }
 
-
-################
-################
-if [ -z "$SSH_AUTH_SOCK" ] ; then
-  eval `ssh-agent`
-  ssh-add
-fi
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# --files: List files that would be searched but do not search
-# --no-ignore: Do not respect .gitignore, etc...
-# --hidden: Search hidden files and folders
-# --follow: Follow symlinks
-# --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
-
-if [ -r ~/.zshrc -a -r ~/.zshrc.global -a ! -r ~/.zshrc.local ] ; then
-    printf '-!-\n'
-    printf '-!- Looks like you are using the old zshrc layout of grml.\n'
-    printf '-!- Please read the notes in the grml-zsh-refcard, being'
-    printf '-!- available at: http://grml.org/zsh/\n'
-    printf '-!-\n'
-    printf '-!- If you just want to get rid of this warning message execute:\n'
-    printf '-!-        touch ~/.zshrc.local\n'
-    printf '-!-\n'
-fi
-
-
 alias c='~/bin/c.sh'
+alias ssh='ssh -t'
+alias atop='atop -a -c -A 3'
+
+# git aliases
 alias gs='git status '
 alias ga='git add '
 alias gb='git branch '
@@ -372,9 +367,18 @@ alias grhh='git reset HEAD --hard'
 alias grmv='git remote rename'
 alias grrm='git remote remove'
 alias grset='git remote set-url'
-alias ssh='ssh -t'
-alias atop='atop -a -c -A 3'
 alias gup='git pull --rebase --prune --autostash origin HEAD'
+
+# docker aliases
+alias dps="docker ps"
+alias dpa="docker ps -a"
+alias di="docker images"
+alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
+alias dex="docker exec -i -t"
+drm() { docker rm $(docker ps -a -q); }
+dri() { docker rmi $(docker images -q); }
+dsh() { docker exec -it $(docker ps -aqf "name=$1") sh; }
+dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
 
 # MacOS aliases
 alias brew='HOMEBREW_NO_GITHUB_API=1 brew'
@@ -387,4 +391,8 @@ export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 source /usr/local/share/zsh/site-functions/_awless
 source /usr/local/share/zsh/site-functions/_aws
-## END OF FILE #################################################################
+
+# use word delimiters same as in bash
+autoload -U select-word-style
+select-word-style bash
+

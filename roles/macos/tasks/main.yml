@@ -43,6 +43,7 @@
     - { name: 'awscli', opts: '' }
     - { name: 'mosh', opts: '' }
     - { name: 'pwgen', opts: '' }
+    - { name: 'reattach-to-user-namespace', opts: '' }
 
 # install awless
 - name: install awless
