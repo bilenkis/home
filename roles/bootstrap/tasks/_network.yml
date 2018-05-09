@@ -1,0 +1,113 @@
+---
+- name: fix /etc/hosts to hostname
+  lineinfile:
+    dest: /etc/cloud/templates/hosts.debian.tmpl
+    regexp: '^127\.0\.0\.1'
+    line: '127.0.0.1 localhost {{ inventory_hostname }}'
+    owner: root
+    group: root
+    mode: 0644
+  when: ansible_virtualization_type == 'xen'
+  tags: hostname
+
+- name: fix /etc/hosts to hostname
+  lineinfile:
+    dest: /etc/hosts
+    regexp: '^127\.0\.0\.1'
+    line: '127.0.0.1 localhost {{ inventory_hostname }}'
+    owner: root
+    group: root
+    mode: 0644
+  tags: hostname
+
+- name: querying supported devices
+  shell: >
+    ethtool -g {{ item }}
+    |sed -ne 's,\([RT]X:\)[[:space:]]*\([0-9]\+\),\1\2,p'
+  register: results
+  ignore_errors: true
+  with_items: "{{ ansible_interfaces }}"
+
+- name: parsing ethtool result
+  set_fact:
+    rx_tune: >
+      {% for result in results.results if result is successful -%}
+        {% for line in result.stdout_lines -%}
+          {% if loop.index == 1 -%}
+            {{ result.item ~ ' ' ~ 'rx' ~ ' ' }}
+          {%- endif -%}
+          {% set line_key, line_value = line.split(':') -%}
+          {% if line_key == 'RX' -%}
+            {{ line_value ~ ' ' }}
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endfor -%}
+    tx_tune: >
+      {% for result in results.results if result is successful -%}
+        {% for line in result.stdout_lines -%}
+          {% if loop.index == 1 -%}
+            {{ result.item ~ ' ' ~ 'tx' ~ ' ' }}
+          {%- endif -%}
+          {% set line_key, line_value = line.split(':') -%}
+          {% if line_key == 'TX' -%}
+            {{ line_value ~ ' ' }}
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endfor -%}
+
+- name: increasing buffers for interfaces
+  command: >
+    ethtool -G 
+    {{ item.split(' ')[0] }}
+    {{ item.split(' ')[1] }}
+    {{ item.split(' ')[2] }}
+  with_items:
+    - "{{ rx_tune }}"
+    - "{{ tx_tune }}"
+  ignore_errors: true
+
+- name: installing network scripts
+  copy:
+    src: files/etc/network/if-up.d/
+    dest: /etc/network/if-up.d
+    mode: "u+x,g=xr,o=xr"
+
+- name: /etc/resolv.conf.dnsmasq
+  template: src=resolv.conf.dnsmasq.j2 dest={{ item }}
+  with_items:
+    - /etc/resolv.conf.dnsmasq
+  tags: dnsmasq
+    
+- name: /etc/resolv.conf
+  template: src=resolv.conf.j2 dest={{ item }}
+  with_items:
+    - /etc/resolv.conf
+  tags: dnsmasq
+
+- name: /etc/dnsmasq.conf
+  template: src=dnsmasq.conf.j2 dest={{ item }}
+  with_items:
+    - /etc/dnsmasq.conf
+  tags: dnsmasq
+
+- name: ignore dns-name-servers from dhcp
+  lineinfile:
+    dest: /etc/dhcp/dhclient.conf
+    line: "supersede domain-name-servers {{ ansible_default_ipv4.address }};"
+  when: ansible_virtualization_type == 'xen'
+  tags: dnsmasq
+
+- name: set custom forward servers for dnsmasq
+  template: src=dnsmasq-servers.j2 dest=/etc/dnsmasq-servers
+  when: ansible_virtualization_type == 'xen' and not location | regex_search('id')
+  tags: dnsmasq
+
+- name: starting dnsmasq
+  service: name=dnsmasq state=started enabled=yes
+  tags: dnsmasq
+
+- name: restarting dnsmasq
+  service: name=dnsmasq state=restarted
+  tags: dnsmasq
+
+# vi:syntax=yaml

@@ -1,0 +1,6 @@
+- name: 'Bootstrapping a new server'
+  hosts: all
+  become: true
+  roles: 
+    - { role: bootstrap, tags: bootstrap }
+    - { role: docker, tags: docker }

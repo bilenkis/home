@@ -1,0 +1,5 @@
+---
+- name: sysctl
+  shell: sysctl -qp
+
+# vi:syntax=yaml

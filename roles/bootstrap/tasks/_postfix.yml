@@ -1,0 +1,33 @@
+---
+- name: Configure debconf for postfix
+  debconf: name='postfix' question="{{ item.q }}" value="{{ item.v }}" vtype="{{ item.t }}"
+  with_items:
+    - q: 'postfix/main_mailer_type'
+      v: 'Internet site'
+      t: 'string'
+    - q: 'postfix/mailname'
+      v: "localhost"
+      t: 'string'
+    - q: 'postfix/mynetworks'
+      v: '127.0.0.0/8 172.16.0.0/12'
+      t: 'string'
+    - q: 'postfix/myhostname'
+      v: "{{ ansible_hostname }}.dostavista.net"
+      t: 'string'
+
+- name: Install postfix package
+  apt: name={{ item }} state=present
+  with_items:
+    - postfix
+    - procmail
+
+- name: Templating postfix config
+  template:
+    src: main.cf
+    dest: /etc/postfix/main.cf
+  notify: postfix
+
+- name: starting postfix
+  service: name=postfix state=restarted enabled=yes
+
+# vi:syntax=yaml

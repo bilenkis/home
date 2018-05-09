@@ -1,0 +1,8 @@
+- name: Install default common packages Debian
+  apt: state=present name={{ packages.common }} update_cache=yes
+
+- name: Remove unnecessary packages
+  apt: state=absent name={{ packages.remove }}
+
+- name: Install cronic
+  copy: src=usr/sbin/cronic.sh dest=/usr/sbin/cronic.sh mode=0755

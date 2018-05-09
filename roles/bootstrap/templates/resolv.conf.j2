@@ -1,0 +1,5 @@
+
+domain {{ network.resolv_conf.domain }}
+search {% for domain in network.resolv_conf.search %}{{ domain }} {% endfor %}
+
+nameserver {{ ansible_default_ipv4.address }}

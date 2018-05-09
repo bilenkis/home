@@ -1,0 +1,54 @@
+---
+- name: ensure docker repository public key is installed
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+
+- name: ensure docker repository is enabled
+  apt_repository:
+    repo: >
+      deb [arch=amd64] https://download.docker.com/linux/ubuntu
+      {{ ansible_distribution_release }}
+      stable
+    update_cache: true
+
+- name: ensure docker packages are installed
+  package:
+    name: docker-ce
+    state: present
+
+- name: ensure docker service is started and enabled
+  service:
+    name: docker
+    enabled: true
+    state: started
+
+- name: Update pip
+  pip:
+    name: pip
+    state: latest
+
+- name: ensure old pip packages removed
+  pip:
+    name: "{{ item }}"
+    state: absent
+  with_items:
+    - docker-py
+
+- name: install docker python library
+  pip:
+    name: "{{ item }}"
+    version: '3.1.4'
+  with_items:
+    - docker
+
+- name: install docker-compose
+  pip:
+    name: "{{ item }}"
+  with_items:
+    - docker-compose
+
+- name: Install ctop
+  get_url:
+    url: https://storage.googleapis.com/dv-registry/misc-data-for-deploy/ctop-0.5-linux-amd64
+    dest: /usr/local/bin/ctop
+    mode: 0755

@@ -1,0 +1,40 @@
+---
+- name: Set custom global profile
+  copy:
+    src: etc/profile.d/aliases.sh
+    dest: /etc/profile.d/aliases.sh
+
+- name: set hostname to inventory_hostname
+  hostname: name={{ inventory_hostname }}
+  
+- name: sysctl preferences
+  copy:
+    src: etc/sysctl.d/custom.conf
+    dest: /etc/sysctl.d/custom.conf
+  notify: sysctl
+  
+- name: Update scheduller at startup
+  template: src=rc.local.j2 dest=/etc/rc.local owner=root mode=755
+  
+- name: Add rc.local service
+  copy:
+    src: etc/systemd/system/rc-local.service
+    dest: /etc/systemd/system/rc-local.service
+  
+- name: Enable a rc.local service
+  systemd:
+    name: rc.local
+    state: started
+    enabled: True
+    daemon_reload: yes
+
+- import_tasks: _packages.yml
+  tags: packages
+- import_tasks: _users.yml
+  tags: users
+- import_tasks: _network.yml
+  tags: network
+- import_tasks: _postfix.yml
+  tags: postfix
+
+# vi:syntax=yaml

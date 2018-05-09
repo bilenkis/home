@@ -1,0 +1,9 @@
+
+domain {{ network.resolv_conf.domain }}
+search {% for domain in network.resolv_conf.search %}{{ domain }} {% endfor %}
+
+{% for nameserver in network.resolv_conf.nameservers %}
+nameserver {{ nameserver }}
+{% endfor %}
+
+

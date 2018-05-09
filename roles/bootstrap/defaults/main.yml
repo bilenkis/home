@@ -1,0 +1,52 @@
+---
+network:
+  resolv_conf:
+    nameservers:
+      - 213.133.100.100
+      - 213.133.98.98
+      - 213.133.99.99
+    domain: bilenkis.ru.
+    search:
+      - bilenkis.ru
+    options:
+      timeout: 1
+
+packages:
+  common:
+    - iotop
+    - tmux
+    - sysstat
+    - htop
+    - dstat
+    - net-tools
+    - psmisc
+    - strace
+    - tcpdump
+    - ntp
+    - curl
+    - tree
+    - lsof
+    - git
+    - telnet
+    - ethtool
+    - dnsmasq
+    - pv
+    - mosh
+    - vim
+    - dnsutils
+    - apt-transport-https
+    - python-pip
+    - python-setuptools
+    - software-properties-common
+  remove:
+    - resolvconf
+
+admins:
+    bilen:
+        name: Yuri Bilenkis
+        shell: /bin/bash
+        ssh_key: "{{ lookup('file', 'admin_keys/bilen.pub') }}"
+        pass: '$6$i8InAWjn$Xs7bNfRxp/5ywTQ6QImI/ioi37USuI8TZ/ScdwWKe82R/TSCB78DLG7Wx0dcbI6btyIQsArO5EhzHBkZNkMNM0'
+        copy_configs: True
+
+# vi:syntax=yaml

@@ -1,0 +1,54 @@
+---
+- name: Create group Admins
+  group: name=Admins state=present
+
+- name: Configuring sudoers
+  lineinfile: dest=/etc/sudoers state=present line='%Admins   ALL=(ALL:ALL) NOPASSWD:ALL'
+
+- name: Disable requiretty for sudoers
+  lineinfile: dest=/etc/sudoers regexp='^Defaults([ \t]*)requiretty' line='Defaults\1!requiretty' backrefs=yes
+  tags: disablerequiretty
+
+- name: Save SSH_AUTH_SOCK when using sudo
+  lineinfile: dest=/etc/sudoers regexp='^Defaults[ \t]+env_keep' line='Defaults env_keep += "SSH_AUTH_SOCK"'
+
+- name: Disable requiretty in SSH
+  lineinfile:
+    dest: /etc/sudoers
+    regexp: '^Defaults\s+!?requiretty'
+    line: 'Defaults !requiretty'
+
+- name: Create admins
+  user:
+    name: "{{ item.key }}"
+    comment: "{{ item.value.name|default('User') }}"
+    shell: "{{ item.value.shell|default('/bin/bash') }}"
+    groups: "Admins"
+    append: "yes"
+    password: "{{ item.value.pass|default('!') }}"
+  with_dict: "{{ admins }}"
+
+- name: Set up authorized_keys for admins
+  authorized_key: user="{{ item.key }}" key="{{ item.value.ssh_key }}" state=present exclusive=yes
+  with_dict: "{{ admins }}"
+
+- name: Configure profile.d and root user
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: root
+  with_items:
+    - src: etc/profile.d/
+      dest: /etc/profile.d/
+    - src: root/
+      dest: /root/
+
+- name: Copy admins home configs
+  copy:
+    src: "home/{{ item.key }}/"
+    dest: "/home/{{ item.key }}/"
+    owner: "{{ item.key }}"
+  when: item.value.copy_configs is defined and item.value.copy_configs|bool
+  with_dict: "{{ admins }}"
+
+# vi:syntax=yaml
