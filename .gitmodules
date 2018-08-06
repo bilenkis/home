@@ -1,0 +1,3 @@
+[submodule "plugins/mitogen"]
+	path = plugins/mitogen
+	url = https://github.com/dw/mitogen/

@@ -34,7 +34,3 @@
   tags: users
 - import_tasks: _network.yml
   tags: network
-- import_tasks: _postfix.yml
-  tags: postfix
-
-# vi:syntax=yaml

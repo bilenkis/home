@@ -29,6 +29,7 @@ packages:
     - git
     - telnet
     - ethtool
+    - ntp
     - dnsmasq
     - pv
     - mosh
@@ -48,5 +49,3 @@ admins:
         ssh_key: "{{ lookup('file', 'admin_keys/bilen.pub') }}"
         pass: '$6$i8InAWjn$Xs7bNfRxp/5ywTQ6QImI/ioi37USuI8TZ/ScdwWKe82R/TSCB78DLG7Wx0dcbI6btyIQsArO5EhzHBkZNkMNM0'
         copy_configs: True
-
-# vi:syntax=yaml
