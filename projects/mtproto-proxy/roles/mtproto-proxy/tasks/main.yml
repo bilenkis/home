@@ -1,0 +1,11 @@
+---
+- include_vars: secrets.yml
+
+- name: templating docker-compose.yml
+  template:
+    src: 'home/bilen/mtproto-proxy/docker-compose.yml'
+    dest: '/home/bilen/mtproto-proxy/docker-compose.yml'
+
+- name: run docker-compose up
+  docker_service:
+    project_src: '/home/bilen/mtproto-proxy'

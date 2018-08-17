@@ -1,0 +1,6 @@
+---
+- name: run mtproto-proxy container
+  hosts: v.bilenkis.ru
+  become: true
+  roles: 
+    - mtproto-proxy

@@ -1,0 +1,15 @@
+version: '2'
+services:
+  app:
+    image: 'telegrammessenger/proxy:1.0'
+    container_name: 'mtproto-proxy'
+    ports:
+      - '1089:443'
+    volumes:
+      - './proxy-config:/data'
+    restart: 'always'
+    environment:
+      - SECRET_COUNT=1
+      - WORKERS=4
+      - SECRET={{ SECRET_ROLE_SECRET }}
+      - TAG={{ SECRET_ROLE_TAG }}
