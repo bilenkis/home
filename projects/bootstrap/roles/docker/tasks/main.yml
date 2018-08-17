@@ -46,9 +46,3 @@
     name: "{{ item }}"
   with_items:
     - docker-compose
-
-- name: Install ctop
-  get_url:
-    url: https://storage.googleapis.com/dv-registry/misc-data-for-deploy/ctop-0.5-linux-amd64
-    dest: /usr/local/bin/ctop
-    mode: 0755

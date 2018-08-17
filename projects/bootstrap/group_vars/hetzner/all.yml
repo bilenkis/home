@@ -1,0 +1,12 @@
+---
+network:
+  resolv_conf:
+    nameservers:
+      - 213.133.100.100
+      - 213.133.98.98
+      - 213.133.99.99
+    domain: bilenkis.ru.
+    search:
+      - bilenkis.ru
+    options:
+      timeout: 1

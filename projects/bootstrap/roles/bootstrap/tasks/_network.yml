@@ -109,5 +109,3 @@
 - name: restarting dnsmasq
   service: name=dnsmasq state=restarted
   tags: dnsmasq
-
-# vi:syntax=yaml
