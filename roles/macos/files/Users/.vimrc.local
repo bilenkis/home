@@ -1,9 +1,10 @@
+let mapleader=","
+" On pressing tab, insert 2 spaces
+set expandtab
 " show existing tab with 2 spaces width
 set tabstop=2
 " when indenting with '>', use 2 spaces width
 set shiftwidth=2
-" On pressing tab, insert 2 spaces
-set expandtab
 " disable bell on error
 set t_vb=
 
@@ -13,8 +14,10 @@ set nocindent
 set nosmartindent
 set indentexpr=
 set paste
-filetype indent off
-filetype plugin indent off
+"filetype indent off
+"filetype plugin indent off
+
+autocmd SwapExists * let v:swapchoice = "e"
 
 set background=light
  
@@ -22,19 +25,18 @@ set background=light
 call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree', { 'tag': '5.0.0' }
-
-"Plug 'jlanzarotta/bufexplorer', { 'tag': 'v7.4.19' }
-"let g:bufExplorerShowRelativePath=1
-"let g:bufExplorerSortBy='mru'
+Plug 'chr4/nginx.vim'
+Plug 'pearofducks/ansible-vim', { 'do': 'cd ./UltiSnips; python2.7 generate.py' }
 
 " PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run install script
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 call plug#end()
 
-let NERDTreeIgnore=[]
+let NERDTreeIgnore=['\.sw.$']
 let NERDTreeShowHidden=1
 nmap <silent> <Leader>t :NERDTreeToggle<CR>
+nmap <silent> <Leader>n :NERDTreeFind<CR>
 
 nmap <silent> <Leader>e :Buffers<CR>
 " [Buffers] Jump to the existing window if possible
@@ -54,3 +56,68 @@ nmap <silent> <Leader>b :Files<CR>
 command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
 nmap <leader>f :Find <c-r><CR>
 nmap <leader>F :Find <c-r>=expand("<cword>")<CR><CR>
+
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+execute pathogen#infect()
+
+""""""""""""""""""""""""""""""
+" Vundle start
+""""""""""""""""""""""""""""""
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'benmills/vimux'
+Plugin 'mzlogin/vim-markdown-toc'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+
+""""""""""""""""""""""""""""""
+" Vundle end
+""""""""""""""""""""""""""""""
+
+
+""" ansible-vim plugin configure
+""let g:ansible_unindent_after_newline = 1
+"let g:ansible_yamlKeyName = 'yamlKey'
+""let g:ansible_attribute_highlight = 'a'
+"let g:ansible_name_highlight = 'b'
+"let g:ansible_extra_keywords_highlight = 1
+""let g:ansible_normal_keywords_highlight = 'Constant'
+""let g:ansible_with_keywords_highlight = 'Constant'
+""let g:ansible_normal_keywords_highlight = 'Identifier'
+""let g:ansible_with_keywords_highlight = 'Identifier'
+"autocmd! BufRead,BufNewFile *.yaml set syntax=off
+"autocmd BufReadPost,BufReadPre,BufRead,BufNewFile *.yaml set filetype=ansible.yaml
+"filetype plugin indent on
+"autocmd BufReadPost,BufReadPre,BufRead,BufNewFile *.yml set filetype=ansible.yml
+
+""""""""""""""""""""""""""""""
+" Ansible
+""""""""""""""""""""""""""""""
+
+au BufRead,BufNewFile *.yml set filetype=yaml.ansible
+let g:ansible_unindent_after_newline = 1
+let g:ansible_extra_syntaxes = "sh.vim ruby.vim"
+let g:ansible_attribute_highlight = "ob"
+let g:ansible_name_highlight = 'd'
+
+set nomodeline

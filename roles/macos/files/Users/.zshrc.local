@@ -20,6 +20,10 @@
 ## /etc/zsh/zshrc was installed as ~/.zshrc.global and
 ## ~/.zshrc.local does not exist yet.
 
+# report about cpu-/system-/user-time of command if running longer than
+# 5 seconds
+REPORTTIME=60
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # --files: List files that would be searched but do not search
@@ -345,9 +349,12 @@ bindkey -M menuselect 'j' vi-down-line-or-history # bottom
 #vimpm ()      { vim `perldoc -l $1 | sed -e 's/pod$/pm/'` }
 #vimhelp ()    { vim -c "help $1" -c on -c "au! VimEnter *" }
 
+alias l='command ls -A'
 alias c='~/bin/c.sh'
 alias ssh='ssh -t'
 alias atop='atop -a -c -A 3'
+alias ap='ansible-playbook'
+alias av='ansible-vault'
 
 # git aliases
 alias gs='git status '
@@ -358,7 +365,7 @@ alias gd='git diff'
 alias go='git checkout '
 alias gk='gitk --all&'
 alias gx='gitx --all'
-alias gp='git push origin HEAD'
+alias gp='git push'
 alias gh='git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short'
 alias gf='git ls-files | grep'
 alias gr='git remote'
@@ -367,7 +374,8 @@ alias grhh='git reset HEAD --hard'
 alias grmv='git remote rename'
 alias grrm='git remote remove'
 alias grset='git remote set-url'
-alias gup='git pull --rebase --prune --autostash origin HEAD'
+alias gup='git pull --rebase --prune --autostash'
+alias ncmpcpp='ncmpcpp -b ~/.config/ncmpcpp/bindings'
 
 # docker aliases
 alias dps="docker ps"
@@ -375,14 +383,21 @@ alias dpa="docker ps -a"
 alias di="docker images"
 alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
 alias dex="docker exec -i -t"
+alias dl="docker logs -ft --tail=100"
+# Remove all containers
 drm() { docker rm $(docker ps -a -q); }
+# Remove all images
 dri() { docker rmi $(docker images -q); }
-dsh() { docker exec -it $(docker ps -aqf "name=$1") sh; }
-dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
+# Sh into running container
+dsh() { docker exec -it "$1" /bin/sh; }
+# Bash into running container
+dbash() { docker exec -it "$1" /bin/bash; }
+dins() { docker inspect "$1" | less; }
 
 # MacOS aliases
 alias brew='HOMEBREW_NO_GITHUB_API=1 brew'
 export PATH="~/Library/Python/2.7/bin:$PATH"
+export PATH="/usr/local/opt/python@2/libexec/bin:$PATH"
 export PATH="~/Library/Python/3.6/bin:$PATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/bin:$PATH"
@@ -396,3 +411,5 @@ source /usr/local/share/zsh/site-functions/_aws
 autoload -U select-word-style
 select-word-style bash
 
+# run mpd if not running
+pgrep mpd 2>&1 > /dev/null || mpd
