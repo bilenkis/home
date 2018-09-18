@@ -1,0 +1,6 @@
+---
+- name: deploying openvpn
+  hosts: openvpn
+  become: yes
+  roles:
+    - openvpn

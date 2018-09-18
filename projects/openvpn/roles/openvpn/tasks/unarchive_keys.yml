@@ -1,0 +1,14 @@
+---
+- name: Create dir for key files
+  file:
+    path: '{{openvpn_keydir}}'
+    state: directory
+    mode: 0700
+
+- name: Extract key files
+  unarchive:
+    src: 'keys.tgz'
+    dest: '{{openvpn_keydir}}'
+    keep_newer: 'yes'
+    mode: 0600
+    owner: root
