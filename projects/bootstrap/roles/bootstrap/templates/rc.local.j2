@@ -11,13 +11,11 @@
 #
 # By default this script does nothing.
 
-# openvpn
+# anti abuse
 iptables -A INPUT -p tcp -i {{ ansible_default_ipv4.interface }} --dport 53 -j DROP
 iptables -A INPUT -p udp -i {{ ansible_default_ipv4.interface }} --dport 53 -j DROP
 iptables -A INPUT -p tcp -i {{ ansible_default_ipv4.interface }} --dport 68 -j DROP
 iptables -A INPUT -p udp -i {{ ansible_default_ipv4.interface }} --dport 68 -j DROP
 iptables -A INPUT -p udp -i {{ ansible_default_ipv4.interface }} --dport 123 -j DROP
-iptables -t nat -A POSTROUTING -s 192.168.3.0/24 -j SNAT --to-source {{ ansible_default_ipv4.address }}
-iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -j SNAT --to-source {{ ansible_default_ipv4.address }}
  
 exit 0

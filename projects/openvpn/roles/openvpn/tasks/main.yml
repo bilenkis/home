@@ -2,7 +2,6 @@
 - include_vars: secrets.yml
 
 - import_tasks: unarchive_keys.yml
-
 - import_tasks: openvpn.yml
-
+- import_tasks: iptables-rules.yml
 - import_tasks: fetch_and_encrypt_keys.yml
