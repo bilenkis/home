@@ -1,4 +1,6 @@
 ---
+- include_vars: secrets.yml
+
 - import_tasks: unarchive_keys.yml
 
 - import_tasks: openvpn.yml
