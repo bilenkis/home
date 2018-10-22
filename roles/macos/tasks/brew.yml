@@ -1,0 +1,51 @@
+---
+- name: Tap homebrew for awless
+  homebrew_tap:
+    name: wallix/awless
+  become: no
+
+- name: install GNU utils
+  homebrew:
+    name: "{{ item.name }}"
+    state: present
+    install_options: "{{ item.opts }}"
+  become: no
+  with_items:
+    - { name: 'bash', opts: '' }
+    - { name: 'python3', opts: '' }
+    - { name: 'coreutils', opts: '' }
+    - { name: 'binutils', opts: '' }
+    - { name: 'diffutils', opts: '' }
+    - { name: 'gawk', opts: '' }
+    - { name: 'gnutls', opts: '' }
+    - { name: 'gzip', opts: '' }
+    - { name: 'watch', opts: '' }
+    - { name: 'wget', opts: '' }
+    - { name: 'wdiff', opts: 'with-gettext' }
+    - { name: 'ed', opts: 'with-default-names' }
+    - { name: 'findutils', opts: 'with-default-names' }
+    - { name: 'gnu-indent', opts: 'with-default-names' }
+    - { name: 'gnu-sed', opts: 'with-default-names' }
+    - { name: 'gnu-tar', opts: 'with-default-names' }
+    - { name: 'gnu-which', opts: 'with-default-names' }
+    - { name: 'grep', opts: 'with-default-names' }
+    - { name: 'file-formula', opts: '' }
+    - { name: 'git', opts: '' }
+    - { name: 'openssh', opts: '' }
+    - { name: 'perl', opts: '' }
+    - { name: 'rsync', opts: '' }
+    - { name: 'unzip', opts: '' }
+    - { name: 'vim', opts: 'override-system-vi' }
+    - { name: 'zsh', opts: '' }
+    - { name: 'sshuttle', opts: '' }
+    - { name: 'nmap', opts: '' }
+    - { name: 'mpd', opts: '' }
+    - { name: 'ripgrep', opts: '' }
+    - { name: 'tmux', opts: '' }
+    - { name: 'p7zip', opts: '' }
+    - { name: 'htop', opts: '' }
+    - { name: 'awscli', opts: '' }
+    - { name: 'mosh', opts: '' }
+    - { name: 'pwgen', opts: '' }
+    - { name: 'reattach-to-user-namespace', opts: '' }
+    - { name: 'awless', opts: '' }
