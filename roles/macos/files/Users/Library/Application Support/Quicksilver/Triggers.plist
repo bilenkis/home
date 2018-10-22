@@ -6,65 +6,18 @@
 	<array>
 		<dict>
 			<key>ID</key>
-			<string>QSGetGlobalSelectionTrigger</string>
-			<key>command</key>
-			<string>QSGetGlobalSelectionCommand</string>
-			<key>enabled</key>
-			<true/>
-			<key>keyCode</key>
-			<integer>53</integer>
-			<key>modifiers</key>
-			<integer>1048840</integer>
-			<key>set</key>
-			<string>Quicksilver</string>
-			<key>type</key>
-			<string>QSHotKeyTrigger</string>
-		</dict>
-		<dict>
-			<key>ID</key>
-			<string>FE72A5EB-52D7-4CEE-A1F3-8F8451AD9E72</string>
+			<string>9AEFB648-C0C2-44EF-9371-C33FB31EC1A2</string>
 			<key>command</key>
 			<dict>
 				<key>actionID</key>
 				<string>FileOpenAction</string>
 				<key>directID</key>
-				<string>/Applications/Telegram Desktop.app</string>
+				<string>/Applications/Notes.app</string>
 			</dict>
 			<key>enabled</key>
 			<true/>
 			<key>keyCode</key>
-			<integer>37</integer>
-			<key>modifiers</key>
-			<integer>1310985</integer>
-			<key>onPress</key>
-			<true/>
-			<key>type</key>
-			<string>QSHotKeyTrigger</string>
-		</dict>
-		<dict>
-			<key>ID</key>
-			<string>QSActivateTextModeTrigger</string>
-			<key>command</key>
-			<string>QSActivateTextModeCommand</string>
-			<key>set</key>
-			<string>Quicksilver</string>
-			<key>type</key>
-			<string>QSHotKeyTrigger</string>
-		</dict>
-		<dict>
-			<key>ID</key>
-			<string>F8D68775-247A-4E97-8352-3D37EDEEAB2E</string>
-			<key>command</key>
-			<dict>
-				<key>actionID</key>
-				<string>FileOpenAction</string>
-				<key>directID</key>
-				<string>/Applications/iTerm.app</string>
-			</dict>
-			<key>enabled</key>
-			<true/>
-			<key>keyCode</key>
-			<integer>38</integer>
+			<integer>45</integer>
 			<key>modifiers</key>
 			<integer>1310985</integer>
 			<key>onPress</key>
@@ -98,60 +51,47 @@
 		</dict>
 		<dict>
 			<key>ID</key>
-			<string>016F0BA4-5C61-47D2-9E10-83B640A42382</string>
+			<string>QSActivateTextModeTrigger</string>
 			<key>command</key>
-			<dict>
-				<key>actionID</key>
-				<string>FileOpenAction</string>
-				<key>directID</key>
-				<string>/Applications/Google Chrome.app</string>
-			</dict>
+			<string>QSActivateTextModeCommand</string>
 			<key>enabled</key>
-			<true/>
-			<key>keyCode</key>
-			<integer>40</integer>
-			<key>modifiers</key>
-			<integer>1310985</integer>
-			<key>onPress</key>
-			<true/>
+			<false/>
+			<key>set</key>
+			<string>Quicksilver</string>
 			<key>type</key>
 			<string>QSHotKeyTrigger</string>
 		</dict>
 		<dict>
 			<key>ID</key>
-			<string>B44D2318-6E94-416C-8073-B996EDC56EF7</string>
+			<string>3DB32918-A59F-460B-8DFC-35D69D9A0686</string>
 			<key>command</key>
 			<dict>
 				<key>actionID</key>
-				<string>FileOpenAction</string>
+				<string>QSShellScriptRunWithArgsAction</string>
 				<key>directID</key>
-				<string>/Applications/Slack.app</string>
+				<string>/Users/bilen/bin/player_next.sh</string>
+				<key>indirectArchive</key>
+				<dict>
+					<key>class</key>
+					<string>QSObject</string>
+					<key>data</key>
+					<dict>
+						<key>QSTextProxyType</key>
+						<string></string>
+					</dict>
+					<key>properties</key>
+					<dict>
+						<key>QSObjectName</key>
+						<string></string>
+						<key>QSObjectType</key>
+						<string>QSTextProxyType</string>
+					</dict>
+				</dict>
 			</dict>
 			<key>enabled</key>
 			<true/>
 			<key>keyCode</key>
-			<integer>31</integer>
-			<key>modifiers</key>
-			<integer>1310985</integer>
-			<key>onPress</key>
-			<true/>
-			<key>type</key>
-			<string>QSHotKeyTrigger</string>
-		</dict>
-		<dict>
-			<key>ID</key>
-			<string>7347F73E-9D5F-40D1-9332-73E7938758F2</string>
-			<key>command</key>
-			<dict>
-				<key>actionID</key>
-				<string>FileOpenAction</string>
-				<key>directID</key>
-				<string>/Applications/Spark.app</string>
-			</dict>
-			<key>enabled</key>
-			<true/>
-			<key>keyCode</key>
-			<integer>46</integer>
+			<integer>47</integer>
 			<key>modifiers</key>
 			<integer>1310985</integer>
 			<key>onPress</key>
@@ -173,6 +113,182 @@
 			<true/>
 			<key>keyCode</key>
 			<integer>34</integer>
+			<key>modifiers</key>
+			<integer>1310985</integer>
+			<key>onPress</key>
+			<true/>
+			<key>type</key>
+			<string>QSHotKeyTrigger</string>
+		</dict>
+		<dict>
+			<key>ID</key>
+			<string>B3029887-FE1A-4B45-A58D-B5F363F075B0</string>
+			<key>command</key>
+			<dict>
+				<key>actionID</key>
+				<string>QSShellScriptRunWithArgsAction</string>
+				<key>directID</key>
+				<string>/Users/bilen/bin/player_toggle.sh</string>
+				<key>indirectArchive</key>
+				<dict>
+					<key>class</key>
+					<string>QSObject</string>
+					<key>data</key>
+					<dict>
+						<key>QSTextProxyType</key>
+						<string></string>
+					</dict>
+					<key>properties</key>
+					<dict>
+						<key>QSObjectName</key>
+						<string></string>
+						<key>QSObjectType</key>
+						<string>QSTextProxyType</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyCode</key>
+			<integer>35</integer>
+			<key>modifiers</key>
+			<integer>1310985</integer>
+			<key>onPress</key>
+			<true/>
+			<key>type</key>
+			<string>QSHotKeyTrigger</string>
+		</dict>
+		<dict>
+			<key>ID</key>
+			<string>932904B9-6CBD-48B7-AE5B-2F0C4FFCA70A</string>
+			<key>command</key>
+			<dict>
+				<key>actionID</key>
+				<string>QSShellScriptRunWithArgsAction</string>
+				<key>directID</key>
+				<string>/Users/bilen/bin/player_prev.sh</string>
+				<key>indirectArchive</key>
+				<dict>
+					<key>class</key>
+					<string>QSObject</string>
+					<key>data</key>
+					<dict>
+						<key>QSTextProxyType</key>
+						<string></string>
+					</dict>
+					<key>properties</key>
+					<dict>
+						<key>QSObjectName</key>
+						<string></string>
+						<key>QSObjectType</key>
+						<string>QSTextProxyType</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyCode</key>
+			<integer>43</integer>
+			<key>modifiers</key>
+			<integer>1310985</integer>
+			<key>onPress</key>
+			<true/>
+			<key>type</key>
+			<string>QSHotKeyTrigger</string>
+		</dict>
+		<dict>
+			<key>ID</key>
+			<string>QSGetGlobalSelectionTrigger</string>
+			<key>command</key>
+			<string>QSGetGlobalSelectionCommand</string>
+			<key>enabled</key>
+			<true/>
+			<key>keyCode</key>
+			<integer>53</integer>
+			<key>modifiers</key>
+			<integer>1048840</integer>
+			<key>set</key>
+			<string>Quicksilver</string>
+			<key>type</key>
+			<string>QSHotKeyTrigger</string>
+		</dict>
+		<dict>
+			<key>ID</key>
+			<string>FE72A5EB-52D7-4CEE-A1F3-8F8451AD9E72</string>
+			<key>command</key>
+			<dict>
+				<key>actionID</key>
+				<string>FileOpenAction</string>
+				<key>directID</key>
+				<string>/Applications/Telegram.app</string>
+			</dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyCode</key>
+			<integer>37</integer>
+			<key>modifiers</key>
+			<integer>1310985</integer>
+			<key>onPress</key>
+			<true/>
+			<key>type</key>
+			<string>QSHotKeyTrigger</string>
+		</dict>
+		<dict>
+			<key>ID</key>
+			<string>016F0BA4-5C61-47D2-9E10-83B640A42382</string>
+			<key>command</key>
+			<dict>
+				<key>actionID</key>
+				<string>FileOpenAction</string>
+				<key>directID</key>
+				<string>/Applications/Google Chrome.app</string>
+			</dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyCode</key>
+			<integer>40</integer>
+			<key>modifiers</key>
+			<integer>1310985</integer>
+			<key>onPress</key>
+			<true/>
+			<key>type</key>
+			<string>QSHotKeyTrigger</string>
+		</dict>
+		<dict>
+			<key>ID</key>
+			<string>8F6BAF5B-9612-483D-9BB5-1127D0BA0C53</string>
+			<key>command</key>
+			<dict>
+				<key>actionID</key>
+				<string>FileOpenAction</string>
+				<key>directID</key>
+				<string>/Applications/Mail.app</string>
+			</dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyCode</key>
+			<integer>46</integer>
+			<key>modifiers</key>
+			<integer>1310985</integer>
+			<key>onPress</key>
+			<true/>
+			<key>type</key>
+			<string>QSHotKeyTrigger</string>
+		</dict>
+		<dict>
+			<key>ID</key>
+			<string>F8D68775-247A-4E97-8352-3D37EDEEAB2E</string>
+			<key>command</key>
+			<dict>
+				<key>actionID</key>
+				<string>FileOpenAction</string>
+				<key>directID</key>
+				<string>/Applications/iTerm.app</string>
+			</dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyCode</key>
+			<integer>38</integer>
 			<key>modifiers</key>
 			<integer>1310985</integer>
 			<key>onPress</key>
