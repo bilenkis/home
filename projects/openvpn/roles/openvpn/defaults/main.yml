@@ -9,27 +9,30 @@ openvpn_use_external_repo: false                    # Enable upstream OpenVPN re
 openvpn_use_system_easyrsa: false                   # Install EasyRSA from system packages
 
 # Default settings (See OpenVPN documentation)
-openvpn_host: "{{ inventory_hostname }}"              # The server address
+openvpn_host: "openvpn.example.com"              # The server address
 openvpn_port: 1194
-openvpn_proto: tcp
+openvpn_proto: udp
 openvpn_dev: tun
-openvpn_server: 192.168.3.0 255.255.255.0           # Set empty for skip
+openvpn_server: 172.18.0.0 255.255.255.0            # Set empty for skip
 openvpn_bridge: {}
-openvpn_max_clients: 5
+openvpn_max_clients: 100
 openvpn_log: /var/log/openvpn.log                   # Log's directory
 openvpn_keepalive: "10 120"
 openvpn_ifconfig_pool_persist: ipp.txt
-openvpn_comp_lzo: false                             # Enable compression
+openvpn_comp_lzo: yes                               # Enable compression
 openvpn_cipher: BF-CBC                              # Encryption algorithm
 openvpn_status: openvpn-status.log
 openvpn_verb: 3
-openvpn_tls_auth : False                            # Enable perfect forward secrecy
+openvpn_tls_auth : True                             # Enable perfect forward secrecy
 openvpn_tls_key  : "ta.key"
 openvpn_user: nobody
 openvpn_group: nogroup
 openvpn_resolv_retry: infinite
 openvpn_client_to_client: no
-
+openvpn_server_options: []                          # Additional server options
+                                                    # openvpn_server_options:
+                                                    # - dev-node MyTap
+                                                    # - client-to-client
 openvpn_client_options: []                          # Additional client options
                                                     # openvpn_client_options:
                                                     # - dev-node MyTap
@@ -38,16 +41,16 @@ openvpn_client_options: []                          # Additional client options
 openvpn_key_country: RU
 openvpn_key_province: Moscow
 openvpn_key_city: Moscow
-openvpn_key_org: bilenkis
-openvpn_key_email: bil9178@gmail.com
-openvpn_key_size: 2048
+openvpn_key_org: Example
+openvpn_key_email: error@example.com
+openvpn_key_size: 1024
 
 # Make clients certificate
 openvpn_clients:
   - mikrotik
+  - bilen-mac
 
-# Revoke clients certificates
-openvpn_clients_revoke: []
+openvpn_clients_revoke: []                        # Revoke clients certificates
 
 # Use PAM authentication
 openvpn_use_pam: no
@@ -65,9 +68,5 @@ openvpn_ldap_follow_referrals: 'no'
 openvpn_simple_auth: no
 openvpn_simple_auth_password: ""
 
-openvpn_client_config_dir: '/opt/openvpn/ccd'
-
 # Whether to embed CA, cert, and key info inside client OVPN config file.
 openvpn_unified_client_profiles: yes
-
-openvpn_server_options: '{{ SECRET_ROLE_OPENVPN_SERVER_OPTIONS }}'

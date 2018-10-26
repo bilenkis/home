@@ -1,0 +1,17 @@
+---
+openvpn_host: "{{ SECRET_OPENVPN_HOST }}"              # The server address
+openvpn_proto: tcp
+openvpn_server: 192.168.3.0 255.255.255.0           # Set empty for skip
+
+openvpn_max_clients: 5
+openvpn_comp_lzo: false                             # Enable compression
+
+openvpn_tls_auth : False                            # Enable perfect forward secrecy
+
+openvpn_key_org: bilenkis
+openvpn_key_email: bil9178@gmail.com
+openvpn_key_size: 2048
+
+openvpn_client_config_dir: '/opt/openvpn/ccd'
+
+openvpn_server_options: '{{ SECRET_OPENVPN_SERVER_OPTIONS }}'
