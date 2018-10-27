@@ -64,10 +64,13 @@ fi
 #grml_theme_add_token  virtual-env -f virtual_env_prompt '%F{magenta}' '%f'
 #zstyle ':prompt:grml:left:setup' items rc virtual-env change-root user at host path vcs percent
 zstyle ':prompt:grml:right:setup' use-rprompt false
+
+#grml_vcs_info_set_formats coloured
+zstyle ':vcs_info:*' formats '%F{magenta}[%F{green}%b%F{magenta}%F{magenta}]%F{red}%c%F{green}%u%f ' 'zsh: %r'
+zstyle ':vcs_info:*' actionformats '%F{magenta}[%F{green}%b%F{yellow}|%F{red}%a%F{magenta}]%f ' 'zsh: %r'
 zstyle ':vcs_info:*' check-for-changes true
 
 ## ZLE tweaks ##
-
 ## use the vi navigation keys (hjkl) besides cursor keys in menu completion
 bindkey -M menuselect 'h' vi-backward-char        # left
 bindkey -M menuselect 'k' vi-up-line-or-history   # up
@@ -349,6 +352,11 @@ bindkey -M menuselect 'j' vi-down-line-or-history # bottom
 #vimpm ()      { vim `perldoc -l $1 | sed -e 's/pod$/pm/'` }
 #vimhelp ()    { vim -c "help $1" -c on -c "au! VimEnter *" }
 
+# set locale
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+# aliases
 alias l='command ls -A'
 alias c='~/bin/c.sh'
 alias ssh='ssh -t'
@@ -365,7 +373,7 @@ alias gd='git diff'
 alias go='git checkout '
 alias gk='gitk --all&'
 alias gx='gitx --all'
-alias gp='git push'
+alias gp='git push origin HEAD'
 alias gh='git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short'
 alias gf='git ls-files | grep'
 alias gr='git remote'
@@ -396,13 +404,15 @@ dins() { docker inspect "$1" | less; }
 
 # MacOS aliases
 alias brew='HOMEBREW_NO_GITHUB_API=1 brew'
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 export PATH="~/Library/Python/2.7/bin:$PATH"
 export PATH="/usr/local/opt/python@2/libexec/bin:$PATH"
 export PATH="~/Library/Python/3.6/bin:$PATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
-export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+export PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:$PATH"
+
 
 source /usr/local/share/zsh/site-functions/_awless
 source /usr/local/share/zsh/site-functions/_aws

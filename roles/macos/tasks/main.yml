@@ -21,26 +21,21 @@
     - virtualenv
     - docker-compose
 
-- name: install grml zsh
+
+- name: install grml basic configs
   get_url:
-    url: https://git.grml.org/f/grml-etc-core/etc/zsh/zshrc
-    dest: "/Users/{{ ansible_env.SUDO_USER }}/.zshrc"
+    url: "https://grml.org/console/{{ item }}"
+    dest: "/Users/{{ ansible_env.SUDO_USER }}/.{{ item }}"
     owner: "{{ ansible_env.SUDO_USER }}"
-- name: configuring grml
-  lineinfile:
-    dest: "/Users/{{ ansible_env.SUDO_USER }}/.zshrc"
-    line: "{{ item.to }}"
-    regexp: "{{ item.from }}"
-    backrefs: yes
   with_items:
-    - from: '(\s+)format \"\$\{MAGENTA\}.*'
-      to: '\1format "${MAGENTA}(${NO_COLOR}%s${MAGENTA})${YELLOW}-${MAGENTA}[${GREEN}%b${MAGENTA}${MAGENTA}]${RED}%c${GREEN}%u${NO_COLOR} "'
-    - from: "^(bind2maps.*insert-datestamp)"
-      to: '#\1'
+    - zshrc
+    - vimrc
+
 - name: add zsh to official shell
   lineinfile:
     path: "/etc/shells"
     line: "/usr/local/bin/zsh"
+
 - name: change users shell
   user:
     name: "{{ ansible_env.SUDO_USER }}"

@@ -1,4 +1,22 @@
 """"""""""""""""""""""""""""""
+" My custom options
+""""""""""""""""""""""""""""""
+let mapleader=","
+set statusline=%<%F\ %h%m%r%y%=%-14.(%l,%c%V%)\ %P
+" disable bell on error
+set t_vb=
+
+set background=light
+set expandtab
+set softtabstop=4
+set shiftwidth=4
+set tabstop=4
+
+" edit file if it's opened anyway
+autocmd SwapExists * let v:swapchoice = "e"
+ 
+
+""""""""""""""""""""""""""""""
 " Plugins
 """"""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
@@ -91,7 +109,7 @@ nmap <leader>F :Find <c-r>=expand("<cword>")<CR><CR>
 " Ansible
 """"""""""""""""""""""""""""""
 autocmd BufRead,BufNewFile *.yml set filetype=yaml.ansible
-autocmd FileType yaml.ansible setlocal softtabstop=2 shiftwidth=2 tabstop=2
+autocmd FileType yaml.ansible setlocal softtabstop=2 shiftwidth=2 tabstop=2 noautoindent
 let g:ansible_unindent_after_newline = 1
 let g:ansible_extra_syntaxes = "sh.vim ruby.vim"
 let g:ansible_attribute_highlight = "ob"
@@ -104,18 +122,3 @@ let g:ansible_name_highlight = 'd'
 let g:pymode_breakpoint_bind = '<leader>p'
 let g:pymode_options_colorcolumn = 0
 autocmd FileType python setlocal nonumber
-
-
-""""""""""""""""""""""""""""""
-" My custom options
-""""""""""""""""""""""""""""""
-let mapleader=","
-" disable bell on error
-set t_vb=
-
-set expandtab
-set background=light
-
-" edit file if it's opened anyway
-autocmd SwapExists * let v:swapchoice = "e"
- 
