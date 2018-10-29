@@ -1,6 +1,6 @@
 mpd_host = "127.0.0.1"
 # Надо указать каталог, чтобы работал редактор тегов
-mpd_music_dir = "/Volumes/music"
+mpd_music_dir = "~/Music"
 
 # Параметры показа информации о композиции
 song_list_format = "{%a - }{%b, }{%t}"
@@ -22,16 +22,10 @@ display_bitrate = "yes"
 # Показывать заголовок окна
 enable_window_title = "yes"
 
-#visualizer_fifo_path = "/tmp/mpd.fifo"
-
 # Показывать колонками
 playlist_display_mode = "columns"
 browser_display_mode = "columns"
 
 # ncmpcpp will jump at start to now playing song if mpd is playing or paused
 jump_to_now_playing_song_at_start = "yes"
-
-visualizer_fifo_path = "/tmp/mpd.fifo"
-visualizer_output_name = "my_fifo"
-visualizer_sync_interval = "30" 
-visualizer_in_stereo = "yes"
+ask_before_clearing_playlists = "no"

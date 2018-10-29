@@ -20,6 +20,7 @@
   with_items:
     - virtualenv
     - docker-compose
+    - ipython
 
 
 - name: install grml basic configs
