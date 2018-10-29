@@ -70,6 +70,20 @@
 		<true/>
 		<key>PasteboardPasteActionAsPlainText</key>
 		<true/>
+		<key>QSCLExecuteTextAction</key>
+		<true/>
+		<key>QSCLTermExecuteShellCommandAction</key>
+		<true/>
+		<key>QSCLTermExecuteTextAction</key>
+		<true/>
+		<key>QSCLTermExecuteWithArgsAction</key>
+		<true/>
+		<key>QSCLTermOpenParentAction</key>
+		<true/>
+		<key>QSCLTermShowDirectoryAction</key>
+		<true/>
+		<key>QSCLTermShowManPageAction</key>
+		<true/>
 		<key>QSCatalogAddEntryAction</key>
 		<false/>
 		<key>QSCatalogEntryRescanAction</key>
@@ -104,6 +118,8 @@
 		<true/>
 		<key>QSObjectExplodeCombinedAction</key>
 		<true/>
+		<key>QSObjectLogConsoleAction</key>
+		<false/>
 		<key>QSObjectSearchChildrenAction</key>
 		<true/>
 		<key>QSObjectSelectAction</key>
@@ -118,11 +134,41 @@
 		<true/>
 		<key>QSObjectShowSourceAction</key>
 		<true/>
+		<key>QSShellScriptRunWithArgsAction</key>
+		<true/>
 		<key>QSTextShowDialogAction</key>
 		<false/>
 		<key>QSTextSpeakAction</key>
 		<false/>
 		<key>QSTextTypeAction</key>
+		<true/>
+		<key>QSiTerm2ExecuteScriptInCurrent</key>
+		<false/>
+		<key>QSiTerm2ExecuteScriptInTab</key>
+		<false/>
+		<key>QSiTerm2ExecuteScriptInWindow</key>
+		<true/>
+		<key>QSiTerm2ExecuteTextInCurrent</key>
+		<false/>
+		<key>QSiTerm2ExecuteTextInTab</key>
+		<false/>
+		<key>QSiTerm2ExecuteTextInWindow</key>
+		<true/>
+		<key>QSiTerm2OpenDirInCurrent</key>
+		<false/>
+		<key>QSiTerm2OpenDirInTab</key>
+		<false/>
+		<key>QSiTerm2OpenDirInWindow</key>
+		<true/>
+		<key>QSiTerm2OpenParentInCurrent</key>
+		<false/>
+		<key>QSiTerm2OpenParentInTab</key>
+		<false/>
+		<key>QSiTerm2OpenParentInWindow</key>
+		<true/>
+		<key>QSiTerm2OpenSessionTab</key>
+		<true/>
+		<key>QSiTerm2OpenSessionWindow</key>
 		<true/>
 		<key>URLEmailAction</key>
 		<true/>
@@ -205,6 +251,20 @@
 		<true/>
 		<key>PasteboardPasteActionAsPlainText</key>
 		<true/>
+		<key>QSCLExecuteTextAction</key>
+		<true/>
+		<key>QSCLTermExecuteShellCommandAction</key>
+		<true/>
+		<key>QSCLTermExecuteTextAction</key>
+		<true/>
+		<key>QSCLTermExecuteWithArgsAction</key>
+		<true/>
+		<key>QSCLTermOpenParentAction</key>
+		<true/>
+		<key>QSCLTermShowDirectoryAction</key>
+		<true/>
+		<key>QSCLTermShowManPageAction</key>
+		<true/>
 		<key>QSCatalogAddEntryAction</key>
 		<false/>
 		<key>QSCatalogEntryRescanAction</key>
@@ -239,6 +299,8 @@
 		<true/>
 		<key>QSObjectExplodeCombinedAction</key>
 		<true/>
+		<key>QSObjectLogConsoleAction</key>
+		<false/>
 		<key>QSObjectSearchChildrenAction</key>
 		<true/>
 		<key>QSObjectSelectAction</key>
@@ -253,11 +315,41 @@
 		<true/>
 		<key>QSObjectShowSourceAction</key>
 		<true/>
+		<key>QSShellScriptRunWithArgsAction</key>
+		<true/>
 		<key>QSTextShowDialogAction</key>
 		<false/>
 		<key>QSTextSpeakAction</key>
 		<false/>
 		<key>QSTextTypeAction</key>
+		<true/>
+		<key>QSiTerm2ExecuteScriptInCurrent</key>
+		<false/>
+		<key>QSiTerm2ExecuteScriptInTab</key>
+		<false/>
+		<key>QSiTerm2ExecuteScriptInWindow</key>
+		<true/>
+		<key>QSiTerm2ExecuteTextInCurrent</key>
+		<false/>
+		<key>QSiTerm2ExecuteTextInTab</key>
+		<false/>
+		<key>QSiTerm2ExecuteTextInWindow</key>
+		<true/>
+		<key>QSiTerm2OpenDirInCurrent</key>
+		<false/>
+		<key>QSiTerm2OpenDirInTab</key>
+		<false/>
+		<key>QSiTerm2OpenDirInWindow</key>
+		<true/>
+		<key>QSiTerm2OpenParentInCurrent</key>
+		<false/>
+		<key>QSiTerm2OpenParentInTab</key>
+		<false/>
+		<key>QSiTerm2OpenParentInWindow</key>
+		<true/>
+		<key>QSiTerm2OpenSessionTab</key>
+		<true/>
+		<key>QSiTerm2OpenSessionWindow</key>
 		<true/>
 		<key>URLEmailAction</key>
 		<true/>
@@ -340,6 +432,20 @@
 		<real>-0.5</real>
 		<key>PasteboardPasteActionAsPlainText</key>
 		<real>-0.5</real>
+		<key>QSCLExecuteTextAction</key>
+		<real>0.0</real>
+		<key>QSCLTermExecuteShellCommandAction</key>
+		<real>0.0</real>
+		<key>QSCLTermExecuteTextAction</key>
+		<real>0.0</real>
+		<key>QSCLTermExecuteWithArgsAction</key>
+		<real>0.0</real>
+		<key>QSCLTermOpenParentAction</key>
+		<real>0.0</real>
+		<key>QSCLTermShowDirectoryAction</key>
+		<real>0.0</real>
+		<key>QSCLTermShowManPageAction</key>
+		<real>0.0</real>
 		<key>QSCatalogAddEntryAction</key>
 		<real>-0.050000000000000003</real>
 		<key>QSCatalogEntryRescanAction</key>
@@ -374,6 +480,8 @@
 		<real>-0.20000000000000001</real>
 		<key>QSObjectExplodeCombinedAction</key>
 		<real>0.0</real>
+		<key>QSObjectLogConsoleAction</key>
+		<real>0.0</real>
 		<key>QSObjectSearchChildrenAction</key>
 		<real>0.0</real>
 		<key>QSObjectSelectAction</key>
@@ -388,12 +496,42 @@
 		<real>0.0</real>
 		<key>QSObjectShowSourceAction</key>
 		<real>0.0</real>
+		<key>QSShellScriptRunWithArgsAction</key>
+		<real>0.0</real>
 		<key>QSTextShowDialogAction</key>
 		<real>0.0</real>
 		<key>QSTextSpeakAction</key>
 		<real>0.0</real>
 		<key>QSTextTypeAction</key>
 		<real>0.0</real>
+		<key>QSiTerm2ExecuteScriptInCurrent</key>
+		<real>0.0</real>
+		<key>QSiTerm2ExecuteScriptInTab</key>
+		<real>0.0</real>
+		<key>QSiTerm2ExecuteScriptInWindow</key>
+		<real>0.0</real>
+		<key>QSiTerm2ExecuteTextInCurrent</key>
+		<real>0.0</real>
+		<key>QSiTerm2ExecuteTextInTab</key>
+		<real>0.0</real>
+		<key>QSiTerm2ExecuteTextInWindow</key>
+		<real>0.0</real>
+		<key>QSiTerm2OpenDirInCurrent</key>
+		<real>0.0</real>
+		<key>QSiTerm2OpenDirInTab</key>
+		<real>0.0</real>
+		<key>QSiTerm2OpenDirInWindow</key>
+		<real>0.0</real>
+		<key>QSiTerm2OpenParentInCurrent</key>
+		<real>0.0</real>
+		<key>QSiTerm2OpenParentInTab</key>
+		<real>0.0</real>
+		<key>QSiTerm2OpenParentInWindow</key>
+		<real>0.0</real>
+		<key>QSiTerm2OpenSessionTab</key>
+		<real>4</real>
+		<key>QSiTerm2OpenSessionWindow</key>
+		<real>4</real>
 		<key>URLEmailAction</key>
 		<real>0.0</real>
 		<key>URLJSAction</key>
@@ -411,6 +549,8 @@
 		<string>AppleScriptProcessTextAction</string>
 		<string>AppleScriptOpenFilesAction</string>
 		<string>AppleScriptRunAction</string>
+		<string>QSiTerm2OpenSessionTab</string>
+		<string>QSiTerm2OpenSessionWindow</string>
 		<string>QSCatalogEntryShowAction</string>
 		<string>QSCommandExecuteAction</string>
 		<string>FileOpenAction</string>
@@ -460,6 +600,27 @@
 		<string>AppQuitOthersAction</string>
 		<string>AppRelaunchAction</string>
 		<string>QSObjectSelectAction</string>
+		<string>QSObjectLogConsoleAction</string>
+		<string>QSCLExecuteTextAction</string>
+		<string>QSCLTermExecuteWithArgsAction</string>
+		<string>QSCLTermOpenParentAction</string>
+		<string>QSCLTermShowDirectoryAction</string>
+		<string>QSCLTermExecuteShellCommandAction</string>
+		<string>QSCLTermShowManPageAction</string>
+		<string>QSCLTermExecuteTextAction</string>
+		<string>QSShellScriptRunWithArgsAction</string>
+		<string>QSiTerm2ExecuteTextInTab</string>
+		<string>QSiTerm2ExecuteScriptInCurrent</string>
+		<string>QSiTerm2OpenDirInCurrent</string>
+		<string>QSiTerm2OpenDirInTab</string>
+		<string>QSiTerm2OpenParentInCurrent</string>
+		<string>QSiTerm2ExecuteScriptInTab</string>
+		<string>QSiTerm2ExecuteTextInCurrent</string>
+		<string>QSiTerm2ExecuteTextInWindow</string>
+		<string>QSiTerm2OpenParentInTab</string>
+		<string>QSiTerm2OpenParentInWindow</string>
+		<string>QSiTerm2ExecuteScriptInWindow</string>
+		<string>QSiTerm2OpenDirInWindow</string>
 		<string>QSCatalogAddEntryAction</string>
 		<string>QSObjectAssignMnemonic</string>
 		<string>PasteboardPasteActionAsPlainText</string>

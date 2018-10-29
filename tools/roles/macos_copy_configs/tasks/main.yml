@@ -5,6 +5,6 @@
     dest: "{{ repo_configs_destination }}/{{ item }}"
     archive: yes
   with_items:
-    - 'Application Support/Quicksilver'
+    - 'Application Support/Quicksilver/'
     - 'Preferences/com.blacktree.Quicksilver.plist'
     - 'Preferences/com.googlecode.iterm2.plist'

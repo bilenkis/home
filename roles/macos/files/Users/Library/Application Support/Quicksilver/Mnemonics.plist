@@ -9,9 +9,58 @@
 			<string>AppLaunchAction</string>
 			<string>AppReopenAction</string>
 		</array>
+		<key>bach</key>
+		<array>
+			<string>QSPresetBashHistory</string>
+		</array>
+		<key>bash</key>
+		<array>
+			<string>QSPresetBashHistory</string>
+		</array>
+		<key>c</key>
+		<array>
+			<string>/System/Library/CoreServices/rcd.app</string>
+		</array>
 		<key>iter</key>
 		<array>
 			<string>/Applications/iTerm.app</string>
+		</array>
+		<key>mpc</key>
+		<array>
+			<string>/Users/bilen/Downloads/imrp.li.ca-bundle</string>
+		</array>
+		<key>mpcplay</key>
+		<array>
+			<string>mpc play</string>
+		</array>
+		<key>p</key>
+		<array>
+			<string>/Users/bilen/bin/pause.sh</string>
+		</array>
+		<key>pau</key>
+		<array>
+			<string>/Users/bilen/bin/pause.sh</string>
+		</array>
+		<key>pause</key>
+		<array>
+			<string>/Users/bilen/bin/pause.sh</string>
+		</array>
+		<key>pla</key>
+		<array>
+			<string>/Users/bilen/bin/play.sh</string>
+		</array>
+		<key>play</key>
+		<array>
+			<string>/Users/bilen/bin/player.sh</string>
+			<string>/Users/bilen/bin/play.sh</string>
+		</array>
+		<key>shel</key>
+		<array>
+			<string>QSID:QSPresetBashHistory:echo $SHELL</string>
+		</array>
+		<key>shell</key>
+		<array>
+			<string>QSID:QSPresetBashHistory:echo $SHELL</string>
 		</array>
 		<key>tele</key>
 		<array>
@@ -50,6 +99,95 @@
 			<integer>2</integer>
 			<key>itunes</key>
 			<integer>2</integer>
+		</dict>
+		<key>/System/Library/CoreServices/rcd.app</key>
+		<dict>
+			<key>c</key>
+			<integer>1</integer>
+		</dict>
+		<key>/Users/bilen/Downloads/imrp.li.ca-bundle</key>
+		<dict>
+			<key>mpc</key>
+			<integer>6</integer>
+		</dict>
+		<key>/Users/bilen/bin</key>
+		<dict>
+			<key>bin</key>
+			<integer>10</integer>
+		</dict>
+		<key>/Users/bilen/bin/pause.sh</key>
+		<dict>
+			<key>p</key>
+			<integer>1</integer>
+			<key>pau</key>
+			<integer>2</integer>
+			<key>pause</key>
+			<integer>3</integer>
+		</dict>
+		<key>/Users/bilen/bin/play.sh</key>
+		<dict>
+			<key>pla</key>
+			<integer>3</integer>
+			<key>play</key>
+			<integer>2</integer>
+		</dict>
+		<key>/Users/bilen/bin/player.sh</key>
+		<dict>
+			<key>pla</key>
+			<integer>1</integer>
+			<key>play</key>
+			<integer>2</integer>
+		</dict>
+		<key>PasteboardPasteAction</key>
+		<dict>
+			<key>a</key>
+			<integer>1</integer>
+		</dict>
+		<key>QSCLExecuteTextAction</key>
+		<dict>
+			<key>run</key>
+			<integer>11</integer>
+			<key>runa</key>
+			<integer>1</integer>
+		</dict>
+		<key>QSCLTermExecuteTextAction</key>
+		<dict>
+			<key>iterm</key>
+			<integer>1</integer>
+		</dict>
+		<key>QSID:QSPresetBashHistory:echo $SHELL</key>
+		<dict>
+			<key>shel</key>
+			<integer>1</integer>
+			<key>shell</key>
+			<integer>2</integer>
+		</dict>
+		<key>QSPresetBashHistory</key>
+		<dict>
+			<key>bach</key>
+			<integer>1</integer>
+			<key>bash</key>
+			<integer>5</integer>
+		</dict>
+		<key>QSShellScriptRunWithArgsAction</key>
+		<dict>
+			<key>run</key>
+			<integer>7</integer>
+		</dict>
+		<key>QSiTerm2ExecuteScriptInWindow</key>
+		<dict>
+			<key>run</key>
+			<integer>1</integer>
+		</dict>
+		<key>QSiTerm2ExecuteTextInWindow</key>
+		<dict>
+			<key>run</key>
+			<integer>1</integer>
+		</dict>
+		<key>mpc play</key>
+		<dict>
+			<key>mpcplay</key>
+			<integer>1</integer>
 		</dict>
 	</dict>
 </dict>
