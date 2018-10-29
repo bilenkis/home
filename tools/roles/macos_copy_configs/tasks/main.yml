@@ -1,0 +1,10 @@
+---
+- name: synchronize configs
+  synchronize:
+    src: "{{ ansible_user_dir }}/Library/{{ item }}"
+    dest: "{{ repo_configs_destination }}/{{ item }}"
+    archive: yes
+  with_items:
+    - 'Application Support/Quicksilver'
+    - 'Preferences/com.blacktree.Quicksilver.plist'
+    - 'Preferences/com.googlecode.iterm2.plist'

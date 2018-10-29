@@ -1,0 +1,7 @@
+---
+- name: copy mac os x Library configs to repo
+  hosts: localhost
+  vars:
+    ansible_connection: 'local'
+  roles:
+    - macos_copy_configs
