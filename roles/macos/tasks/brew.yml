@@ -2,14 +2,12 @@
 - name: Tap homebrew for awless
   homebrew_tap:
     name: wallix/awless
-  become: no
 
 - name: install GNU utils
   homebrew:
     name: "{{ item.name }}"
     state: present
     install_options: "{{ item.opts }}"
-  become: no
   with_items:
     - { name: 'bash', opts: '' }
     - { name: 'python3', opts: '' }

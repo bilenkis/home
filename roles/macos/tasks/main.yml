@@ -1,5 +1,6 @@
 ---
 - import_tasks: brew.yml
+  become: no
 
 - name: configure screenshots dir
   file:
@@ -27,7 +28,7 @@
   get_url:
     url: "https://grml.org/console/{{ item }}"
     dest: "/Users/{{ ansible_env.SUDO_USER }}/.{{ item }}"
-    owner: "{{ ansible_env.SUDO_USER }}"
+  become: no
   with_items:
     - zshrc
     - vimrc
@@ -48,10 +49,34 @@
     src: Users/
     dest: "/Users/{{ ansible_env.SUDO_USER }}/"
     archive: yes
+  become: no
+
+
+- name: create dirs for pathogen
+  file:
+    path: "/Users/{{ ansible_env.SUDO_USER }}/.vim/{{ item }}"
+    state: directory
+  become: no
+  with_items:
+    - autoload
+    - bundle
+
+- name: setup vim pathogen
+  get_url:
+    url: "https://tpo.pe/pathogen.vim"
+    dest: "/Users/{{ ansible_env.SUDO_USER }}/.vim/autoload/pathogen.vim"
+  become: no
+
+- name: setup Vundle
+  git:
+    repo: "https://github.com/VundleVim/Vundle.vim.git"
+    dest: "/Users/{{ ansible_env.SUDO_USER }}/.vim/bundle/Vundle.vim"
+  become: no
 
 - name: init vim plugins
-  shell: >
-    vim +PlugInstall +qall
+  shell: "vim +PlugInstall +qall"
+  become: no
+
 
 - name: configure ssh client
   lineinfile:
@@ -68,6 +93,7 @@
     - ControlPath /tmp/%r@%h:%p
     - ControlPersist 10m
     - Include ~/.ssh/config.d/*
+  become: no
 
 - name: set right file owner
   file:
