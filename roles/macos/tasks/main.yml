@@ -78,6 +78,15 @@
   become: no
 
 
+- name: setup mpd
+  file:
+    path: "/Users/{{ ansible_env.SUDO_USER }}/.mpd/{{ item }}"
+    state: touch
+  with_items:
+    - "playlists"
+    - "mpd.db"
+
+
 - name: configure ssh client
   lineinfile:
     dest: "/Users/{{ ansible_env.SUDO_USER }}/.ssh/config"
