@@ -10,7 +10,6 @@
     install_options: "{{ item.opts }}"
   with_items:
     - { name: 'bash', opts: '' }
-    - { name: 'python3', opts: '' }
     - { name: 'coreutils', opts: '' }
     - { name: 'binutils', opts: '' }
     - { name: 'diffutils', opts: '' }
@@ -47,3 +46,4 @@
     - { name: 'pwgen', opts: '' }
     - { name: 'reattach-to-user-namespace', opts: '' }
     - { name: 'awless', opts: '' }
+    - { name: 'kubectl', opts: '' }

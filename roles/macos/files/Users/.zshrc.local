@@ -182,6 +182,14 @@ bindkey -M menuselect 'j' vi-down-line-or-history # bottom
 ## '.' though. If you want that too, use the following line:
 #zstyle ':completion:*' special-dirs true
 
+# expand completion dir
+fpath=(~/.zsh/completion $fpath)
+
+# kubectl
+if [ $commands[kubectl] ]; then
+    source <(kubectl completion zsh)
+fi
+
 ## aliases ##
 
 ## translate

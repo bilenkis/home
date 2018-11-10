@@ -8,3 +8,4 @@ python /tmp/get-pip.py
 rm /tmp/get-pip.py
 pip install --upgrade ansible=="2.6.4"
 git submodule init
+git submodule update

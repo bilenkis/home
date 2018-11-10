@@ -2,7 +2,7 @@
 - import_tasks: brew.yml
   become: no
 
-- name: configure screenshots dir
+- name: Configure screenshots dir
   file:
     path: "/Users/{{ ansible_env.SUDO_USER }}/Screenshots"
     state: directory
@@ -10,12 +10,12 @@
     defaults write com.apple.screencapture location ~/Screenshots
   become: no
 
-- name: unlink gnu-ls without color
+- name: Unlink gnu-ls without color
   file:
     path: '/usr/local/opt/coreutils/libexec/gnubin/ls'
     state: absent
 
-- name: install python libs
+- name: Install python libs
   pip:
     name: "{{ item }}"
   with_items:
@@ -24,7 +24,7 @@
     - ipython
 
 
-- name: install grml basic configs
+- name: Install grml basic configs
   get_url:
     url: "https://grml.org/console/{{ item }}"
     dest: "/Users/{{ ansible_env.SUDO_USER }}/.{{ item }}"
@@ -33,18 +33,18 @@
     - zshrc
     - vimrc
 
-- name: add zsh to official shell
+- name: Add zsh to official shell
   lineinfile:
     path: "/etc/shells"
     line: "/usr/local/bin/zsh"
 
-- name: change users shell
+- name: Change users shell
   user:
     name: "{{ ansible_env.SUDO_USER }}"
     shell: "/usr/local/bin/zsh"
 
 
-- name: synchronize configs
+- name: Synchronize configs
   synchronize:
     src: Users/
     dest: "/Users/{{ ansible_env.SUDO_USER }}/"
@@ -52,7 +52,7 @@
   become: no
 
 
-- name: create dirs for pathogen
+- name: Create dirs for pathogen
   file:
     path: "/Users/{{ ansible_env.SUDO_USER }}/.vim/{{ item }}"
     state: directory
@@ -61,24 +61,42 @@
     - autoload
     - bundle
 
-- name: setup vim pathogen
+- name: Setup vim pathogen
   get_url:
     url: "https://tpo.pe/pathogen.vim"
     dest: "/Users/{{ ansible_env.SUDO_USER }}/.vim/autoload/pathogen.vim"
   become: no
 
-- name: setup Vundle
+- name: Setup Vundle
   git:
     repo: "https://github.com/VundleVim/Vundle.vim.git"
     dest: "/Users/{{ ansible_env.SUDO_USER }}/.vim/bundle/Vundle.vim"
   become: no
 
-- name: init vim plugins
+- name: Init vim plugins
   shell: "vim +PlugInstall +qall"
   become: no
 
 
-- name: setup mpd
+- name: Create dir for autocompletion
+  file:
+    path: "/Users/{{ ansible_env.SUDO_USER }}/.zsh/completion"
+    state: directory
+  become: no
+
+- name: Setup zsh completion
+  get_url:
+    url: "{{ item.url }}"
+    dest: "{{ item.dest }}"
+  become: no
+  with_items:
+    - url: "https://raw.githubusercontent.com/docker/cli/master/contrib/completion/zsh/_docker"
+      dest: "/Users/{{ ansible_env.SUDO_USER }}/.zsh/_docker"
+    - url: "https://raw.githubusercontent.com/docker/compose/1.23.1/contrib/completion/zsh/_docker-compose"
+      dest: "/Users/{{ ansible_env.SUDO_USER }}/.zsh/_docker-compose"
+
+
+- name: Setup mpd
   file:
     path: "/Users/{{ ansible_env.SUDO_USER }}/.mpd/{{ item }}"
     state: touch
@@ -87,7 +105,7 @@
     - "mpd.db"
 
 
-- name: configure ssh client
+- name: Configure ssh client
   lineinfile:
     dest: "/Users/{{ ansible_env.SUDO_USER }}/.ssh/config"
     line: "{{ item }}"
@@ -104,7 +122,7 @@
     - Include ~/.ssh/config.d/*
   become: no
 
-- name: set right file owner
+- name: Set right file owner
   file:
     path: "/Users/{{ ansible_env.SUDO_USER }}"
     state: directory
