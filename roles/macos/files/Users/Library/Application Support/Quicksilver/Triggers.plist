@@ -296,6 +296,27 @@
 			<key>type</key>
 			<string>QSHotKeyTrigger</string>
 		</dict>
+		<dict>
+			<key>ID</key>
+			<string>88A61C07-4FFF-4E0F-9E7D-E5CC873DC4FB</string>
+			<key>command</key>
+			<dict>
+				<key>actionID</key>
+				<string>FileOpenAction</string>
+				<key>directID</key>
+				<string>/Applications/Slack.app</string>
+			</dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyCode</key>
+			<integer>31</integer>
+			<key>modifiers</key>
+			<integer>1310985</integer>
+			<key>onPress</key>
+			<true/>
+			<key>type</key>
+			<string>QSHotKeyTrigger</string>
+		</dict>
 	</array>
 </dict>
 </plist>
