@@ -24,15 +24,6 @@
     - ipython
 
 
-- name: Install grml basic configs
-  get_url:
-    url: "https://grml.org/console/{{ item }}"
-    dest: "/Users/{{ ansible_env.SUDO_USER }}/.{{ item }}"
-  become: no
-  with_items:
-    - zshrc
-    - vimrc
-
 - name: Add zsh to official shell
   lineinfile:
     path: "/etc/shells"
@@ -50,50 +41,8 @@
     dest: "/Users/{{ ansible_env.SUDO_USER }}/"
     archive: yes
   become: no
+  tags: dot_files
 
-
-- name: Create dirs for pathogen
-  file:
-    path: "/Users/{{ ansible_env.SUDO_USER }}/.vim/{{ item }}"
-    state: directory
-  become: no
-  with_items:
-    - autoload
-    - bundle
-
-- name: Setup vim pathogen
-  get_url:
-    url: "https://tpo.pe/pathogen.vim"
-    dest: "/Users/{{ ansible_env.SUDO_USER }}/.vim/autoload/pathogen.vim"
-  become: no
-
-- name: Setup Vundle
-  git:
-    repo: "https://github.com/VundleVim/Vundle.vim.git"
-    dest: "/Users/{{ ansible_env.SUDO_USER }}/.vim/bundle/Vundle.vim"
-  become: no
-
-- name: Init vim plugins
-  shell: "vim +PlugInstall +qall"
-  become: no
-
-
-- name: Create dir for autocompletion
-  file:
-    path: "/Users/{{ ansible_env.SUDO_USER }}/.zsh/completion"
-    state: directory
-  become: no
-
-- name: Setup zsh completion
-  get_url:
-    url: "{{ item.url }}"
-    dest: "{{ item.dest }}"
-  become: no
-  with_items:
-    - url: "https://raw.githubusercontent.com/docker/cli/master/contrib/completion/zsh/_docker"
-      dest: "/Users/{{ ansible_env.SUDO_USER }}/.zsh/_docker"
-    - url: "https://raw.githubusercontent.com/docker/compose/1.23.1/contrib/completion/zsh/_docker-compose"
-      dest: "/Users/{{ ansible_env.SUDO_USER }}/.zsh/_docker-compose"
 
 
 - name: Setup mpd
