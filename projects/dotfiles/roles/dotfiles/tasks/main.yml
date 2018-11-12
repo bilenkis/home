@@ -55,3 +55,4 @@
   copy:
     src: home/
     dest: "{{ ansible_user_dir }}/"
+  tags: copy_configs
