@@ -6,12 +6,6 @@ set statusline=%<%F\ %h%m%r%y%=%-14.(%l,%c%V%)\ %P
 " disable bell on error
 set t_vb=
 
-set background=light
-set expandtab
-set softtabstop=2
-set shiftwidth=2
-set tabstop=2
-
 " edit file if it's opened anyway
 autocmd SwapExists * let v:swapchoice = "e"
 
@@ -130,3 +124,13 @@ let g:ansible_name_highlight = 'd'
 let g:pymode_breakpoint_bind = '<leader>p'
 let g:pymode_options_colorcolumn = 0
 autocmd FileType python setlocal nonumber
+
+""""""""""""""""""""""""""""""
+" My custom options #2
+""""""""""""""""""""""""""""""
+set background=light
+set expandtab
+set softtabstop=2
+set shiftwidth=2
+set tabstop=2
+set paste

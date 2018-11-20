@@ -41,7 +41,7 @@
     dest: "/Users/{{ ansible_env.SUDO_USER }}/"
     archive: yes
   become: no
-  tags: dot_files
+  tags: copy_configs
 
 
 

@@ -50,6 +50,9 @@
     && touch .vim_pluginstall
   args:
     creates: "{{ ansible_user_dir }}/.vim_pluginstall"
+  when:
+    - vim_plugins_install is defined
+    - vim_plugins_install | bool
 
 - name: Copy .local configs
   copy:
