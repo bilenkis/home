@@ -6,21 +6,22 @@
 
 - name: set hostname to inventory_hostname
   hostname: name={{ inventory_hostname }}
-  
+  tags: hostname
+
 - name: sysctl preferences
   copy:
     src: etc/sysctl.d/custom.conf
     dest: /etc/sysctl.d/custom.conf
   notify: sysctl
-  
+
 - name: Update scheduller at startup
   template: src=rc.local.j2 dest=/etc/rc.local owner=root mode=755
-  
+
 - name: Add rc.local service
   copy:
     src: etc/systemd/system/rc-local.service
     dest: /etc/systemd/system/rc-local.service
-  
+
 - name: Enable a rc.local service
   systemd:
     name: rc.local

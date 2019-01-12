@@ -1,3 +1,4 @@
+---
 - name: Install default common packages Debian
   apt: state=present name={{ packages.common }} update_cache=yes
 
