@@ -29,20 +29,14 @@
 
 - name: ensure old pip packages removed
   pip:
-    name: "{{ item }}"
+    name: docker-py
     state: absent
-  with_items:
-    - docker-py
 
 - name: install docker python library
   pip:
-    name: "{{ item }}"
+    name: docker
     version: '3.1.4'
-  with_items:
-    - docker
 
 - name: install docker-compose
   pip:
-    name: "{{ item }}"
-  with_items:
-    - docker-compose
+    name: docker-compose

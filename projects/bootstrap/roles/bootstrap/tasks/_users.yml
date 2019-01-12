@@ -50,5 +50,3 @@
     owner: "{{ item.key }}"
   when: item.value.copy_configs is defined and item.value.copy_configs|bool
   with_dict: "{{ admins }}"
-
-# vi:syntax=yaml
