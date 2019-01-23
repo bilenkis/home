@@ -12,9 +12,8 @@
     update_cache: true
 
 - name: ensure docker packages are installed
-  package:
-    name: docker-ce
-    state: present
+  apt:
+    name: "{{ 'docker-ce=' ~ docker_version }}"
 
 - name: ensure docker service is started and enabled
   service:
