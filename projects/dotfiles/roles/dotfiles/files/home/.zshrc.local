@@ -44,25 +44,18 @@ if [ -r ~/.zshrc -a -r ~/.zshrc.global -a ! -r ~/.zshrc.local ] ; then
     printf '-!-\n'
 fi
 
-## Settings for umask
-#if (( EUID == 0 )); then
-#    umask 002
-#else
-#    umask 022
-#fi
-
 ## Now, we'll give a few examples of what you might want to use in your
 ## .zshrc.local file (just copy'n'paste and uncomment it there):
 
 ## Prompt theme extension ##
 
 # Virtualenv support
+function virtual_env_prompt () {
+    REPLY=${VIRTUAL_ENV+(${VIRTUAL_ENV:t}) }
+}
+grml_theme_add_token  virtual-env -f virtual_env_prompt '%F{magenta}' '%f'
 
-#function virtual_env_prompt () {
-#    REPLY=${VIRTUAL_ENV+(${VIRTUAL_ENV:t}) }
-#}
-#grml_theme_add_token  virtual-env -f virtual_env_prompt '%F{magenta}' '%f'
-#zstyle ':prompt:grml:left:setup' items rc virtual-env change-root user at host path vcs percent
+zstyle ':prompt:grml:left:setup' items rc change-root user at host path virtual-env vcs percent
 zstyle ':prompt:grml:right:setup' use-rprompt false
 
 #grml_vcs_info_set_formats coloured
@@ -337,7 +330,7 @@ fi
 #alias -s pl='perl -S'
 
 ## ctrl-s will no longer freeze the terminal.
-#stty erase "^?"
+stty erase "^?"
 
 ## you want to automatically use a bigger font on big terminals?
 #if [[ "$TERM" == "xterm" ]] && [[ "$LINES" -ge 50 ]] && [[ "$COLUMNS" -ge 100 ]] && [[ -z "$SSH_CONNECTION" ]] ; then
@@ -378,7 +371,7 @@ alias ga='git add '
 alias gb='git branch '
 alias gc='git commit'
 alias gd='git diff'
-alias go='git checkout '
+alias gck='git checkout '
 alias gk='gitk --all&'
 alias gx='gitx --all'
 alias gp='git push origin HEAD'
@@ -392,6 +385,7 @@ alias grrm='git remote remove'
 alias grset='git remote set-url'
 alias gup='git pull --rebase --prune --autostash'
 alias ncmpcpp='ncmpcpp -b ~/.config/ncmpcpp/bindings'
+alias rg='rg --no-ignore --hidden --follow --glob "!.git/*"'
 
 # docker aliases
 alias dps="docker ps"
