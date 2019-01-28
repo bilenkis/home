@@ -110,7 +110,7 @@
 				<string>/Applications/iTunes.app</string>
 			</dict>
 			<key>enabled</key>
-			<true/>
+			<false/>
 			<key>keyCode</key>
 			<integer>34</integer>
 			<key>modifiers</key>
