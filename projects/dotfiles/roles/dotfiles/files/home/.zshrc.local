@@ -430,3 +430,6 @@ select-word-style bash
 
 # run mpd if not running
 pgrep mpd 2>&1 > /dev/null || mpd
+
+# activate main virtualenv if exists
+xsource ~/.venv/main/bin/activate
