@@ -32,7 +32,6 @@
     - tmux
     - p7zip
     - htop
-    - awscli
     - mosh
     - pwgen
     - reattach-to-user-namespace

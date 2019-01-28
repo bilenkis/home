@@ -15,20 +15,6 @@
     path: '/usr/local/opt/coreutils/libexec/gnubin/ls'
     state: absent
 
-- name: Install python libs
-  pip:
-    name: "{{ packages }}"
-  vars:
-    packages:
-      - virtualenv
-      - docker-compose
-      - ipython
-
-- name: Create main virtualenv
-  command: >
-    python3 -m venv /Users/{{ ansible_env.SUDO_USER }}/.venv/main
-  args:
-    creates: "/Users/{{ ansible_env.SUDO_USER }}/.venv/main"
 
 - name: Add zsh to official shell
   lineinfile:

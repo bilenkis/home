@@ -1,4 +1,15 @@
 ---
+- name: Install python libs only for localhost
+  pip:
+    name: "{{ packages }}"
+    virtualenv: "{{ ansible_user_dir }}/.venv/main"
+    virtualenv_command: "-m venv"
+  vars:
+    packages:
+      - docker-compose
+      - ipython
+  when: ansible_host == "localhost" or ansible_host == "127.0.0.1"
+
 - name: Install grml basic configs
   get_url:
     url: "https://grml.org/console/{{ item }}"
@@ -42,7 +53,6 @@
       dest: "{{ ansible_user_dir }}/.zsh/_docker"
     - url: "https://raw.githubusercontent.com/docker/compose/1.23.1/contrib/completion/zsh/_docker-compose"
       dest: "{{ ansible_user_dir }}/.zsh/_docker-compose"
-
 
 - name: Init vim plugins
   shell: >
