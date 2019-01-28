@@ -3,47 +3,59 @@
   homebrew_tap:
     name: wallix/awless
 
-- name: install GNU utils
+- name: Install GNU utils without overrides
+  homebrew:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - bash
+    - coreutils
+    - binutils
+    - diffutils
+    - gawk
+    - gnutls
+    - gzip
+    - watch
+    - wget
+    - file-formula
+    - git
+    - openssh
+    - perl
+    - rsync
+    - unzip
+    - zsh
+    - sshuttle
+    - nmap
+    - mpd
+    - ncmpcpp
+    - ripgrep
+    - tmux
+    - p7zip
+    - htop
+    - awscli
+    - mosh
+    - pwgen
+    - reattach-to-user-namespace
+    - awless
+    - kubectl
+
+- name: Install other GNU utils with default names
+  homebrew:
+    name: "{{ packages }}"
+    install_options: with-default-names
+  with_items:
+    - ed
+    - findutils
+    - gnu-indent
+    - gnu-sed
+    - gnu-tar
+    - gnu-which
+    - grep
+
+- name: Install wdiff & vim
   homebrew:
     name: "{{ item.name }}"
-    state: present
     install_options: "{{ item.opts }}"
   with_items:
-    - { name: 'bash', opts: '' }
-    - { name: 'coreutils', opts: '' }
-    - { name: 'binutils', opts: '' }
-    - { name: 'diffutils', opts: '' }
-    - { name: 'gawk', opts: '' }
-    - { name: 'gnutls', opts: '' }
-    - { name: 'gzip', opts: '' }
-    - { name: 'watch', opts: '' }
-    - { name: 'wget', opts: '' }
     - { name: 'wdiff', opts: 'with-gettext' }
-    - { name: 'ed', opts: 'with-default-names' }
-    - { name: 'findutils', opts: 'with-default-names' }
-    - { name: 'gnu-indent', opts: 'with-default-names' }
-    - { name: 'gnu-sed', opts: 'with-default-names' }
-    - { name: 'gnu-tar', opts: 'with-default-names' }
-    - { name: 'gnu-which', opts: 'with-default-names' }
-    - { name: 'grep', opts: 'with-default-names' }
-    - { name: 'file-formula', opts: '' }
-    - { name: 'git', opts: '' }
-    - { name: 'openssh', opts: '' }
-    - { name: 'perl', opts: '' }
-    - { name: 'rsync', opts: '' }
-    - { name: 'unzip', opts: '' }
     - { name: 'vim', opts: 'override-system-vi' }
-    - { name: 'zsh', opts: '' }
-    - { name: 'sshuttle', opts: '' }
-    - { name: 'nmap', opts: '' }
-    - { name: 'mpd', opts: '' }
-    - { name: 'ripgrep', opts: '' }
-    - { name: 'tmux', opts: '' }
-    - { name: 'p7zip', opts: '' }
-    - { name: 'htop', opts: '' }
-    - { name: 'awscli', opts: '' }
-    - { name: 'mosh', opts: '' }
-    - { name: 'pwgen', opts: '' }
-    - { name: 'reattach-to-user-namespace', opts: '' }
-    - { name: 'awless', opts: '' }
-    - { name: 'kubectl', opts: '' }
