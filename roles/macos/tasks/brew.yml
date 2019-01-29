@@ -27,6 +27,7 @@
     - sshuttle
     - nmap
     - mpd
+    - mpc
     - ncmpcpp
     - ripgrep
     - tmux

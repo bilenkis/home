@@ -37,13 +37,21 @@
 
 
 
-- name: Setup mpd
+- name: Enshure mpd.db file exists
   file:
-    path: "/Users/{{ ansible_env.SUDO_USER }}/.mpd/{{ item }}"
+    path: "/Users/{{ ansible_env.SUDO_USER }}/.mpd/mpd.db"
     state: touch
-  with_items:
-    - "playlists"
-    - "mpd.db"
+
+- name: Enshure playlists directory exists
+  file:
+    path: "/Users/{{ ansible_env.SUDO_USER }}/.mpd/playlists"
+    state: directory
+
+- name: Create symlink to /Volumes/music
+  file:
+    src: "/Volumes/music"
+    dest: "/Users/{{ ansible_env.SUDO_USER }}/Music/mounted"
+    state: link
 
 
 - name: Configure ssh client
