@@ -406,7 +406,7 @@ dins() { docker inspect "$1" | less; }
 
 # k8s aliases
 alias k="kubectl"
-alias kcu="kubectl config use-context"
+alias kcuc="kubectl config use-context"
 
 # MacOS aliases
 alias brew='HOMEBREW_NO_GITHUB_API=1 brew'

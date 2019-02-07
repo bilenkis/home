@@ -10,6 +10,17 @@
       - ipython
   when: ansible_host == "localhost" or ansible_host == "127.0.0.1"
 
+- name: Install necessary admin packages
+  become: yes
+  package:
+    name: "{{ packages }}"
+  vars:
+    packages:
+      - vim
+      - tmux
+      - mosh
+  when: ansible_os_family == "Debian" or ansible_os_family == "RedHat"
+
 - name: Install grml basic configs
   get_url:
     url: "https://grml.org/console/{{ item }}"
