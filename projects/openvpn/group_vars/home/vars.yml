@@ -1,5 +1,5 @@
 ---
-openvpn_host: "{{ inventory_hostname }}"              # The server address
+openvpn_host: "{{ vault_openvpn_host }}"            # The server address
 openvpn_server: 192.168.2.0 255.255.255.0           # Set empty for skip
 
 openvpn_max_clients: 5

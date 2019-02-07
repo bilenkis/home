@@ -13,13 +13,15 @@
   when: openvpn_use_external_repo
 
 - name: Install requirements (Debian)
-  apt: name={{item}} force=yes
-  with_items: [openvpn, udev, openssl, zip]
+  apt: name={{packages}} force=yes
+  vars:
+    packages: [openvpn, udev, openssl, zip]
 
 - name: Install dependencies (Debian)
-  apt: name={{item}} force=yes
+  apt: name={{packages}} force=yes
   when: openvpn_use_pam_users|default(false)
-  with_items: [libpam-pwdfile, python-passlib]
+  vars:
+    packages: [libpam-pwdfile, python-passlib]
 
 - name: Install easy-rsa package
   apt: name=easy-rsa
@@ -30,6 +32,5 @@
   when: openvpn_use_ldap
 
 - name: Install bridge dependencies (Debian)
-  apt: name={{item}}
+  apt: name=bridge-utils
   when: openvpn_bridge
-  with_items: [bridge-utils]
