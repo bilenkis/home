@@ -1,6 +1,9 @@
 ---
+# [all:vars]
+# ansible_python_interpreter=/usr/bin/python3
+
 - name: Bootstrap a server
   hosts: all
   become: true
-  roles: 
+  roles:
     - bootstrap
