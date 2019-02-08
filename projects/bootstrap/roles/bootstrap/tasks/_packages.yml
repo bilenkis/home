@@ -7,3 +7,8 @@
 
 - name: Install cronic
   copy: src=usr/sbin/cronic.sh dest=/usr/sbin/cronic.sh mode=0755
+
+- name: Install latest hwe ubuntu kernel
+  apt:
+    name: linux-generic-hwe-16.04
+  when: ansible_distribution_release == "xenial"
