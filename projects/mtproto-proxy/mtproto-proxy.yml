@@ -1,6 +1,0 @@
----
-- name: run mtproto-proxy container
-  hosts: mtproto-proxy
-  become: true
-  roles:
-    - mtproto-proxy

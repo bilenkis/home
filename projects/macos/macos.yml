@@ -1,0 +1,6 @@
+---
+- name: deploy macos configs
+  hosts: localhost
+  become: yes
+  roles:
+    - macos

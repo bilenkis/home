@@ -1,3 +1,0 @@
----
-- name: sysctl
-  shell: sysctl -qp
