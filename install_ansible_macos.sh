@@ -10,5 +10,4 @@ python3 -m venv ~/.venv/main
 source ~/.venv/main/bin/activate
 pip3 install --upgrade pip3
 pip3 install -r requirements.txt
-git submodule init
 git submodule update
