@@ -38,6 +38,8 @@
     - reattach-to-user-namespace
     - awless
     - kubectl
+    - kube-ps1
+    - kubectx
 
 - name: Install other GNU utils with default names
   homebrew:

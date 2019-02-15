@@ -6,8 +6,6 @@ set statusline=%<%F\ %h%m%r%y%=%-14.(%l,%c%V%)\ %P
 " disable bell on error
 set t_vb=
 
-set background=light
-
 " edit file if it's opened anyway
 autocmd SwapExists * let v:swapchoice = "e"
 
@@ -27,12 +25,12 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree', { 'tag': '5.0.0' }
 Plug 'chr4/nginx.vim'
-Plug 'pearofducks/ansible-vim', { 'do': 'cd ./UltiSnips; python2.7 generate.py' }
+Plug 'pearofducks/ansible-vim', { 'do': 'cd ./UltiSnips; ./generate.py' }
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
 
 " PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run install script
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+Plug '~/.fzf'
+Plug 'tpope/vim-surround'
 call plug#end()
 
 
@@ -53,7 +51,6 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'benmills/vimux'
 Plugin 'mzlogin/vim-markdown-toc'
 
 " All of your Plugins must be added before the following line
@@ -88,7 +85,7 @@ nmap <silent> <Leader>n :NERDTreeFind<CR>
 nmap <silent> <Leader>e :Buffers<CR>
 " [Buffers] Jump to the existing window if possible
 let g:fzf_buffers_jump = 1
-nmap <silent> <Leader>b :Files<CR>
+nmap <silent> <Leader>b :FZF<CR>
 
 
 """"""""""""""""""""""""""""""
@@ -132,3 +129,8 @@ set softtabstop=2
 set shiftwidth=2
 set tabstop=2
 set paste
+
+" solarized
+syntax enable
+set background=dark
+colorscheme solarized

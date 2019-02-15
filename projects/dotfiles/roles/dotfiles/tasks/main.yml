@@ -1,14 +1,6 @@
 ---
-- name: Install python libs only for localhost
-  pip:
-    name: "{{ packages }}"
-    virtualenv: "{{ ansible_user_dir }}/.venv/main"
-    virtualenv_command: "-m venv"
-  vars:
-    packages:
-      - docker-compose
-      - ipython
-  when: ansible_host == "localhost" or ansible_host == "127.0.0.1"
+- import_tasks: Darwin.yml
+  when: ansible_os_family == "Darwin"
 
 - name: Install necessary admin packages
   become: yes
@@ -19,64 +11,11 @@
       - vim
       - tmux
       - mosh
-  when: ansible_os_family == "Debian" or ansible_os_family == "RedHat"
-
-- name: Install grml basic configs
-  get_url:
-    url: "https://grml.org/console/{{ item }}"
-    dest: "{{ ansible_user_dir }}/.{{ item }}"
-  with_items:
-    - zshrc
-    - vimrc
-
-- name: Create dirs for pathogen
-  file:
-    path: "{{ ansible_user_dir }}/.vim/{{ item }}"
-    state: directory
-  with_items:
-    - autoload
-    - bundle
-
-- name: Setup vim pathogen
-  get_url:
-    url: "https://tpo.pe/pathogen.vim"
-    dest: "{{ ansible_user_dir }}/.vim/autoload/pathogen.vim"
-
-- name: Setup Vundle
-  git:
-    repo: "https://github.com/VundleVim/Vundle.vim.git"
-    dest: "{{ ansible_user_dir }}/.vim/bundle/Vundle.vim"
-
-
-- name: Create dir for autocompletion
-  file:
-    path: "{{ ansible_user_dir }}/.zsh/completion"
-    state: directory
-  become: no
-
-- name: Setup zsh completion
-  get_url:
-    url: "{{ item.url }}"
-    dest: "{{ item.dest }}"
-  become: no
-  with_items:
-    - url: "https://raw.githubusercontent.com/docker/cli/master/contrib/completion/zsh/_docker"
-      dest: "{{ ansible_user_dir }}/.zsh/_docker"
-    - url: "https://raw.githubusercontent.com/docker/compose/1.23.1/contrib/completion/zsh/_docker-compose"
-      dest: "{{ ansible_user_dir }}/.zsh/_docker-compose"
-
-- name: Init vim plugins
-  shell: >
-    vim +PlugInstall +qall
-    && touch .vim_pluginstall
-  args:
-    creates: "{{ ansible_user_dir }}/.vim_pluginstall"
-  when:
-    - vim_plugins_install is defined
-    - vim_plugins_install | bool
+  when: ansible_os_family != "Darwin"
 
 - name: Copy .local configs
   copy:
     src: home/
     dest: "{{ ansible_user_dir }}/"
   tags: copy_configs
+

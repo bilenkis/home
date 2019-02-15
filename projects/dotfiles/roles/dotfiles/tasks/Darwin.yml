@@ -1,0 +1,83 @@
+---
+- name: Install python libs only for localhost
+  pip:
+    name: "{{ packages }}"
+    virtualenv: "{{ ansible_user_dir }}/.venv/main"
+    virtualenv_command: "-m venv"
+  vars:
+    packages:
+      - docker-compose
+      - ipython
+  when: ansible_host == "localhost" or ansible_host == "127.0.0.1"
+
+- name: Install oh-my-zsh
+  shell: >
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+- name: Clone powerline fonts
+  git:
+    repo: https://github.com/powerline/fonts.git
+    dest: ~/fonts
+    depth: 1
+
+- name: Install powerline fonts
+  shell: >
+    install.sh
+  args:
+    chdir: ~/fonts
+    creates: "~/Library/Fonts/Droid Sans Mono Dotted for Powerline.ttf"
+
+- name: Cleanup powerline repo
+  file:
+    path: ~/fonts
+    state: absent
+
+- name: Install powerlevel9k theme
+  git:
+    repo: https://github.com/bhilburn/powerlevel9k.git
+    dest: ~/.oh-my-zsh/custom/themes/powerlevel9k
+
+- name: Install zsh-dircolors-solarized
+  git:
+    repo: https://github.com/liangguohuan/zsh-dircolors-solarized
+    dest: ~/.oh-my-zsh/custom/plugins/zsh-dircolors-solarized
+
+- name: Install fzf
+  git:
+    repo: https://github.com/junegunn/fzf.git
+    dest: ~/.fzf
+    depth: 1
+
+- name: Install grml .vimrc
+  get_url:
+    url: "https://grml.org/console/{{ item }}"
+    dest: "{{ ansible_user_dir }}/.{{ item }}"
+  with_items:
+    - vimrc
+
+- name: Create dirs for pathogen
+  file:
+    path: "{{ ansible_user_dir }}/.vim/{{ item }}"
+    state: directory
+  with_items:
+    - autoload
+    - bundle
+
+- name: Setup vim pathogen
+  get_url:
+    url: "https://tpo.pe/pathogen.vim"
+    dest: "{{ ansible_user_dir }}/.vim/autoload/pathogen.vim"
+
+- name: Setup Vundle
+  git:
+    repo: "https://github.com/VundleVim/Vundle.vim.git"
+    dest: "{{ ansible_user_dir }}/.vim/bundle/Vundle.vim"
+
+- name: Init vim plugins
+  shell: >
+    vim +PlugInstall +PluginInstall +qall
+  args:
+    creates: "{{ ansible_user_dir }}/.vim/plugged/nerdtree/"
+  when:
+    - vim_plugins_install is defined
+    - vim_plugins_install | bool
