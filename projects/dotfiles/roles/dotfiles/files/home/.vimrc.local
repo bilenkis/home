@@ -30,6 +30,7 @@ Plug 'python-mode/python-mode', { 'branch': 'develop' }
 
 " PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run install script
 Plug '~/.fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
 call plug#end()
 
