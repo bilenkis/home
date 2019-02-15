@@ -1,7 +1,4 @@
 ---
-- import_tasks: Darwin.yml
-  when: ansible_os_family == "Darwin"
-
 - name: Install necessary admin packages
   become: yes
   package:

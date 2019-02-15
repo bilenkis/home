@@ -8,7 +8,6 @@
     packages:
       - docker-compose
       - ipython
-  when: ansible_host == "localhost" or ansible_host == "127.0.0.1"
 
 - name: Install oh-my-zsh
   shell: >
@@ -18,13 +17,13 @@
 
 - name: Check for existing powerline fonts
   stat:
-    path: "~/Library/Fonts/Droid Sans Mono Dotted for Powerline.ttf"
+    path: "{{ ansible_user_dir }}/Library/Fonts/Droid Sans Mono Dotted for Powerline.ttf"
   register: fonts
 
 - name: Clone powerline fonts
   git:
     repo: https://github.com/powerline/fonts.git
-    dest: ~/fonts
+    dest: "{{ ansible_user_dir }}/fonts"
     depth: 1
   when: not fonts.stat.exists
 
@@ -32,28 +31,28 @@
   shell: >
     install.sh
   args:
-    chdir: ~/fonts
+    chdir: "{{ ansible_user_dir }}/fonts"
   when: not fonts.stat.exists
 
 - name: Cleanup powerline repo
   file:
-    path: ~/fonts
+    path: "{{ ansible_user_dir }}/fonts"
     state: absent
 
 - name: Install powerlevel9k theme
   git:
     repo: https://github.com/bhilburn/powerlevel9k.git
-    dest: ~/.oh-my-zsh/custom/themes/powerlevel9k
+    dest: "{{ ansible_user_dir }}/.oh-my-zsh/custom/themes/powerlevel9k"
 
 - name: Install zsh-dircolors-solarized
   git:
     repo: https://github.com/liangguohuan/zsh-dircolors-solarized
-    dest: ~/.oh-my-zsh/custom/plugins/zsh-dircolors-solarized
+    dest: "{{ ansible_user_dir }}/.oh-my-zsh/custom/plugins/zsh-dircolors-solarized"
 
 - name: Install fzf
   git:
     repo: https://github.com/junegunn/fzf.git
-    dest: ~/.fzf
+    dest: "{{ ansible_user_dir }}/.fzf"
     depth: 1
 
 - name: Install grml .vimrc
