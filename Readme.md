@@ -10,5 +10,5 @@ and ansible playbooks
 
 #### Run playbook
 ```sh
-./run-macos.sh
+ansible-playbook projects/macos/macos.yml -K
 ```

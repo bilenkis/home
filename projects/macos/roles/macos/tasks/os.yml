@@ -49,6 +49,7 @@
     src: "/Volumes/music"
     dest: "/Users/{{ ansible_env.SUDO_USER }}/Music/mounted"
     state: link
+    force: yes
 
 
 - name: Configure ssh client

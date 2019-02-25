@@ -2,8 +2,8 @@
 - name: Install python libs only for localhost
   pip:
     name: "{{ packages }}"
-    virtualenv: "{{ ansible_user_dir }}/.venv/main"
-    virtualenv_command: "-m venv"
+    virtualenv: "/Users/{{ ansible_env.SUDO_USER }}/.venv/main"
+    virtualenv_command: "python3"
   vars:
     packages:
       - docker-compose
@@ -13,17 +13,17 @@
   shell: >
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
   args:
-    creates: "{{ ansible_user_dir }}/.oh-my-zsh"
+    creates: "/Users/{{ ansible_env.SUDO_USER }}/.oh-my-zsh"
 
 - name: Check for existing powerline fonts
   stat:
-    path: "{{ ansible_user_dir }}/Library/Fonts/Droid Sans Mono Dotted for Powerline.ttf"
+    path: "/Users/{{ ansible_env.SUDO_USER }}/Library/Fonts/Droid Sans Mono Dotted for Powerline.ttf"
   register: fonts
 
 - name: Clone powerline fonts
   git:
     repo: https://github.com/powerline/fonts.git
-    dest: "{{ ansible_user_dir }}/fonts"
+    dest: "/Users/{{ ansible_env.SUDO_USER }}/fonts"
     depth: 1
   when: not fonts.stat.exists
 
@@ -31,40 +31,40 @@
   shell: >
     install.sh
   args:
-    chdir: "{{ ansible_user_dir }}/fonts"
+    chdir: "/Users/{{ ansible_env.SUDO_USER }}/fonts"
   when: not fonts.stat.exists
 
 - name: Cleanup powerline repo
   file:
-    path: "{{ ansible_user_dir }}/fonts"
+    path: "/Users/{{ ansible_env.SUDO_USER }}/fonts"
     state: absent
 
 - name: Install powerlevel9k theme
   git:
     repo: https://github.com/bhilburn/powerlevel9k.git
-    dest: "{{ ansible_user_dir }}/.oh-my-zsh/custom/themes/powerlevel9k"
+    dest: "/Users/{{ ansible_env.SUDO_USER }}/.oh-my-zsh/custom/themes/powerlevel9k"
 
 - name: Install zsh-dircolors-solarized
   git:
     repo: https://github.com/liangguohuan/zsh-dircolors-solarized
-    dest: "{{ ansible_user_dir }}/.oh-my-zsh/custom/plugins/zsh-dircolors-solarized"
+    dest: "/Users/{{ ansible_env.SUDO_USER }}/.oh-my-zsh/custom/plugins/zsh-dircolors-solarized"
 
 - name: Install fzf
   git:
     repo: https://github.com/junegunn/fzf.git
-    dest: "{{ ansible_user_dir }}/.fzf"
+    dest: "/Users/{{ ansible_env.SUDO_USER }}/.fzf"
     depth: 1
 
 - name: Install grml .vimrc
   get_url:
     url: "https://grml.org/console/{{ item }}"
-    dest: "{{ ansible_user_dir }}/.{{ item }}"
+    dest: "/Users/{{ ansible_env.SUDO_USER }}/.{{ item }}"
   with_items:
     - vimrc
 
 - name: Create dirs for pathogen
   file:
-    path: "{{ ansible_user_dir }}/.vim/{{ item }}"
+    path: "/Users/{{ ansible_env.SUDO_USER }}/.vim/{{ item }}"
     state: directory
   with_items:
     - autoload
@@ -73,18 +73,18 @@
 - name: Setup vim pathogen
   get_url:
     url: "https://tpo.pe/pathogen.vim"
-    dest: "{{ ansible_user_dir }}/.vim/autoload/pathogen.vim"
+    dest: "/Users/{{ ansible_env.SUDO_USER }}/.vim/autoload/pathogen.vim"
 
 - name: Setup Vundle
   git:
     repo: "https://github.com/VundleVim/Vundle.vim.git"
-    dest: "{{ ansible_user_dir }}/.vim/bundle/Vundle.vim"
+    dest: "/Users/{{ ansible_env.SUDO_USER }}/.vim/bundle/Vundle.vim"
 
 - name: Init vim plugins
   shell: >
     vim +PlugInstall +PluginInstall +qall
   args:
-    creates: "{{ ansible_user_dir }}/.vim/plugged/nerdtree/"
+    creates: "/Users/{{ ansible_env.SUDO_USER }}/.vim/plugged/nerdtree/"
   when:
     - vim_plugins_install is defined
     - vim_plugins_install | bool
