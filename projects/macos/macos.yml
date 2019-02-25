@@ -1,6 +1,6 @@
 ---
 - name: deploy macos configs
-  hosts: localhost
+  hosts: 127.0.0.1
   become: yes
   roles:
     - macos
