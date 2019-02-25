@@ -190,9 +190,9 @@ dins() { docker inspect "$1" | less; }
 alias gs='gst'
 alias gp='ggpush'
 alias gh='glods'
-alias gh='glods'
 alias gcb='git checkout --track -b'
 alias gpf='git push --force origin $(git_current_branch)'
+alias gup='git pull --verbose --rebase --prune --autostash origin "$(git_current_branch)"'
 
 # personal aliases
 alias c='~/bin/c.sh'
