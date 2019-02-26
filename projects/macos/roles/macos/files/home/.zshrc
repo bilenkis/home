@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+  export PATH=$PATH:$HOME/bin:/usr/local/sbin:/usr/local/opt
 
 # Path to your oh-my-zsh installation.
   export ZSH="/Users/bilen/.oh-my-zsh"
@@ -205,6 +205,7 @@ alias rsync-sudo='rsync -avz --progress -h --rsync-path="sudo rsync"'
 alias kcuc='kubectx'
 alias kns='kubens'
 alias ht="helm template . --set 'global.cluster=lw,global.env=test'"
+alias test='nocorrect test'
 
 # plugin: zsh-dircolors-solarized
 export DIRCOLORTHEME='dircolors.256dark'
