@@ -20,6 +20,7 @@
     - file-formula
     - git
     - openssh
+    - postgresql
     - perl
     - rsync
     - unzip
