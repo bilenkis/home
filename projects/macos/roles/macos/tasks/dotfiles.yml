@@ -43,6 +43,7 @@
   git:
     repo: https://github.com/bhilburn/powerlevel9k.git
     dest: "/Users/{{ ansible_env.SUDO_USER }}/.oh-my-zsh/custom/themes/powerlevel9k"
+    update: no
 
 - name: Install zsh-dircolors-solarized
   git:
