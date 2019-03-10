@@ -1,0 +1,15 @@
+---
+- name: Unlink gnu-ls without color
+  file:
+    path: '/usr/local/opt/coreutils/libexec/gnubin/ls'
+    state: absent
+
+- name: Add zsh to official shell
+  lineinfile:
+    path: "/etc/shells"
+    line: "/usr/local/bin/zsh"
+
+- name: Change users shell
+  user:
+    name: "{{ ansible_env.SUDO_USER }}"
+    shell: "/usr/local/bin/zsh"

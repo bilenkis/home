@@ -1,7 +1,12 @@
 ---
 - import_tasks: brew.yml
-  become: no
-
 - import_tasks: os.yml
 - import_tasks: dotfiles.yml
+  tags: dotfiles
+
+- name: Synchronize configs
+  synchronize:
+    src: Users/
+    dest: "{{ ansible_user_dir }}/"
+    archive: yes
   tags: dotfiles
