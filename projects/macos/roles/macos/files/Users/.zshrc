@@ -70,6 +70,8 @@
 # plugin: fzf
   export FZF_BASE=~/.fzf
   export FZF_DEFAULT_COMMAND="rg --files --no-ignore --hidden --follow --glob '!.git/*'"
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+  export FZF_FIND_FILE_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # plugin: ssh-agent
 # zstyle :omz:plugins:ssh-agent identities id_rsa id_rsa2 id_github
