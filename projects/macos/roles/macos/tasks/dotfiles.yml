@@ -56,11 +56,6 @@
     dest: "{{ ansible_user_dir }}/.fzf"
     depth: 1
 
-- name: Install grml .vimrc
-  get_url:
-    url: https://grml.org/console/vimrc
-    dest: "{{ ansible_user_dir }}/.vimrc"
-
 - name: Create dirs for pathogen
   file:
     path: "{{ ansible_user_dir }}/.vim/{{ item }}"

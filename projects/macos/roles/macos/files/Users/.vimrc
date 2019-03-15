@@ -2,7 +2,6 @@
 " My custom options
 """"""""""""""""""""""""""""""
 let mapleader=","
-set history=10000        " keep lines of command line history
 set statusline=%<%F\ %h%m%r%y%=%-14.(%l,%c%V%)\ %P
 " disable bell on error
 set t_vb=
@@ -129,11 +128,28 @@ let g:pymode_breakpoint_bind = '<leader>p'
 let g:pymode_options_colorcolumn = 0
 autocmd FileType python setlocal softtabstop=4 shiftwidth=4 tabstop=4 expandtab nonumber
 
-set expandtab
-set softtabstop=2
-set shiftwidth=2
-set tabstop=2
+""""""""""""""""""""""""""""""
+" From grml .vimrc
+""""""""""""""""""""""""""""""
+set nobackup          " Don't keep a backup file
+
+" Suffixes that get lower priority when doing tab completion for filenames.
+" These are files we are not likely to want to edit or read.
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
+
+set tags=./tags,./TAGS,tags,TAGS,../tags,../../tags,../../../tags,../../../../tags
+
+" set maximum number of suggestions listed top 10 items:
+if version >= 700
+  set sps=best,10
+endif
+
+""""""""""""""""""""""""""""""
+" My additional customizations
+""""""""""""""""""""""""""""""
+set expandtab softtabstop=2 shiftwidth=2 tabstop=2
 set paste
+set history=10000        " keep lines of command line history
 
 " solarized
 syntax enable
@@ -141,3 +157,11 @@ set background=dark
 set nowrap
 set textwidth=0
 colorscheme solarized
+
+" yank or paste file to/from clipboard
+noremap <Leader>y "*y
+noremap <Leader>Y :%y*<CR>
+noremap <Leader>p "*p
+
+" cd to current file's dir
+nnoremap <leader>c :cd %:p:h<CR>:pwd<CR>
