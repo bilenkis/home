@@ -131,6 +131,7 @@ autocmd FileType python setlocal softtabstop=4 shiftwidth=4 tabstop=4 expandtab 
 """"""""""""""""""""""""""""""
 " From grml .vimrc
 """"""""""""""""""""""""""""""
+set backspace=indent,eol,start        " more powerful backspacing
 set nobackup          " Don't keep a backup file
 
 " Suffixes that get lower priority when doing tab completion for filenames.
