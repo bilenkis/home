@@ -41,6 +41,7 @@
     - kubectl
     - kube-ps1
     - kubectx
+    - subnetcalc
 
 - name: Install other GNU utils with default names
   homebrew:

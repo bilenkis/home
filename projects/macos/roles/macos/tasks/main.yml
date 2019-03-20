@@ -1,5 +1,6 @@
 ---
 - import_tasks: brew.yml
+  tags: brew
 - import_tasks: os.yml
 - import_tasks: dotfiles.yml
   tags: dotfiles
