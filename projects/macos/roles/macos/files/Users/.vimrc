@@ -133,6 +133,10 @@ autocmd FileType python setlocal softtabstop=4 shiftwidth=4 tabstop=4 expandtab 
 """"""""""""""""""""""""""""""
 set backspace=indent,eol,start        " more powerful backspacing
 set nobackup          " Don't keep a backup file
+" When switching between different buffers you can't use undo without 'set hidden':
+set hidden            " Hide buffers when they are abandoned
+set mouse=            " Disable mouse usage (being "a" AKA all modes in Vim >=8) in terminals
+set wildmenu          " command-line completion operates in an enhanced mode
 
 " Suffixes that get lower priority when doing tab completion for filenames.
 " These are files we are not likely to want to edit or read.
