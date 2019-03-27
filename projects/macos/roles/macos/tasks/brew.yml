@@ -64,3 +64,10 @@
   with_items:
     - { name: 'wdiff', opts: 'with-gettext' }
     - { name: 'vim', opts: 'override-system-vi' }
+
+- name: Install apps with brew cask
+  homebrew_cask:
+    name: "{{ packages }}"
+  vars:
+    packages:
+      - keepassxc
