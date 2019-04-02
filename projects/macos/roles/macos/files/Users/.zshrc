@@ -177,6 +177,7 @@ alias dpa="docker ps -a"
 alias di="docker images"
 alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
 alias dex="docker exec -i -t"
+alias drun="docker run --rm -i -t"
 alias dl="docker logs -ft --tail=100"
 # Remove all containers
 drm() { docker rm $(docker ps -a -q); }
