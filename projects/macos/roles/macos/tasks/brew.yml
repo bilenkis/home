@@ -42,6 +42,8 @@
     - kube-ps1
     - kubectx
     - subnetcalc
+    - kops
+    - iproute2mac
 
 - name: Install other GNU utils with default names
   homebrew:

@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-  export PATH=$PATH:$HOME/bin:/usr/local/sbin:/usr/local/opt
+  export PATH=$HOME/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/sbin:/usr/local/opt:$PATH
 
 # Path to your oh-my-zsh installation.
   export ZSH="/Users/bilen/.oh-my-zsh"
@@ -13,8 +13,9 @@
 # theme: powerlevel9k
   ZSH_THEME="powerlevel9k/powerlevel9k"
   POWERLEVEL9K_DISABLE_RPROMPT=true
+  POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 # POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator kube_ps1 dir virtualenv vcs )
-  POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator kube_ps1 dir vcs)
+  POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator kube_ps1 virtualenv dir vcs)
 # kube-ps1 fix for powerlevel9k
   source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
   prompt_kube_ps1(){
@@ -49,7 +50,7 @@
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-  ENABLE_CORRECTION="true"
+  ENABLE_CORRECTION="false"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
