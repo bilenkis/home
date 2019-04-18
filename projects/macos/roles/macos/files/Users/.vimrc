@@ -159,7 +159,6 @@ set history=10000        " keep lines of command line history
 " solarized
 syntax enable
 set background=dark
-set nowrap
 set textwidth=0
 colorscheme solarized
 

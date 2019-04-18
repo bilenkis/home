@@ -193,7 +193,8 @@ dins() { docker inspect "$1" | less; }
 # personal git aliases
 alias gs='gst'
 alias gp='ggpush'
-alias gh='glods'
+alias gh='glg'
+alias grbm='git rebase master --autostash'
 alias gcb='git checkout --track -b'
 alias gpf='git push --force origin $(git_current_branch)'
 alias gup='git pull --verbose --rebase --prune --autostash origin "$(git_current_branch)"'
