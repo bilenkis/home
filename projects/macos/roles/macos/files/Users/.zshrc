@@ -214,3 +214,4 @@ alias test='nocorrect test'
 
 # plugin: zsh-dircolors-solarized
 export DIRCOLORTHEME='dircolors.256dark'
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
