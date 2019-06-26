@@ -70,7 +70,7 @@
 
 # plugin: fzf
   export FZF_BASE=~/.fzf
-  export FZF_DEFAULT_COMMAND="rg --files --no-ignore --hidden --follow --glob '!.git/*'"
+  export FZF_DEFAULT_COMMAND="rg --files --no-ignore --hidden --follow --glob '!.git/' --glob '!.terraform/'"
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
   export FZF_FIND_FILE_COMMAND="$FZF_DEFAULT_COMMAND"
 
@@ -197,14 +197,14 @@ alias gh='glg'
 alias grbm='git rebase master --autostash'
 alias gcb='git checkout --track -b'
 alias gpf='git push --force origin $(git_current_branch)'
-alias gup='git pull --verbose --rebase --prune --autostash origin "$(git_current_branch)"'
+alias gup='gfa;git pull --verbose --rebase --prune --autostash --tags origin "$(git_current_branch)"'
 
 # personal aliases
 alias c='~/bin/c.sh'
 alias ssh='ssh -t'
 alias atop='atop -a -c -A 3'
 alias ncmpcpp='ncmpcpp -b ~/.config/ncmpcpp/bindings'
-alias rg='rg --no-ignore --hidden --follow --glob "!.git/*"'
+alias rg='rg --no-ignore --hidden --follow --glob "!.git/" --glob "!.terraform/"'
 alias rsync='rsync -avz --progress -h'
 alias rsync-sudo='rsync -avz --progress -h --rsync-path="sudo rsync"'
 alias kcuc='kubectx'
