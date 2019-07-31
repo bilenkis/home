@@ -102,6 +102,7 @@ extract
 zsh-dircolors-solarized
 pip
 tmux
+last-working-dir
 )
 
 source $ZSH/oh-my-zsh.sh
