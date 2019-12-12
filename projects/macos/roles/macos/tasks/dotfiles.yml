@@ -50,6 +50,11 @@
     repo: https://github.com/liangguohuan/zsh-dircolors-solarized
     dest: "{{ ansible_user_dir }}/.oh-my-zsh/custom/plugins/zsh-dircolors-solarized"
 
+- name: Install fzf-z
+  git:
+    repo: https://github.com/andrewferrier/fzf-z.git
+    dest: "{{ ansible_user_dir }}/.oh-my-zsh/custom/plugins/fzf-z"
+
 - name: Install fzf
   git:
     repo: https://github.com/junegunn/fzf.git

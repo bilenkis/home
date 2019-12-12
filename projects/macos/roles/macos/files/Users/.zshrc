@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-  export PATH=$HOME/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/sbin:/usr/local/opt:$PATH
+  export PATH=$HOME/bin:$HOME/.vendor/bundle/ruby/2.3.0/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/curl/bin:/usr/local/opt/gettext/bin:/usr/local/sbin:/usr/local/opt:$PATH
 
 # Path to your oh-my-zsh installation.
   export ZSH="/Users/bilen/.oh-my-zsh"
@@ -55,6 +55,9 @@
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
 
+# Do not display a line previously found.
+setopt HIST_FIND_NO_DUPS
+
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
@@ -102,7 +105,8 @@ extract
 zsh-dircolors-solarized
 pip
 tmux
-last-working-dir
+z
+fzf-z
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -216,3 +220,11 @@ alias test='nocorrect test'
 # plugin: zsh-dircolors-solarized
 export DIRCOLORTHEME='dircolors.256dark'
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
+# enable mitogen
+export ANSIBLE_STRATEGY=mitogen_linear
+export ANSIBLE_STRATEGY_PLUGINS=~/src/fm/ansible/plugins/mitogen/ansible_mitogen/plugins/strategy
+
+# set GOPATH
+export GOPATH=$HOME/go
+export PATH=$HOME/go/bin:$PATH
