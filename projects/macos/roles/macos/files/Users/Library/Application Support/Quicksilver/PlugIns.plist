@@ -364,11 +364,11 @@ Note: It has only been tested with IMAP accounts. --&gt;</string>
 			<key>CFBundleName</key>
 			<string>Clipboard Plugin</string>
 			<key>CFBundleShortVersionString</key>
-			<string>1.6.0</string>
+			<string>1.6.1</string>
 			<key>CFBundleVersion</key>
-			<string>15B</string>
+			<string>15D</string>
 			<key>QSModifiedDate</key>
-			<string>2017-07-29 08:07:52 +0000</string>
+			<string>2019-08-27 09:08:48 +0000</string>
 			<key>QSPlugIn</key>
 			<dict>
 				<key>author</key>
@@ -427,7 +427,7 @@ To paste items form the Clipboard Window as plain text, hold the ⌥ (option) ke
 				<string>Clipboard</string>
 			</dict>
 			<key>QSPluginChanges</key>
-			<string>&lt;ul&gt; &lt;li&gt;New “Paste on selection” option. Disable this to copy selected items from the history without pasting them immediately to the frontmost application.&lt;/li&gt; &lt;li&gt;Additional safety checks to prevent crashes&lt;/li&gt; &lt;/ul&gt;</string>
+			<string>&lt;ul&gt; &lt;li&gt;Fix a crash&lt;/li&gt; &lt;li&gt;Keep the most rich version of an object in the clipboard&lt;/li&gt; &lt;li&gt;Avoid getting (null) items in the clipboard (e.g. from 1Password)&lt;/li&gt; &lt;li&gt;Scroll back to the top when you double click and paste an object from the Clipboard window&lt;/li&gt; &lt;/ul&gt;</string>
 			<key>QSRequirements</key>
 			<dict>
 				<key>osRequired</key>
@@ -3778,6 +3778,80 @@ Your Twitter login details are stored securely in OS X's Keychain.app for access
 				<string>3774</string>
 			</dict>
 		</dict>
+		<key>com.qsapp.ZoomPlugin</key>
+		<dict>
+			<key>CFBundleIdentifier</key>
+			<string>com.qsapp.ZoomPlugin</string>
+			<key>CFBundleName</key>
+			<string>zoom.us Plugin</string>
+			<key>CFBundleShortVersionString</key>
+			<string>1.3.0</string>
+			<key>CFBundleVersion</key>
+			<string>8</string>
+			<key>QSModifiedDate</key>
+			<string>2019-03-26 03:03:44 +0000</string>
+			<key>QSPlugIn</key>
+			<dict>
+				<key>author</key>
+				<string>Rob McBroom</string>
+				<key>categories</key>
+				<array>
+					<string>Calendar</string>
+				</array>
+				<key>description</key>
+				<string>Interact with zoom.us</string>
+				<key>extendedDescription</key>
+				<string>&lt;h1&gt;zoom.us Plugin&lt;/h1&gt;
+&lt;h2&gt;Overview&lt;/h2&gt;
+&lt;p&gt;This plug-in streamlines the process of joining Zoom meetings.&lt;/p&gt;
+&lt;h2&gt;Actions&lt;/h2&gt;
+&lt;dl&gt;
+&lt;dt&gt;Join Meeting&lt;/dt&gt;
+&lt;dd&gt;This actions works on Zoom Meeting objects selected in the first pane. Currently, the only such object is the Next Zoom Meeting proxy object described below.&lt;/dd&gt;
+&lt;dt&gt;Join Zoom Meeting&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;This action is available for text. Enter a meeting ID, or any string that contains a meeting URL, and this action should be available to join the meeting.&lt;/p&gt;
+&lt;p&gt;Running this action on an HTTP URL will extract the meeting ID and open it using Zoom’s &lt;code&gt;zoommtg://&lt;/code&gt; URL scheme, which bypasses your browser and opens directly in Zoom.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;h2&gt;Proxy Objects&lt;/h2&gt;
+&lt;h3&gt;Next Zoom Meeting&lt;/h3&gt;
+&lt;p&gt;This proxy represents any Zoom Meeting&lt;sup id="fnref:1"&gt;&lt;a class="footnote-ref" href="#fn:1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt; occurring in the next 10 minutes. Simply select it and hit Return to join. You can also share it with others using Paste, E-mail To…, and other actions.&lt;/p&gt;
+&lt;p&gt;The number of minutes can be adjusted using a hidden preference. For example, to change it to 30 minutes:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;defaults write com.blacktree.Quicksilver ZoomCheckForwardMinutes 30
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div class="footnote"&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id="fn:1"&gt;
+&lt;p&gt;The plug-in will look for a Zoom URL in the Location, URL, and Notes for all upcoming events. The first match it finds will be used.&amp;#160;&lt;a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</string>
+				<key>icon</key>
+				<string>us.zoom.xos</string>
+				<key>relatedBundles</key>
+				<array>
+					<string>us.zoom.xos</string>
+				</array>
+			</dict>
+			<key>QSPluginChanges</key>
+			<string>&lt;p&gt;Improvements to proxy resolution&lt;/p&gt;</string>
+			<key>QSRequirements</key>
+			<dict>
+				<key>bundles</key>
+				<array>
+					<dict>
+						<key>id</key>
+						<string>us.zoom.xos</string>
+						<key>name</key>
+						<string>zoom.us</string>
+					</dict>
+				</array>
+				<key>version</key>
+				<string>4012</string>
+			</dict>
+		</dict>
 		<key>com.robertson.Quicksilver.OnePassword</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
@@ -4340,6 +4414,6 @@ and it &amp;quot;is not my problem&amp;quot;.
 		</dict>
 	</dict>
 	<key>webDownloadDate</key>
-	<date>2019-02-09T18:19:10Z</date>
+	<date>2019-09-23T11:51:26Z</date>
 </dict>
 </plist>

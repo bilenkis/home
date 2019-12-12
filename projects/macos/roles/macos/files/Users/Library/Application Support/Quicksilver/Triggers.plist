@@ -12,7 +12,7 @@
 				<key>actionID</key>
 				<string>FileOpenAction</string>
 				<key>directID</key>
-				<string>/Applications/Notes.app</string>
+				<string>/System/Applications/Notes.app</string>
 			</dict>
 			<key>enabled</key>
 			<true/>
@@ -262,7 +262,7 @@
 				<key>actionID</key>
 				<string>FileOpenAction</string>
 				<key>directID</key>
-				<string>/Applications/Mail.app</string>
+				<string>/System/Applications/Mail.app</string>
 			</dict>
 			<key>enabled</key>
 			<true/>
