@@ -1,2 +1,2 @@
 ---
-repo_configs_destination: '{{ playbook_dir }}/../macos/roles/files/Users/Library'
+repo_configs_destination: '{{ playbook_dir }}/../macos/roles/macos/files/Users/Library'
