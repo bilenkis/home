@@ -24,9 +24,11 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree', { 'tag': '5.0.0' }
+Plug 'scrooloose/nerdcommenter'
 Plug 'chr4/nginx.vim'
 Plug 'pearofducks/ansible-vim', { 'do': 'cd ./UltiSnips; ./generate.py' }
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run install script
 Plug '~/.fzf'
@@ -79,7 +81,7 @@ let NERDTreeIgnore=['\.sw.$']
 let NERDTreeShowHidden=1
 nmap <silent> <Leader>t :NERDTreeToggle<CR>
 nmap <silent> <Leader>n :NERDTreeFind<CR>
-
+let g:NERDTreeWinSize=40
 
 """"""""""""""""""""""""""""""
 " Buffers
@@ -93,7 +95,7 @@ nmap <silent> <Leader>b :FZF<CR>
 """"""""""""""""""""""""""""""
 " Fzf
 """"""""""""""""""""""""""""""
-command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/" --glob "!.terraform/" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
 " --column: Show column number
 " --line-number: Show line number
 " --no-heading: Do not show file headings in results
@@ -125,9 +127,17 @@ let g:ansible_name_highlight = 'd'
 """"""""""""""""""""""""""""""
 " Pymode
 """"""""""""""""""""""""""""""
-let g:pymode_breakpoint_bind = '<leader>p'
+let g:pymode_breakpoint_bind = '<leader>v'
+let g:pymode_options_max_line_length = 150
+let g:pymode_lint_options_pep8 = {'max_line_length': g:pymode_options_max_line_length}
 let g:pymode_options_colorcolumn = 0
-autocmd FileType python setlocal softtabstop=4 shiftwidth=4 tabstop=4 expandtab nonumber
+autocmd FileType python setlocal softtabstop=4 shiftwidth=4 tabstop=4 expandtab
+
+""""""""""""""""""""""""""""""
+" vim-go
+""""""""""""""""""""""""""""""
+let g:go_fmt_command = "goimports"
+autocmd BufNewFile,BufRead *.go setlocal softtabstop=4 shiftwidth=4 tabstop=4 expandtab
 
 """"""""""""""""""""""""""""""
 " From grml .vimrc
@@ -170,3 +180,9 @@ noremap <Leader>p "*p
 
 " cd to current file's dir
 nnoremap <leader>c :cd %:p:h<CR>:pwd<CR>
+
+" show relative line numbers
+set relativenumber
+
+" show lines above the cursor
+set scrolloff=10
