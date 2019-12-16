@@ -45,6 +45,8 @@
     - kops
     - iproute2mac
     - tree
+    - pyenv
+    - pyenv-virtualenv
 
 - name: Install other GNU utils with default names
   homebrew:

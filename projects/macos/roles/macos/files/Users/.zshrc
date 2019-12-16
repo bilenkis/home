@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-  export PATH=$HOME/bin:$HOME/.vendor/bundle/ruby/2.3.0/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/curl/bin:/usr/local/opt/gettext/bin:/usr/local/sbin:/usr/local/opt:$PATH
+  export PATH=$HOME/bin:$HOME/.vendor/bundle/ruby/2.3.0/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/curl/bin:/usr/local/opt/gettext/bin:/usr/local/sbin:/usr/local/opt:/usr/local/opt/openssl@1.1/bin:$PATH
 
 # Path to your oh-my-zsh installation.
   export ZSH="/Users/bilen/.oh-my-zsh"
@@ -174,9 +174,6 @@ bindkey -M menuselect 'j' vi-down-line-or-history # bottom
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-# activate main virtualenv
-source ~/.venv/main/bin/activate
-
 # docker aliases
 alias dps="docker ps"
 alias dpa="docker ps -a"
@@ -228,3 +225,8 @@ export ANSIBLE_STRATEGY_PLUGINS=~/src/fm/ansible/plugins/mitogen/ansible_mitogen
 # set GOPATH
 export GOPATH=$HOME/go
 export PATH=$HOME/go/bin:$PATH
+
+# pyenv
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+pyenv activate main3
