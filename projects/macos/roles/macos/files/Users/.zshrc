@@ -1,5 +1,12 @@
 # If you come from bash you might have to change your $PATH.
-  export PATH=$HOME/bin:$HOME/.vendor/bundle/ruby/2.3.0/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/curl/bin:/usr/local/opt/gettext/bin:/usr/local/sbin:/usr/local/opt:/usr/local/opt/openssl@1.1/bin:$PATH
+  export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
+  export PATH=/usr/local/opt/curl/bin:$PATH
+  export PATH=/usr/local/opt/gettext/bin:$PATH
+  export PATH=/usr/local/opt/ncurses/bin:$PATH
+  export PATH=/usr/local/sbin:$PATH
+  export PATH=/usr/local/opt:$PATH
+  export PATH=/usr/local/opt/openssl@1.1/bin:$PATH
+  export PATH=$HOME/bin:$PATH
 
 # Path to your oh-my-zsh installation.
   export ZSH="/Users/bilen/.oh-my-zsh"
@@ -53,7 +60,7 @@
   ENABLE_CORRECTION="false"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+  COMPLETION_WAITING_DOTS="true"
 
 # Do not display a line previously found.
 setopt HIST_FIND_NO_DUPS
@@ -78,7 +85,7 @@ setopt HIST_FIND_NO_DUPS
   export FZF_FIND_FILE_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # plugin: ssh-agent
-# zstyle :omz:plugins:ssh-agent identities id_rsa id_rsa2 id_github
+  zstyle :omz:plugins:ssh-agent identities id_rsa yuri-bilenkis-distillery@github.com
   zstyle :omz:plugins:ssh-agent agent-forwarding on
 
 # Would you like to use another custom folder than $ZSH/custom?
@@ -94,6 +101,7 @@ git
 fzf
 gnu-utils
 ansible
+kops
 kubectl
 helm
 kube-ps1
@@ -107,6 +115,9 @@ pip
 tmux
 z
 fzf-z
+pyenv
+encode64
+common-aliases
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -200,6 +211,7 @@ alias grbm='git rebase master --autostash'
 alias gcb='git checkout --track -b'
 alias gpf='git push --force origin $(git_current_branch)'
 alias gup='gfa;git pull --verbose --rebase --prune --autostash --tags origin "$(git_current_branch)"'
+alias gcof='gco $(gb | fzf)'
 
 # personal aliases
 alias c='~/bin/c.sh'
@@ -213,6 +225,8 @@ alias kcuc='kubectx'
 alias kns='kubens'
 alias ht="helm template . --set 'global.cluster=lw,global.env=test'"
 alias test='nocorrect test'
+alias aplay='aplaybook'
+alias sed='gsed'
 
 # plugin: zsh-dircolors-solarized
 export DIRCOLORTHEME='dircolors.256dark'
@@ -226,7 +240,19 @@ export ANSIBLE_STRATEGY_PLUGINS=~/src/fm/ansible/plugins/mitogen/ansible_mitogen
 export GOPATH=$HOME/go
 export PATH=$HOME/go/bin:$PATH
 
+# ruby
+export PATH=$HOME/.vendor/bundle/ruby/2.3.0/bin:$PATH
+export PATH=$HOME/.gem/ruby/2.6.0/bin:$PATH
+
 # pyenv
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-pyenv activate main3
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+[ -z ${PYENV_ACTIVATE_SHELL} ] && pyenv activate ago
+
+# Work related environment
+[ -f ~/.work.env ] && source ~/.work.env
+
+# kubectl plugins
+PATH="${PATH}:${HOME}/.krew/bin"
+
+# awless completions. TODO: find out a way to autoload all completions under this directory
+source /usr/local/share/zsh/site-functions/_awless
