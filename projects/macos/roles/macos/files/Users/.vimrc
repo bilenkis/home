@@ -56,6 +56,8 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'mzlogin/vim-markdown-toc'
 Plugin 'hashivim/vim-terraform'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin '907th/vim-auto-save'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -140,6 +142,13 @@ let g:go_fmt_command = "goimports"
 autocmd BufNewFile,BufRead *.go setlocal softtabstop=4 shiftwidth=4 tabstop=4 expandtab
 
 """"""""""""""""""""""""""""""
+" vim-auto-save
+""""""""""""""""""""""""""""""
+set updatetime=1000  " save every 1 sec
+let g:auto_save = 1  " enable AutoSave on Vim startup
+let g:auto_save_silent = 1  " do not display the auto-save notification
+
+""""""""""""""""""""""""""""""
 " From grml .vimrc
 """"""""""""""""""""""""""""""
 set backspace=indent,eol,start        " more powerful backspacing
@@ -186,3 +195,12 @@ set relativenumber
 
 " show lines above the cursor
 set scrolloff=10
+
+set autoindent
+set smartindent
+
+" Show hidden characters, tabs, trailing whitespace
+"set list
+"set listchars=tab:→\ ,trail:·,nbsp:·
+set autoread
+au FocusGained,BufEnter,CursorHold * checktime
