@@ -1,4 +1,5 @@
 ---
+
 - name: Create screenshots dir
   file:
     path: "{{ ansible_user_dir }}/Screenshots"
@@ -8,22 +9,9 @@
   shell: >
     defaults write com.apple.screencapture location ~/Screenshots
 
-- name: Enshure mpd.db file exists
-  file:
-    path: "{{ ansible_user_dir }}/.mpd/mpd.db"
-    state: touch
-
-- name: Enshure playlists directory exists
-  file:
-    path: "{{ ansible_user_dir }}/.mpd/playlists"
-    state: directory
-
-- name: Create symlink to /Volumes/music
-  file:
-    src: "/Volumes/music"
-    dest: "{{ ansible_user_dir }}/Music/mounted"
-    state: link
-    force: yes
+- name: Check if ~/.ssh/config exists
+  stat: "{{ ansible_user_dir }}/.ssh/config"
+  register: ssh_config
 
 - name: Configure ssh client
   lineinfile:
@@ -40,3 +28,4 @@
     - ControlPath /tmp/%r@%h:%p
     - ControlPersist 10m
     - Include ~/.ssh/config.d/*
+  when: not ssh_config.stat.exists

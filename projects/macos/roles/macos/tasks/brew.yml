@@ -1,4 +1,5 @@
 ---
+
 - name: Tap homebrew for awless
   homebrew_tap:
     name: wallix/awless
@@ -67,7 +68,6 @@
     name: "{{ item.name }}"
     install_options: "{{ item.opts }}"
   with_items:
-    - { name: 'wdiff', opts: 'with-gettext' }
     - { name: 'vim', opts: 'override-system-vi' }
 
 - name: Install apps with brew cask

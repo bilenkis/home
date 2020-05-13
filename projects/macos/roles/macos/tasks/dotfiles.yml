@@ -1,9 +1,10 @@
 ---
+
 - name: Install python libs only for localhost
   pip:
     name: "{{ packages }}"
     virtualenv: "{{ ansible_user_dir }}/.venv/main"
-    virtualenv_command: "python3"
+    virtualenv_command: "pyenv"
   vars:
     packages:
       - docker-compose
@@ -54,6 +55,7 @@
   git:
     repo: https://github.com/andrewferrier/fzf-z.git
     dest: "{{ ansible_user_dir }}/.oh-my-zsh/custom/plugins/fzf-z"
+    depth: 1
 
 - name: Install fzf
   git:
@@ -73,11 +75,13 @@
   get_url:
     url: https://tpo.pe/pathogen.vim
     dest: "{{ ansible_user_dir }}/.vim/autoload/pathogen.vim"
+    depth: 1
 
 - name: Setup Vundle
   git:
     repo: https://github.com/VundleVim/Vundle.vim.git
     dest: "{{ ansible_user_dir }}/.vim/bundle/Vundle.vim"
+    depth: 1
 
 - name: Init vim plugins
   shell: >
