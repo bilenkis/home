@@ -1,7 +1,3 @@
 ---
 
 vim_plugins_install: "false"
-
-pip_main:
-  - docker-compose
-  - ipython

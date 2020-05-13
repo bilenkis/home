@@ -1,1 +1,3 @@
 ansible==2.8.11
+docker-compose
+ipython
