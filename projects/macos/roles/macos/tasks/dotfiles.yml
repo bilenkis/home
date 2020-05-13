@@ -1,14 +1,15 @@
 ---
 
+- name: Create pyenv main virtualenv
+  shell: >
+    pyenv virtualenv 3.7.5 main
+  args:
+    creates: "{{ ansible_user_dir }}/.pyenv/versions/3.7.5/envs/main/"
+
 - name: Install python libs only for localhost
   pip:
-    name: "{{ packages }}"
-    virtualenv: "{{ ansible_user_dir }}/.venv/main"
-    virtualenv_command: "pyenv"
-  vars:
-    packages:
-      - docker-compose
-      - ipython
+    name: "{{ pip_main }}"
+    virtualenv: "{{ ansible_user_dir }}/.pyenv/versions/3.7.5/envs/main/"
 
 - name: Install oh-my-zsh
   shell: >
@@ -75,7 +76,6 @@
   get_url:
     url: https://tpo.pe/pathogen.vim
     dest: "{{ ansible_user_dir }}/.vim/autoload/pathogen.vim"
-    depth: 1
 
 - name: Setup Vundle
   git:

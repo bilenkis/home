@@ -85,7 +85,7 @@ setopt HIST_FIND_NO_DUPS
   export FZF_FIND_FILE_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # plugin: ssh-agent
-  zstyle :omz:plugins:ssh-agent identities id_rsa yuri-bilenkis-distillery@github.com
+  zstyle :omz:plugins:ssh-agent identities id_rsa
   zstyle :omz:plugins:ssh-agent agent-forwarding on
 
 # Would you like to use another custom folder than $ZSH/custom?
@@ -109,6 +109,7 @@ docker
 docker-compose
 ssh-agent
 colored-man-pages
+minikube
 extract
 zsh-dircolors-solarized
 pip

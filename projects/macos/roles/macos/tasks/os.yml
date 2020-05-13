@@ -10,7 +10,8 @@
     defaults write com.apple.screencapture location ~/Screenshots
 
 - name: Check if ~/.ssh/config exists
-  stat: "{{ ansible_user_dir }}/.ssh/config"
+  stat:
+    path: "{{ ansible_user_dir }}/.ssh/config"
   register: ssh_config
 
 - name: Configure ssh client
