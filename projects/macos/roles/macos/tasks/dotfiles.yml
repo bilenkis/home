@@ -47,11 +47,6 @@
     dest: "{{ ansible_user_dir }}/.oh-my-zsh/custom/themes/powerlevel9k"
     update: no
 
-- name: Install zsh-dircolors-solarized
-  git:
-    repo: https://github.com/liangguohuan/zsh-dircolors-solarized
-    dest: "{{ ansible_user_dir }}/.oh-my-zsh/custom/plugins/zsh-dircolors-solarized"
-
 - name: Install fzf-z
   git:
     repo: https://github.com/andrewferrier/fzf-z.git
