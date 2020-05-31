@@ -26,6 +26,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree', { 'tag': '5.0.0' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'chr4/nginx.vim'
+Plug 'tpope/vim-fugitive'
 Plug 'pearofducks/ansible-vim', { 'do': 'cd ./UltiSnips; ./generate.py' }
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -58,6 +59,7 @@ Plugin 'mzlogin/vim-markdown-toc'
 Plugin 'hashivim/vim-terraform'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin '907th/vim-auto-save'
+Plugin 'pixelastic/vim-undodir-tree'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -91,6 +93,7 @@ let g:NERDTreeWinSize=40
 nmap <silent> <Leader>e :Buffers<CR>
 " [Buffers] Jump to the existing window if possible
 let g:fzf_buffers_jump = 1
+let g:fzf_preview_window = ''
 nmap <silent> <Leader>b :FZF<CR>
 
 
@@ -140,6 +143,11 @@ autocmd FileType python setlocal softtabstop=4 shiftwidth=4 tabstop=4 expandtab
 """"""""""""""""""""""""""""""
 let g:go_fmt_command = "goimports"
 autocmd BufNewFile,BufRead *.go setlocal softtabstop=4 shiftwidth=4 tabstop=4 expandtab
+
+""""""""""""""""""""""""""""""
+" vim-undodir-tree
+""""""""""""""""""""""""""""""
+set undofile
 
 """"""""""""""""""""""""""""""
 " vim-auto-save

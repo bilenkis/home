@@ -208,11 +208,11 @@ dins() { docker inspect "$1" | less; }
 alias gs='gst'
 alias gp='ggpush'
 alias gh='glg'
-alias grbm='git rebase master --autostash'
+alias grbm='git rebase origin/master --autostash'
 alias gcb='git checkout --track -b'
 alias gpf='git push --force origin $(git_current_branch)'
 alias gup='gfa;git pull --verbose --rebase --prune --autostash --tags origin "$(git_current_branch)"'
-alias gcof='gco $(gb | fzf)'
+alias gcof='gco $(gb --all | fzf)'
 
 # personal aliases
 alias c='~/bin/c.sh'
@@ -235,7 +235,7 @@ export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 # enable mitogen
 export ANSIBLE_STRATEGY=mitogen_linear
-export ANSIBLE_STRATEGY_PLUGINS=~/src/fm/ansible/plugins/mitogen/ansible_mitogen/plugins/strategy
+export ANSIBLE_STRATEGY_PLUGINS=~/src/bilenkis/home/plugins/mitogen/ansible_mitogen/plugins/strategy
 
 # set GOPATH
 export GOPATH=$HOME/go
