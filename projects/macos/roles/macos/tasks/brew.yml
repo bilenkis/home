@@ -2,11 +2,15 @@
 
 - name: Tap homebrew for awless
   homebrew_tap:
-    name: wallix/awless
+    name: "{{ packages }}"
+  vars:
+    packages:
+      - wallix/awless
 
 - name: Install GNU utils without overrides
   homebrew:
     name: "{{ packages }}"
+    update_homebrew: yes
   vars:
     packages:
     - bash
@@ -43,11 +47,11 @@
     - kube-ps1
     - kubectx
     - subnetcalc
-    - kops
     - iproute2mac
     - tree
     - pyenv
     - pyenv-virtualenv
+    - fd
 
 - name: Install other GNU utils with default names
   homebrew:
