@@ -80,3 +80,4 @@
   vars:
     packages:
       - keepassxc
+      - maccy
