@@ -17,6 +17,10 @@
 		<array>
 			<string>QSPresetBashHistory</string>
 		</array>
+		<key>browse</key>
+		<array>
+			<string>QSDefaultBrowserProxy</string>
+		</array>
 		<key>c</key>
 		<array>
 			<string>/System/Library/CoreServices/rcd.app</string>
@@ -32,6 +36,10 @@
 		<key>mpcplay</key>
 		<array>
 			<string>mpc play</string>
+		</array>
+		<key>oth</key>
+		<array>
+			<string>/Users/bilen/src/other</string>
 		</array>
 		<key>p</key>
 		<array>
@@ -138,6 +146,25 @@
 			<key>play</key>
 			<integer>2</integer>
 		</dict>
+		<key>/Users/bilen/src</key>
+		<dict>
+			<key>sr</key>
+			<integer>3</integer>
+		</dict>
+		<key>/Users/bilen/src/other</key>
+		<dict>
+			<key>ot</key>
+			<integer>1</integer>
+			<key>oth</key>
+			<integer>1</integer>
+		</dict>
+		<key>/Users/bilen/src/other/Spotify-Scripts-for-QuickSilver</key>
+		<dict>
+			<key>sp</key>
+			<integer>1</integer>
+			<key>spo</key>
+			<integer>1</integer>
+		</dict>
 		<key>PasteboardPasteAction</key>
 		<dict>
 			<key>a</key>
@@ -153,6 +180,11 @@
 		<key>QSCLTermExecuteTextAction</key>
 		<dict>
 			<key>iterm</key>
+			<integer>1</integer>
+		</dict>
+		<key>QSDefaultBrowserProxy</key>
+		<dict>
+			<key>browse</key>
 			<integer>1</integer>
 		</dict>
 		<key>QSID:QSPresetBashHistory:echo $SHELL</key>

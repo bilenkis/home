@@ -364,11 +364,11 @@ Note: It has only been tested with IMAP accounts. --&gt;</string>
 			<key>CFBundleName</key>
 			<string>Clipboard Plugin</string>
 			<key>CFBundleShortVersionString</key>
-			<string>1.6.1</string>
+			<string>1.6.2</string>
 			<key>CFBundleVersion</key>
-			<string>15D</string>
+			<string>15F</string>
 			<key>QSModifiedDate</key>
-			<string>2019-08-27 09:08:48 +0000</string>
+			<string>2020-05-25 11:05:49 +0000</string>
 			<key>QSPlugIn</key>
 			<dict>
 				<key>author</key>
@@ -427,7 +427,7 @@ To paste items form the Clipboard Window as plain text, hold the ⌥ (option) ke
 				<string>Clipboard</string>
 			</dict>
 			<key>QSPluginChanges</key>
-			<string>&lt;ul&gt; &lt;li&gt;Fix a crash&lt;/li&gt; &lt;li&gt;Keep the most rich version of an object in the clipboard&lt;/li&gt; &lt;li&gt;Avoid getting (null) items in the clipboard (e.g. from 1Password)&lt;/li&gt; &lt;li&gt;Scroll back to the top when you double click and paste an object from the Clipboard window&lt;/li&gt; &lt;/ul&gt;</string>
+			<string>Revert recent changes related to rich text</string>
 			<key>QSRequirements</key>
 			<dict>
 				<key>osRequired</key>
@@ -3293,11 +3293,11 @@ To calculate expressions you can run the 'Calculate' action on a text string, or
 			<key>CFBundleName</key>
 			<string>Networking Plugin</string>
 			<key>CFBundleShortVersionString</key>
-			<string>1.2.1</string>
+			<string>1.3.1</string>
 			<key>CFBundleVersion</key>
-			<string>B</string>
+			<string>D</string>
 			<key>QSModifiedDate</key>
-			<string>2015-10-15 09:10:58 +0000</string>
+			<string>2020-10-01 11:10:35 +0000</string>
 			<key>QSPlugIn</key>
 			<dict>
 				<key>author</key>
@@ -3337,7 +3337,7 @@ To calculate expressions you can run the 'Calculate' action on a text string, or
 				<true/>
 			</dict>
 			<key>QSPluginChanges</key>
-			<string>update for App Transport Security</string>
+			<string>&lt;p&gt;Clean up IP extraction code&lt;/p&gt;</string>
 			<key>QSRequirements</key>
 			<dict>
 				<key>obsoletes</key>
@@ -3785,11 +3785,11 @@ Your Twitter login details are stored securely in OS X's Keychain.app for access
 			<key>CFBundleName</key>
 			<string>zoom.us Plugin</string>
 			<key>CFBundleShortVersionString</key>
-			<string>1.3.0</string>
+			<string>2.0.0</string>
 			<key>CFBundleVersion</key>
-			<string>8</string>
+			<string>A</string>
 			<key>QSModifiedDate</key>
-			<string>2019-03-26 03:03:44 +0000</string>
+			<string>2020-07-18 07:07:16 +0000</string>
 			<key>QSPlugIn</key>
 			<dict>
 				<key>author</key>
@@ -3807,12 +3807,9 @@ Your Twitter login details are stored securely in OS X's Keychain.app for access
 &lt;h2&gt;Actions&lt;/h2&gt;
 &lt;dl&gt;
 &lt;dt&gt;Join Meeting&lt;/dt&gt;
-&lt;dd&gt;This actions works on Zoom Meeting objects selected in the first pane. Currently, the only such object is the Next Zoom Meeting proxy object described below.&lt;/dd&gt;
+&lt;dd&gt;This action works on Zoom Meeting objects selected in the first pane. Currently, the only such object is the &lt;strong&gt;Next Zoom Meeting&lt;/strong&gt; proxy object described below.&lt;/dd&gt;
 &lt;dt&gt;Join Zoom Meeting&lt;/dt&gt;
-&lt;dd&gt;
-&lt;p&gt;This action is available for text. Enter a meeting ID, or any string that contains a meeting URL, and this action should be available to join the meeting.&lt;/p&gt;
-&lt;p&gt;Running this action on an HTTP URL will extract the meeting ID and open it using Zoom’s &lt;code&gt;zoommtg://&lt;/code&gt; URL scheme, which bypasses your browser and opens directly in Zoom.&lt;/p&gt;
-&lt;/dd&gt;
+&lt;dd&gt;Running this action on an HTTP URL will extract the meeting ID and open it using Zoom’s &lt;code&gt;zoommtg://&lt;/code&gt; URL scheme, which bypasses your browser and opens directly in Zoom.&lt;/dd&gt;
 &lt;/dl&gt;
 &lt;h2&gt;Proxy Objects&lt;/h2&gt;
 &lt;h3&gt;Next Zoom Meeting&lt;/h3&gt;
@@ -3836,7 +3833,7 @@ Your Twitter login details are stored securely in OS X's Keychain.app for access
 				</array>
 			</dict>
 			<key>QSPluginChanges</key>
-			<string>&lt;p&gt;Improvements to proxy resolution&lt;/p&gt;</string>
+			<string>&lt;ul&gt; &lt;li&gt;adds support for vanity URLs like mycompany.zoom.us&lt;/li&gt; &lt;li&gt;adds support for vanity meeting IDs&lt;/li&gt; &lt;li&gt;adds support for meeting URLs with additional arguments (like a password)&lt;/li&gt; &lt;/ul&gt;</string>
 			<key>QSRequirements</key>
 			<dict>
 				<key>bundles</key>
@@ -4414,6 +4411,6 @@ and it &amp;quot;is not my problem&amp;quot;.
 		</dict>
 	</dict>
 	<key>webDownloadDate</key>
-	<date>2020-05-12T14:05:55Z</date>
+	<date>2020-10-23T12:57:57Z</date>
 </dict>
 </plist>

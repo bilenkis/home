@@ -63,35 +63,18 @@
 		</dict>
 		<dict>
 			<key>ID</key>
-			<string>3DB32918-A59F-460B-8DFC-35D69D9A0686</string>
+			<string>211CDF72-86B8-4719-B6EA-A78F8C01B0F7</string>
 			<key>command</key>
 			<dict>
 				<key>actionID</key>
-				<string>QSShellScriptRunWithArgsAction</string>
+				<string>FileOpenAction</string>
 				<key>directID</key>
-				<string>/Users/bilen/bin/player_next.sh</string>
-				<key>indirectArchive</key>
-				<dict>
-					<key>class</key>
-					<string>QSObject</string>
-					<key>data</key>
-					<dict>
-						<key>QSTextProxyType</key>
-						<string></string>
-					</dict>
-					<key>properties</key>
-					<dict>
-						<key>QSObjectName</key>
-						<string></string>
-						<key>QSObjectType</key>
-						<string>QSTextProxyType</string>
-					</dict>
-				</dict>
+				<string>/Applications/Spotify.app</string>
 			</dict>
 			<key>enabled</key>
 			<true/>
 			<key>keyCode</key>
-			<integer>47</integer>
+			<integer>34</integer>
 			<key>modifiers</key>
 			<integer>1310985</integer>
 			<key>onPress</key>
@@ -101,73 +84,39 @@
 		</dict>
 		<dict>
 			<key>ID</key>
-			<string>B3029887-FE1A-4B45-A58D-B5F363F075B0</string>
+			<string>3775D08F-A48E-4AA6-ADC6-E836BDD02057</string>
 			<key>command</key>
 			<dict>
 				<key>actionID</key>
-				<string>QSShellScriptRunWithArgsAction</string>
+				<string>AppleScriptRunAction</string>
 				<key>directID</key>
-				<string>/Users/bilen/bin/player_toggle.sh</string>
-				<key>indirectArchive</key>
-				<dict>
-					<key>class</key>
-					<string>QSObject</string>
-					<key>data</key>
-					<dict>
-						<key>QSTextProxyType</key>
-						<string></string>
-					</dict>
-					<key>properties</key>
-					<dict>
-						<key>QSObjectName</key>
-						<string></string>
-						<key>QSObjectType</key>
-						<string>QSTextProxyType</string>
-					</dict>
-				</dict>
-			</dict>
-			<key>enabled</key>
-			<true/>
-			<key>keyCode</key>
-			<integer>35</integer>
-			<key>modifiers</key>
-			<integer>1310985</integer>
-			<key>onPress</key>
-			<true/>
-			<key>type</key>
-			<string>QSHotKeyTrigger</string>
-		</dict>
-		<dict>
-			<key>ID</key>
-			<string>932904B9-6CBD-48B7-AE5B-2F0C4FFCA70A</string>
-			<key>command</key>
-			<dict>
-				<key>actionID</key>
-				<string>QSShellScriptRunWithArgsAction</string>
-				<key>directID</key>
-				<string>/Users/bilen/bin/player_prev.sh</string>
-				<key>indirectArchive</key>
-				<dict>
-					<key>class</key>
-					<string>QSObject</string>
-					<key>data</key>
-					<dict>
-						<key>QSTextProxyType</key>
-						<string></string>
-					</dict>
-					<key>properties</key>
-					<dict>
-						<key>QSObjectName</key>
-						<string></string>
-						<key>QSObjectType</key>
-						<string>QSTextProxyType</string>
-					</dict>
-				</dict>
+				<string>/Users/bilen/src/other/Spotify-Scripts-for-QuickSilver/PreviousTrack.scpt</string>
 			</dict>
 			<key>enabled</key>
 			<true/>
 			<key>keyCode</key>
 			<integer>43</integer>
+			<key>modifiers</key>
+			<integer>1310985</integer>
+			<key>onPress</key>
+			<true/>
+			<key>type</key>
+			<string>QSHotKeyTrigger</string>
+		</dict>
+		<dict>
+			<key>ID</key>
+			<string>805C0AB6-3E3C-477C-9CBB-0DE93CF29EE1</string>
+			<key>command</key>
+			<dict>
+				<key>actionID</key>
+				<string>AppleScriptRunAction</string>
+				<key>directID</key>
+				<string>/Users/bilen/src/other/Spotify-Scripts-for-QuickSilver/PlayPause.scpt</string>
+			</dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyCode</key>
+			<integer>35</integer>
 			<key>modifiers</key>
 			<integer>1310985</integer>
 			<key>onPress</key>
@@ -226,6 +175,27 @@
 			<true/>
 			<key>keyCode</key>
 			<integer>40</integer>
+			<key>modifiers</key>
+			<integer>1310985</integer>
+			<key>onPress</key>
+			<true/>
+			<key>type</key>
+			<string>QSHotKeyTrigger</string>
+		</dict>
+		<dict>
+			<key>ID</key>
+			<string>86D5A065-E9EB-4988-9CEB-ED6D5F3CDC9C</string>
+			<key>command</key>
+			<dict>
+				<key>actionID</key>
+				<string>AppleScriptRunAction</string>
+				<key>directID</key>
+				<string>/Users/bilen/src/other/Spotify-Scripts-for-QuickSilver/NextTrack.scpt</string>
+			</dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyCode</key>
+			<integer>47</integer>
 			<key>modifiers</key>
 			<integer>1310985</integer>
 			<key>onPress</key>
