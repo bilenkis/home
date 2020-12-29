@@ -1,6 +1,7 @@
 # If you come from bash you might have to change your $PATH.
   export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
   export PATH=/usr/local/opt/curl/bin:$PATH
+  export PATH=/usr/local/opt/icu4c/bin:$PATH
   export PATH=/usr/local/opt/gettext/bin:$PATH
   export PATH=/usr/local/opt/ncurses/bin:$PATH
   export PATH=/usr/local/sbin:$PATH
@@ -21,7 +22,6 @@
   ZSH_THEME="powerlevel9k/powerlevel9k"
   POWERLEVEL9K_DISABLE_RPROMPT=true
   POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator kube_ps1 dir virtualenv vcs )
   POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator kube_ps1 virtualenv dir vcs)
 # kube-ps1 fix for powerlevel9k
   source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
@@ -68,7 +68,7 @@ setopt HIST_FIND_NO_DUPS
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+ DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -119,6 +119,7 @@ fzf-z
 pyenv
 encode64
 common-aliases
+github
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -194,6 +195,8 @@ alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
 alias dex="docker exec -i -t"
 alias drun="docker run --rm -i -t"
 alias dl="docker logs -ft --tail=100"
+# Remove all <none> images
+drminone() { docker rmi $(docker images -f 'dangling=true' -q) }
 # Remove all containers
 drm() { docker rm $(docker ps -a -q); }
 # Remove all images
@@ -208,7 +211,8 @@ dins() { docker inspect "$1" | less; }
 alias gs='gst'
 alias gp='ggpush'
 alias gh='glg'
-alias grbm='git rebase origin/master --autostash'
+alias grbo='git rebase origin/master --autostash'
+alias grbm='git rebase master --autostash'
 alias gcb='git checkout --track -b'
 alias gpf='git push --force origin $(git_current_branch)'
 alias gup='gfa;git pull --verbose --rebase --prune --autostash --tags origin "$(git_current_branch)"'
@@ -224,10 +228,15 @@ alias rsync='rsync -avz --progress -h'
 alias rsync-sudo='rsync -avz --progress -h --rsync-path="sudo rsync"'
 alias kcuc='kubectx'
 alias kns='kubens'
+alias k9s='k9s --headless'
 alias ht="helm template . --set 'global.cluster=lw,global.env=test'"
 alias test='nocorrect test'
 alias aplay='aplaybook'
 alias sed='gsed'
+alias t='terraform'
+unalias fd
+unalias gh
+alias vim='nvim'
 
 # plugin: zsh-dircolors-solarized
 export DIRCOLORTHEME='dircolors.256dark'
@@ -257,3 +266,9 @@ PATH="${PATH}:${HOME}/.krew/bin"
 
 # awless completions. TODO: find out a way to autoload all completions under this directory
 source /usr/local/share/zsh/site-functions/_awless
+
+# Use all the symbols including - and _ as word delimiters
+export WORDCHARS=''
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+

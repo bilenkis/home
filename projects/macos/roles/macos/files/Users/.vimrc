@@ -1,7 +1,7 @@
 """"""""""""""""""""""""""""""
 " My custom options
 """"""""""""""""""""""""""""""
-let mapleader=","
+let mapleader=" "
 set statusline=%<%F\ %h%m%r%y%=%-14.(%l,%c%V%)\ %P
 " disable bell on error
 set t_vb=
@@ -30,6 +30,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'pearofducks/ansible-vim', { 'do': 'cd ./UltiSnips; ./generate.py' }
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'gruvbox-community/gruvbox'
+Plug 'vim-airline/vim-airline'
+Plug 'pgr0ss/vim-github-url'
+Plug 'google/vim-jsonnet'
 
 " PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run install script
 Plug '~/.fzf'
@@ -60,6 +64,7 @@ Plugin 'hashivim/vim-terraform'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin '907th/vim-auto-save'
 Plugin 'pixelastic/vim-undodir-tree'
+Plugin 'maxbrunsfeld/vim-yankstack'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -128,6 +133,12 @@ let g:ansible_extra_syntaxes = "sh.vim ruby.vim"
 let g:ansible_attribute_highlight = "ob"
 let g:ansible_name_highlight = 'd'
 
+""""""""""""""""""""""""""""""
+" Jsonnet
+""""""""""""""""""""""""""""""
+let g:jsonnet_fmt_on_save = 0
+let g:jsonnet_fmt_fail_silently = 0
+
 
 """"""""""""""""""""""""""""""
 " Pymode
@@ -142,12 +153,14 @@ autocmd FileType python setlocal softtabstop=4 shiftwidth=4 tabstop=4 expandtab
 " vim-go
 """"""""""""""""""""""""""""""
 let g:go_fmt_command = "goimports"
+let g:go_fmt_experimental = 1
 autocmd BufNewFile,BufRead *.go setlocal softtabstop=4 shiftwidth=4 tabstop=4 expandtab
 
 """"""""""""""""""""""""""""""
 " vim-undodir-tree
 """"""""""""""""""""""""""""""
 set undofile
+set undodir=~/.vim/undodir
 
 """"""""""""""""""""""""""""""
 " vim-auto-save
@@ -156,11 +169,21 @@ set updatetime=1000  " save every 1 sec
 let g:auto_save = 1  " enable AutoSave on Vim startup
 let g:auto_save_silent = 1  " do not display the auto-save notification
 
+"""""""""""""""""""""""""""""
+" gruvbox
+"""""""""""""""""""""""""""""
+colorscheme gruvbox
+syntax enable
+set textwidth=0
+set background=dark
+set termguicolors
+
 """"""""""""""""""""""""""""""
 " From grml .vimrc
 """"""""""""""""""""""""""""""
 set backspace=indent,eol,start        " more powerful backspacing
 set nobackup          " Don't keep a backup file
+set noswapfile        " Don't create a swap file
 " When switching between different buffers you can't use undo without 'set hidden':
 set hidden            " Hide buffers when they are abandoned
 set mouse=            " Disable mouse usage (being "a" AKA all modes in Vim >=8) in terminals
@@ -184,12 +207,6 @@ set expandtab softtabstop=2 shiftwidth=2 tabstop=2
 set paste
 set history=10000        " keep lines of command line history
 
-" solarized
-syntax enable
-set background=dark
-set textwidth=0
-colorscheme solarized
-
 " yank or paste file to/from clipboard
 noremap <Leader>y "*y
 noremap <Leader>Y :%y*<CR>
@@ -212,3 +229,6 @@ set smartindent
 "set listchars=tab:→\ ,trail:·,nbsp:·
 set autoread
 au FocusGained,BufEnter,CursorHold * checktime
+
+nmap <leader>v <Plug>yankstack_substitute_older_paste
+nmap <leader>V <Plug>yankstack_substitute_newer_paste
