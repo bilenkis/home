@@ -37,6 +37,10 @@ Plug 'google/vim-jsonnet'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-rhubarb'
 
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
+
+
 " PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run install script
 "Plug '~/.fzf'
 "Plug 'junegunn/fzf.vim'
@@ -431,4 +435,5 @@ nmap <silent> <Leader>e :Telescope find_files<CR>
 noremap <Leader>y "*y
 noremap <Leader>Y :%y*<CR>
 noremap <Leader>p "*p
+
 

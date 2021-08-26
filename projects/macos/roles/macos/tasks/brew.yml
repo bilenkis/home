@@ -10,48 +10,46 @@
 - name: Install GNU utils without overrides
   homebrew:
     name: "{{ packages }}"
-    update_homebrew: yes
+    update_homebrew: true
   vars:
     packages:
-    - bash
-    - coreutils
-    - binutils
-    - diffutils
-    - gawk
-    - gnutls
-    - gzip
-    - watch
-    - wget
-    - file-formula
-    - git
-    - openssh
-    - postgresql
-    - perl
-    - rsync
-    - unzip
-    - zsh
-    - sshuttle
-    - nmap
-    - mpd
-    - mpc
-    - ncmpcpp
-    - ripgrep
-    - tmux
-    - p7zip
-    - htop
-    - mosh
-    - pwgen
-    - reattach-to-user-namespace
-    - awless
-    - kubectl
-    - kube-ps1
-    - kubectx
-    - subnetcalc
-    - iproute2mac
-    - tree
-    - pyenv
-    - pyenv-virtualenv
-    - fd
+      - bash
+      - coreutils
+      - binutils
+      - diffutils
+      - gawk
+      - gnutls
+      - gzip
+      - watch
+      - wget
+      - file-formula
+      - git
+      - openssh
+      - postgresql
+      - perl
+      - rsync
+      - unzip
+      - zsh
+      - sshuttle
+      - nmap
+      - ripgrep
+      - tmux
+      - p7zip
+      - htop
+      - mosh
+      - pwgen
+      - reattach-to-user-namespace
+      - awless
+      - kubectl
+      - kube-ps1
+      - kubectx
+      - subnetcalc
+      - iproute2mac
+      - tree
+      - pyenv
+      - pyenv-virtualenv
+      - fd
+      - nvim
 
 - name: Install other GNU utils with default names
   homebrew:
@@ -66,13 +64,6 @@
       - gnu-tar
       - gnu-which
       - grep
-
-- name: Install wdiff & vim
-  homebrew:
-    name: "{{ item.name }}"
-    install_options: "{{ item.opts }}"
-  with_items:
-    - { name: 'vim', opts: 'override-system-vi' }
 
 - name: Install apps with brew cask
   homebrew_cask:

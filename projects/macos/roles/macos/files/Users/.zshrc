@@ -256,7 +256,7 @@ export PATH=$HOME/.gem/ruby/2.6.0/bin:$PATH
 
 # pyenv
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-[ -z ${PYENV_ACTIVATE_SHELL} ] && pyenv activate ago
+[ -z ${PYENV_ACTIVATE_SHELL} ] && pyenv activate dh
 
 # Work related environment
 [ -f ~/.work.env ] && source ~/.work.env
