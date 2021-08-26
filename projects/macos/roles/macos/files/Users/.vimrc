@@ -109,7 +109,7 @@ nmap <silent> <Leader>b :Telescope buffers<CR>
 " [Buffers] Jump to the existing window if possible
 "let g:fzf_buffers_jump = 1
 "let g:fzf_preview_window = ''
-nmap <silent> <Leader>e :Telescope find_files<CR>
+nmap <silent> <Leader>e :Telescope find_files find_command=rg,--ignore,--hidden,--files<CR>
 
 """"""""""""""""""""""""""""""
 " Fzf

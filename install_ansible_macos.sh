@@ -3,10 +3,10 @@ set -xe
 
 PYTHON_VERSION="3.7.5"
 
-xcode-select --install
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+#xcode-select --install
+#ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-brew install virtualenv pyenv
+brew install zsh postgresql pyenv pyenv-virtualenv
 pyenv install $PYTHON_VERSION
 pyenv global $PYTHON_VERSION
 

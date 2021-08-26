@@ -1,11 +1,11 @@
 # If you come from bash you might have to change your $PATH.
   export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
+  export PATH=/usr/local/sbin:$PATH
+  export PATH=/usr/local/opt:$PATH
   export PATH=/usr/local/opt/curl/bin:$PATH
   export PATH=/usr/local/opt/icu4c/bin:$PATH
   export PATH=/usr/local/opt/gettext/bin:$PATH
   export PATH=/usr/local/opt/ncurses/bin:$PATH
-  export PATH=/usr/local/sbin:$PATH
-  export PATH=/usr/local/opt:$PATH
   export PATH=/usr/local/opt/openssl@1.1/bin:$PATH
   export PATH=$HOME/bin:$PATH
 
@@ -234,7 +234,6 @@ alias test='nocorrect test'
 alias aplay='aplaybook'
 alias sed='gsed'
 alias t='terraform'
-unalias fd
 unalias gh
 alias vim='nvim'
 
@@ -256,6 +255,10 @@ export PATH=$HOME/.gem/ruby/2.6.0/bin:$PATH
 
 # pyenv
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
 [ -z ${PYENV_ACTIVATE_SHELL} ] && pyenv activate dh
 
 # Work related environment

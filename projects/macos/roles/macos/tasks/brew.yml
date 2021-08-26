@@ -1,13 +1,6 @@
 ---
 
-- name: Tap homebrew for awless
-  homebrew_tap:
-    name: "{{ packages }}"
-  vars:
-    packages:
-      - wallix/awless
-
-- name: Install GNU utils without overrides
+- name: Install general packages
   homebrew:
     name: "{{ packages }}"
     update_homebrew: true
@@ -33,13 +26,14 @@
       - sshuttle
       - nmap
       - ripgrep
+      - bat
       - tmux
       - p7zip
       - htop
       - mosh
       - pwgen
       - reattach-to-user-namespace
-      - awless
+#      - awless
       - kubectl
       - kube-ps1
       - kubectx
@@ -50,13 +44,6 @@
       - pyenv-virtualenv
       - fd
       - nvim
-
-- name: Install other GNU utils with default names
-  homebrew:
-    name: "{{ packages }}"
-    install_options: with-default-names
-  vars:
-    packages:
       - ed
       - findutils
       - gnu-indent
@@ -64,11 +51,18 @@
       - gnu-tar
       - gnu-which
       - grep
+      - awscli
+
+- name: Check if maccy is installed
+  stat:
+    path: "/Applications/Maccy.app"
+  register: maccy
 
 - name: Install apps with brew cask
-  homebrew_cask:
+  homebrew:
     name: "{{ packages }}"
+    install_options: "cask"
   vars:
     packages:
-      - keepassxc
       - maccy
+  when: not maccy.stat.exists

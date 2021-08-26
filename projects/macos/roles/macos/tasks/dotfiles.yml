@@ -13,7 +13,7 @@
 
 - name: Install oh-my-zsh
   shell: >
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   args:
     creates: "{{ ansible_user_dir }}/.oh-my-zsh"
 
@@ -31,7 +31,7 @@
 
 - name: Install powerline fonts
   shell: >
-    install.sh
+    ./install.sh
   args:
     chdir: "{{ ansible_user_dir }}/fonts"
   when: not fonts.stat.exists
@@ -52,3 +52,16 @@
     repo: https://github.com/andrewferrier/fzf-z.git
     dest: "{{ ansible_user_dir }}/.oh-my-zsh/custom/plugins/fzf-z"
     depth: 1
+
+- name: Install zsh-dircolors-solarized
+  git:
+    repo: https://github.com/joel-porquet/zsh-dircolors-solarized
+    dest: "{{ ansible_user_dir }}/.oh-my-zsh/custom/plugins/zsh-dircolors-solarized"
+    depth: 1
+
+- name: Create cache file for fzf-z
+  file:
+    path: "{{ ansible_user_dir }}/.z"
+    state: touch
+    owner: "{{ ansible_user_id }}"
+    group: "staff"
