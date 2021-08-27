@@ -52,6 +52,8 @@
       - gnu-which
       - grep
       - awscli
+      - warrensbox/tap/tfswitch
+      - tokiwong/tap/helm-switcher
 
 - name: Check if maccy is installed
   stat:

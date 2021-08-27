@@ -181,7 +181,7 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " NERDTree
 """"""""""""""""""""""""""""""
 let NERDTreeShowHidden=1
-"nmap <silent> <Leader>n :NERDTreeToggle<CR>
+nmap <silent> <Leader>n :NERDTreeToggle<CR>
 nmap <silent> <Leader>gg :NERDTreeFind<CR>
 let g:NERDTreeWinSize=40
 
