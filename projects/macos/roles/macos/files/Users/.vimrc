@@ -1,7 +1,48 @@
 """"""""""""""""""""""""""""""
-" My custom options
+" Plugins
+""""""""""""""""""""""""""""""
+call plug#begin(expand('~/.config/nvim/plugged'))
+
+Plug 'gruvbox-community/gruvbox'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-fugitive'
+" Plug 'airblade/vim-gitgutter'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'Yggdroot/indentLine'
+Plug 'hashivim/vim-terraform'
+Plug 'pixelastic/vim-undodir-tree'
+Plug 'maxbrunsfeld/vim-yankstack'
+
+" terminal coloscheme
+Plug 'vim-scripts/CSApprox'
+" automatic closing of quotes, parenthesis, brackets
+Plug 'Raimondi/delimitMate'
+" syntax & linter check
+Plug 'dense-analysis/ale'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'google/vim-jsonnet'
+
+if isdirectory('/usr/local/opt/fzf')
+  Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+else
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+  Plug 'junegunn/fzf.vim'
+endif
+
+call plug#end()
+
+filetype plugin indent on    " required
+
+""""""""""""""""""""""""""""""
+" Basic Setup
 """"""""""""""""""""""""""""""
 let mapleader=" "
+
 set statusline=%<%F\ %h%m%r%y%=%-14.(%l,%c%V%)\ %P
 " disable bell on error
 set t_vb=
@@ -18,86 +59,13 @@ if has("autocmd")
 endif
 
 
-""""""""""""""""""""""""""""""
-" Plugins
-""""""""""""""""""""""""""""""
-call plug#begin('~/.vim/plugged')
-
-Plug 'scrooloose/nerdtree', { 'tag': '5.0.0' }
-Plug 'scrooloose/nerdcommenter'
-Plug 'chr4/nginx.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'pearofducks/ansible-vim', { 'do': 'cd ./UltiSnips; ./generate.py' }
-Plug 'python-mode/python-mode', { 'branch': 'develop' }
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'gruvbox-community/gruvbox'
-Plug 'vim-airline/vim-airline'
-Plug 'pgr0ss/vim-github-url'
-Plug 'google/vim-jsonnet'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'tpope/vim-rhubarb'
-
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-Plug 'junegunn/fzf.vim'
-
-
-" PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run install script
-"Plug '~/.fzf'
-"Plug 'junegunn/fzf.vim'
-Plug 'tpope/vim-surround'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-call plug#end()
-
-
-""""""""""""""""""""""""""""""
-" Disabled for Vundle install
-""""""""""""""""""""""""""""""
-set nocompatible              " be iMproved, required
-filetype off                  " required
-execute pathogen#infect()
-""""""""""""""""""""""""""""""
-" Vundle start
-""""""""""""""""""""""""""""""
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'mzlogin/vim-markdown-toc'
-Plugin 'hashivim/vim-terraform'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin '907th/vim-auto-save'
-Plugin 'pixelastic/vim-undodir-tree'
-Plugin 'maxbrunsfeld/vim-yankstack'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-""""""""""""""""""""""""""""""
-" Vundle end
-""""""""""""""""""""""""""""""
-
 
 """"""""""""""""""""""""""""""
 " NERDTree
 """"""""""""""""""""""""""""""
 let NERDTreeIgnore=['\.sw.$']
 let NERDTreeShowHidden=1
-"nmap <silent> <Leader>n :NERDTreeToggle<CR>
-nmap <silent> <Leader>n :Telescope file_browser<CR>
+nmap <silent> <Leader>n :NERDTreeToggle<CR>
 nmap <silent> <Leader>gg :NERDTreeFind<CR>
 let g:NERDTreeWinSize=40
 

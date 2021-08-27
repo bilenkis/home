@@ -267,11 +267,9 @@ eval "$(pyenv init -)"
 # kubectl plugins
 PATH="${PATH}:${HOME}/.krew/bin"
 
-# awless completions. TODO: find out a way to autoload all completions under this directory
-source /usr/local/share/zsh/site-functions/_awless
+test -e /usr/local/share/zsh/site-functions/_awless && source /usr/local/share/zsh/site-functions/_awless
 
 # Use all the symbols including - and _ as word delimiters
 export WORDCHARS=''
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-

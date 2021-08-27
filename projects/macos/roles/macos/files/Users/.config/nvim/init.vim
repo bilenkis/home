@@ -12,7 +12,7 @@ endif
 
 let g:vim_bootstrap_langs = "go"
 let g:vim_bootstrap_editor = "neovim"				" nvim or vim
-let g:vim_bootstrap_theme = "molokai"
+let g:vim_bootstrap_theme = "gruvbox"
 let g:vim_bootstrap_frams = ""
 
 if !filereadable(vimplug_exists)
@@ -35,21 +35,20 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 "" Plug install packages
 "*****************************************************************************
 Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
+" Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'airblade/vim-gitgutter'
+" Plug 'airblade/vim-gitgutter'
 Plug 'vim-scripts/grep.vim'
-Plug 'vim-scripts/CSApprox'
 Plug 'Raimondi/delimitMate'
-Plug 'majutsushi/tagbar'
+" Plug 'majutsushi/tagbar'
 Plug 'dense-analysis/ale'
 Plug 'Yggdroot/indentLine'
 Plug 'editor-bootstrap/vim-bootstrap-updater'
 Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
-Plug 'tomasr/molokai'
+Plug 'gruvbox-community/gruvbox'
 
 
 if isdirectory('/usr/local/opt/fzf')
@@ -69,8 +68,8 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 
 "" Snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+" Plug 'SirVer/ultisnips'
+" Plug 'honza/vim-snippets'
 
 "*****************************************************************************
 "" Custom bundles
@@ -147,7 +146,7 @@ set ruler
 set number
 
 let no_buffers_menu=1
-colorscheme molokai
+colorscheme gruvbox
 
 
 set mousemodel=popup
@@ -367,12 +366,6 @@ nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>e :FZF -m<CR>
 "Recovery commands from history through FZF
 nmap <leader>y :History:<CR>
-
-" snippets
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-let g:UltiSnipsEditSplit="vertical"
 
 " ale
 let g:ale_linters = {}

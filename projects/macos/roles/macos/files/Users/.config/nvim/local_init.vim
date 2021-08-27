@@ -1,7 +1,6 @@
 """""""""""""""""""""""""""""
 " gruvbox
 """""""""""""""""""""""""""""
-colorscheme gruvbox
 syntax enable
 set textwidth=0
 set background=dark
@@ -22,7 +21,7 @@ set nobackup
 set nowritebackup
 
 " Give more space for displaying messages.
-set cmdheight=2
+set cmdheight=1
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
@@ -181,19 +180,22 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " NERDTree
 """"""""""""""""""""""""""""""
 let NERDTreeShowHidden=1
-nmap <silent> <Leader>n :NERDTreeToggle<CR>
-nmap <silent> <Leader>gg :NERDTreeFind<CR>
+let g:NERDTreeShowBookmarks=1
+let g:NERDTreeChDirMode=0
+nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
+nnoremap <silent> <Leader>gg :NERDTreeFind<CR>
 let g:NERDTreeWinSize=40
+let g:nerdtree_tabs_open_on_console_startup=0
 
 """"""""""""""""""""""""""""""
 " vim-telescope
 """"""""""""""""""""""""""""""
 " nnoremap <silent> <Leader>n :Telescope file_browser<CR>
-nnoremap <silent> <Leader>e :Telescope find_files find_command=rg,--ignore,--hidden,--files<CR>
-nnoremap <silent> <leader>b :Telescope buffers<CR>
-nnoremap <leader>f :Telescope grep_string <c-r><CR>
+" nnoremap <silent> <Leader>e :Telescope find_files find_command=rg,--ignore,--hidden,--files<CR>
+" nnoremap <silent> <leader>b :Telescope buffers<CR>
+" nnoremap <leader>f :Telescope grep_string <c-r><CR>
 " nnoremap <leader>F :Telescope grep_string <c-r>=expand("<cword>")<CR><CR>
-nmap <leader>F :Telescope grep_string search=<C-R><C-W><CR>
+" nmap <leader>F :Telescope grep_string search=<C-R><C-W><CR>
 
 """"""""""""""""""""""""""""""
 " vim-go
@@ -209,7 +211,7 @@ set undodir=~/.vim/undodir
 """"""""""""""""""""""""""""""
 " Jsonnet
 """"""""""""""""""""""""""""""
-let g:jsonnet_fmt_on_save = 0
+let g:jsonnet_fmt_on_save = 1
 let g:jsonnet_fmt_fail_silently = 0
 
 """"""""""""""""""""""""""""""
@@ -234,10 +236,9 @@ nnoremap <leader>gpl :Dispatch! git pull<CR>
 """""""""""""""""""""""""""""
 " fix vim-bootstrap
 """""""""""""""""""""""""""""
-let g:nerdtree_tabs_open_on_console_startup=0
-
+let g:airline#extensions#tabline#enabled = 0
+let no_buffers_menu=0
 set expandtab softtabstop=2 shiftwidth=2 tabstop=2
-set paste
 set history=10000        " keep lines of command line history
 set relativenumber
 set scrolloff=10
