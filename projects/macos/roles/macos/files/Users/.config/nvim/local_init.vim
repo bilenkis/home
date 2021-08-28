@@ -180,7 +180,8 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " NERDTree
 """"""""""""""""""""""""""""""
 let NERDTreeShowHidden=1
-let g:NERDTreeShowBookmarks=1
+let g:NERDTreeShowBookmarks=0
+let g:NERDTreeQuitOnOpen=1
 let g:NERDTreeChDirMode=0
 nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
 nnoremap <silent> <Leader>gg :NERDTreeFind<CR>
@@ -198,6 +199,18 @@ let g:nerdtree_tabs_open_on_console_startup=0
 " nmap <leader>F :Telescope grep_string search=<C-R><C-W><CR>
 
 """"""""""""""""""""""""""""""
+" ripgrep
+""""""""""""""""""""""""""""""
+if executable('rg')
+  let $FZF_DEFAULT_COMMAND = 'rg --files --no-ignore --hidden --follow --glob "!.git/*" --glob "!.terraform/*"'
+  set grepprg=rg\ --vimgrep
+  command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --glob "!.terraform/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+endif
+
+nmap <leader>f :Find <c-r><CR>
+nmap <leader>F :Find <c-r>=expand("<cword>")<CR><CR>
+
+""""""""""""""""""""""""""""""
 " vim-go
 """"""""""""""""""""""""""""""
 " let g:go_fmt_experimental = 1
@@ -207,7 +220,7 @@ let g:nerdtree_tabs_open_on_console_startup=0
 """"""""""""""""""""""""""""""
 set undofile
 set undodir=~/.vim/undodir
- 
+
 """"""""""""""""""""""""""""""
 " Jsonnet
 """"""""""""""""""""""""""""""
@@ -232,7 +245,7 @@ nnoremap <leader>gb :Git branch<Space>
 nnoremap <leader>go :Git checkout<Space>
 nnoremap <leader>gps :Dispatch! git push<CR>
 nnoremap <leader>gpl :Dispatch! git pull<CR>
- 
+
 """""""""""""""""""""""""""""
 " fix vim-bootstrap
 """""""""""""""""""""""""""""
@@ -243,6 +256,13 @@ set history=10000        " keep lines of command line history
 set relativenumber
 set scrolloff=10
 set autoread
+set nohlsearch
+cunmap <C-P>
+
 
 " autosave
-autocmd FocusGained,BufEnter,CursorHold * checktime
+" autocmd FocusGained,BufEnter,CursorHold * checktime
+
+inoremap <silent><esc> <esc>:update<cr>
+autocmd BufWritePre * :FixWhitespace
+autocmd TextChanged,FocusLost,BufEnter * silent update

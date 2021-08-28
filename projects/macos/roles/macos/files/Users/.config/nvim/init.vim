@@ -168,7 +168,7 @@ else
   let g:indentLine_char = '┆'
   let g:indentLine_faster = 1
 
-  
+
   if $COLORTERM == 'gnome-terminal'
     set term=gnome-256color
   else
@@ -176,7 +176,7 @@ else
       set term=xterm-256color
     endif
   endif
-  
+
 endif
 
 
@@ -303,7 +303,7 @@ augroup vimrc-make-cmake
   autocmd BufNewFile,BufRead CMakeLists.txt setlocal filetype=cmake
 augroup END
 
-set autoread
+set autoread 
 
 "*****************************************************************************
 "" Mappings

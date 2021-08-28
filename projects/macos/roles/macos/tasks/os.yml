@@ -24,9 +24,9 @@
   with_items:
     - Host *
     - ForwardAgent yes
-    - StrictHostKeyChecking no
+    - StrictHostKeyChecking no 
     - ControlMaster auto
     - ControlPath /tmp/%r@%h:%p
     - ControlPersist 10m
     - Include ~/.ssh/config.d/*
-  when: not ssh_config.stat.exists
+  when: not ssh_config.stat.exists 
