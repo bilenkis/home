@@ -246,7 +246,7 @@ nnoremap <leader>gr :Gread<CR>
 nnoremap <leader>gw :Gwrite<CR><CR>
 nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
 nnoremap <leader>gp :G push . @<CR>
-nnoremap <leader>gp :G push -f . @<CR>
+nnoremap <leader>gP :G push -f . @<CR>
 nnoremap <leader>gm :Gvdiff master<Space>
 nnoremap <leader>gb :Git branch<Space>
 nnoremap <leader>gcb :Git checkout --track -b<Space>
