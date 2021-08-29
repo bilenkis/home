@@ -245,12 +245,14 @@ nnoremap <leader>ge :Gedit<CR>
 nnoremap <leader>gr :Gread<CR>
 nnoremap <leader>gw :Gwrite<CR><CR>
 nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
-nnoremap <leader>gp :G push<Space>
-nnoremap <leader>gm :Gmove<Space>
+nnoremap <leader>gp :G push . @<CR>
+nnoremap <leader>gp :G push -f . @<CR>
+nnoremap <leader>gm :Gvdiff master<Space>
 nnoremap <leader>gb :Git branch<Space>
-nnoremap <leader>go :Git checkout<Space>
-nnoremap <leader>gps :Dispatch! git push<CR>
-nnoremap <leader>gpl :Dispatch! git pull<CR>
+nnoremap <leader>gcb :Git checkout --track -b<Space>
+nnoremap <leader>gco :Git checkout<Space>
+nnoremap <leader>gfa :Dispatch! git fetch --all --prune --jobs=10<CR>
+nnoremap <leader>gup :Dispatch! git fetch --all --prune --jobs=10 && git pull --verbose --prune --autostash --tags origin @<CR>
 
 """""""""""""""""""""""""""""
 " fix vim-bootstrap
