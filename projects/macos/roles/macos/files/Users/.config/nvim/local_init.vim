@@ -238,8 +238,9 @@ let g:jsonnet_fmt_fail_silently = 0
 nnoremap <leader>ga :Git add %:p<CR><CR>
 nnoremap <leader>gs :G<CR>
 nnoremap <leader>gc :G commit -v -q<CR>
+nnoremap <leader>gca :G commit -v -q --all<CR>
 nnoremap <leader>gt :G commit -v -q %:p<CR>
-nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>gd :Gvdiff<CR>
 nnoremap <leader>ge :Gedit<CR>
 nnoremap <leader>gr :Gread<CR>
 nnoremap <leader>gw :Gwrite<CR><CR>

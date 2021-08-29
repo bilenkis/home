@@ -303,7 +303,7 @@ augroup vimrc-make-cmake
   autocmd BufNewFile,BufRead CMakeLists.txt setlocal filetype=cmake
 augroup END
 
-set autoread 
+set autoread
 
 "*****************************************************************************
 "" Mappings
@@ -314,14 +314,14 @@ noremap <Leader>h :<C-u>split<CR>
 noremap <Leader>v :<C-u>vsplit<CR>
 
 "" Git
-noremap <Leader>ga :Gwrite<CR>
-noremap <Leader>gc :Git commit --verbose<CR>
-noremap <Leader>gsh :Gpush<CR>
-noremap <Leader>gll :Gpull<CR>
-noremap <Leader>gs :Gstatus<CR>
-noremap <Leader>gb :Gblame<CR>
-noremap <Leader>gd :Gvdiff<CR>
-noremap <Leader>gr :Gremove<CR>
+" noremap <Leader>ga :Gwrite<CR>
+" noremap <Leader>gc :Git commit --verbose<CR>
+" noremap <Leader>gsh :Gpush<CR>
+" noremap <Leader>gll :Gpull<CR>
+" noremap <Leader>gs :Gstatus<CR>
+" noremap <Leader>gb :Gblame<CR>
+" noremap <Leader>gd :Gvdiff<CR>
+" noremap <Leader>gr :Gremove<CR>
 
 " session management
 nnoremap <leader>so :OpenSession<Space>
