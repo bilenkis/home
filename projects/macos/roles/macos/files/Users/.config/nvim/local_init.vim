@@ -216,6 +216,11 @@ nmap <leader>F :Find <c-r>=expand("<cword>")<CR><CR>
 " let g:go_fmt_experimental = 1
 
 """"""""""""""""""""""""""""""
+" vim-terraform
+""""""""""""""""""""""""""""""
+let g:terraform_fmt_on_save = 1
+
+""""""""""""""""""""""""""""""
 " vim-undodir-tree
 """"""""""""""""""""""""""""""
 set undofile
@@ -239,7 +244,7 @@ nnoremap <leader>ge :Gedit<CR>
 nnoremap <leader>gr :Gread<CR>
 nnoremap <leader>gw :Gwrite<CR><CR>
 nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
-nnoremap <leader>gp :Ggrep<Space>
+nnoremap <leader>gp :G push<Space>
 nnoremap <leader>gm :Gmove<Space>
 nnoremap <leader>gb :Git branch<Space>
 nnoremap <leader>go :Git checkout<Space>
@@ -259,10 +264,9 @@ set autoread
 set nohlsearch
 cunmap <C-P>
 
-
 " autosave
-" autocmd FocusGained,BufEnter,CursorHold * checktime
-
 inoremap <silent><esc> <esc>:update<cr>
 autocmd BufWritePre * :FixWhitespace
 autocmd TextChanged,FocusLost,BufEnter * silent update
+" always open a file in the write mode
+autocmd SwapExists * let v:swapchoice = "e"
