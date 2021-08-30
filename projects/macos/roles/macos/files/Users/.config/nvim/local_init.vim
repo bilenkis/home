@@ -227,6 +227,12 @@ set undofile
 set undodir=~/.vim/undodir
 
 """"""""""""""""""""""""""""""
+" vim-rhubarb
+""""""""""""""""""""""""""""""
+" open current line on GitHub
+nnoremap <leader>gB :.GBrowse<CR>
+
+""""""""""""""""""""""""""""""
 " Jsonnet
 """"""""""""""""""""""""""""""
 let g:jsonnet_fmt_on_save = 1
@@ -266,6 +272,7 @@ set scrolloff=10
 set autoread
 set nohlsearch
 cunmap <C-P>
+let loaded_delimitMate = 0
 
 " autosave
 inoremap <silent><esc> <esc>:update<cr>
