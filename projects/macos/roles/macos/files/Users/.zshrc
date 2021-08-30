@@ -176,6 +176,9 @@ REPORTTIME=60
 #    printf '-!-\n'
 #fi
 
+# Share history in multiple zsh shell
+setopt share_history
+
 ## ZLE tweaks ##
 ## use the vi navigation keys (hjkl) besides cursor keys in menu completion
 bindkey -M menuselect 'h' vi-backward-char        # left
