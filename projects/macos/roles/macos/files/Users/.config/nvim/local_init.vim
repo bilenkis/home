@@ -241,7 +241,7 @@ let g:jsonnet_fmt_fail_silently = 0
 """"""""""""""""""""""""""""""
 " vim-fugitive
 """"""""""""""""""""""""""""""
-nnoremap <leader>ga :Git add %:p<CR><CR>
+nnoremap <leader>ga :G add %:p<CR><CR>
 nnoremap <leader>gs :G<CR>
 nnoremap <leader>gc :G commit -v -q<CR>
 nnoremap <leader>gca :G commit -v -q --all<CR>
@@ -250,15 +250,16 @@ nnoremap <leader>gd :Gvdiff<CR>
 nnoremap <leader>ge :Gedit<CR>
 nnoremap <leader>gr :Gread<CR>
 nnoremap <leader>gw :Gwrite<CR><CR>
-nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
-nnoremap <leader>gp :Git push origin @<CR>
-nnoremap <leader>gP :Git push -f origin @<CR>
-nnoremap <leader>gm :Gvdiff master<Space>
-nnoremap <leader>gb :Git branch<Space>
-nnoremap <leader>gcb :Git checkout --track -b<Space>
-nnoremap <leader>gco :Git checkout<Space>
+nnoremap <leader>gl :bot Gclog<CR>:bot copen<CR>
+nnoremap <leader>gp :G push origin @<CR>
+nnoremap <leader>gP :G push -f origin @<CR>
+nnoremap <leader>gm :G diff master<CR>
+nnoremap <leader>go :Dispatch! git pull --verbose --no-rebase --autostash origin $(basename $(git symbolic-ref refs/remotes/origin/HEAD))<CR>
+nnoremap <leader>gb :GBranches<CR>
+nnoremap <leader>gcb :G checkout --track -b<Space>
+nnoremap <leader>gco :G checkout<Space>
 nnoremap <leader>gfa :Dispatch! git fetch --all --prune --jobs=10<CR>
-nnoremap <leader>gup :Dispatch! git fetch --all --prune --jobs=10 && git pull --verbose --prune --autostash --tags origin @<CR>
+nnoremap <leader>gup :Dispatch! git fetch --all --prune --jobs=10 && git pull --no-rebase --verbose --autostash origin $(git branch --show-current)<CR>
 
 """""""""""""""""""""""""""""
 " fix vim-bootstrap
