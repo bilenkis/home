@@ -262,6 +262,33 @@ nnoremap <leader>gfa :Dispatch! git fetch --all --prune --jobs=10<CR>
 nnoremap <leader>gup :Dispatch! git fetch --all --prune --jobs=10 && git pull --no-rebase --verbose --autostash origin $(git branch --show-current)<CR>
 
 """""""""""""""""""""""""""""
+" vim-airline
+"""""""""""""""""""""""""""""
+let g:airline#extensions#tabline#enabled = 0
+let g:airline_mode_map = {
+      \ '__'     : '-',
+      \ 'c'      : 'C',
+      \ 'i'      : 'I',
+      \ 'ic'     : 'I',
+      \ 'ix'     : 'I',
+      \ 'n'      : 'N',
+      \ 'multi'  : 'M',
+      \ 'ni'     : 'N',
+      \ 'no'     : 'N',
+      \ 'R'      : 'R',
+      \ 'Rv'     : 'R',
+      \ 's'      : 'S',
+      \ 'S'      : 'S',
+      \ ''     : 'S',
+      \ 't'      : 'T',
+      \ 'v'      : 'V',
+      \ 'V'      : 'V',
+      \ ''     : 'V',
+      \ }
+let g:airline_section_x  = ''
+let g:airline_section_y  = ''
+
+"""""""""""""""""""""""""""""
 " fix vim-bootstrap
 """""""""""""""""""""""""""""
 let g:airline#extensions#tabline#enabled = 0
