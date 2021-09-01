@@ -181,6 +181,9 @@ REPORTTIME=60
 # Share history in multiple zsh shell
 setopt share_history
 
+# Disable globbing
+setopt no_bare_glob_qual
+
 ## ZLE tweaks ##
 ## use the vi navigation keys (hjkl) besides cursor keys in menu completion
 bindkey -M menuselect 'h' vi-backward-char        # left
@@ -224,6 +227,8 @@ alias gup='gfa;git pull --verbose --rebase --prune --autostash --tags origin "$(
 alias gcof='gco $(gb --all | fzf)'
 
 # personal aliases
+unalias gh
+unalias ta
 alias c='~/bin/c.sh'
 alias ssh='ssh -t'
 alias atop='atop -a -c -A 3'
@@ -242,8 +247,6 @@ alias t='terraform'
 alias ti='terraform init'
 alias tp='terraform plan'
 alias ta='terraform apply'
-unalias gh
-unalias ta
 alias vim='nvim'
 
 # plugin: zsh-dircolors-solarized
