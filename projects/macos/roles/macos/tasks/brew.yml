@@ -55,6 +55,7 @@
       - hugo
       - warrensbox/tap/tfswitch
       - tokiwong/tap/helm-switcher
+      - helmfile
 
 - name: Check if maccy is installed
   stat:
