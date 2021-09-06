@@ -303,7 +303,7 @@ cunmap <C-P>
 let loaded_delimitMate = 0
 
 " autosave
-inoremap <silent><esc> <esc>:update<cr>
+" inoremap <silent><esc> <esc>:update<cr>
 autocmd BufWritePre * :FixWhitespace
 autocmd TextChanged,FocusLost,BufEnter * silent update
 " always open a file in the write mode
