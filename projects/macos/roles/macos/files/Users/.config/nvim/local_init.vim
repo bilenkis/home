@@ -301,10 +301,13 @@ set autoread
 set nohlsearch
 cunmap <C-P>
 let loaded_delimitMate = 0
+set noignorecase
 
 " autosave
 " inoremap <silent><esc> <esc>:update<cr>
 autocmd BufWritePre * :FixWhitespace
 autocmd TextChanged,FocusLost,BufEnter * silent update
+autocmd InsertLeave * if &readonly==0 && filereadable(bufname('%')) | silent update | endif
+
 " always open a file in the write mode
 autocmd SwapExists * let v:swapchoice = "e"
