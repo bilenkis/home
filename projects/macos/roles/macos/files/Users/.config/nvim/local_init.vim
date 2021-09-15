@@ -303,6 +303,12 @@ cunmap <C-P>
 let loaded_delimitMate = 0
 set noignorecase
 
+" Name a tab with the current directory
+augroup dirchange
+    autocmd!
+    autocmd DirChanged * let &titlestring=v:event['cwd']
+augroup END
+
 " autosave
 " inoremap <silent><esc> <esc>:update<cr>
 autocmd BufWritePre * :FixWhitespace
