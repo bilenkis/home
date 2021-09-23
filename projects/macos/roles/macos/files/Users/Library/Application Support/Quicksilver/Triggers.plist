@@ -68,6 +68,23 @@
 			<dict>
 				<key>actionID</key>
 				<string>FileOpenAction</string>
+				<key>directArchive</key>
+				<dict>
+					<key>class</key>
+					<string>QSObject</string>
+					<key>data</key>
+					<dict>
+						<key>public.utf8-plain-text</key>
+						<string>/Applications/Spotify.app</string>
+					</dict>
+					<key>properties</key>
+					<dict>
+						<key>QSObjectName</key>
+						<string>/Applications/Spotify.app</string>
+						<key>QSObjectType</key>
+						<string>public.utf8-plain-text</string>
+					</dict>
+				</dict>
 				<key>directID</key>
 				<string>/Applications/Spotify.app</string>
 			</dict>
@@ -89,6 +106,23 @@
 			<dict>
 				<key>actionID</key>
 				<string>AppleScriptRunAction</string>
+				<key>directArchive</key>
+				<dict>
+					<key>class</key>
+					<string>QSObject</string>
+					<key>data</key>
+					<dict>
+						<key>public.utf8-plain-text</key>
+						<string>/Users/bilen/src/other/Spotify-Scripts-for-QuickSilver/PreviousTrack.scpt</string>
+					</dict>
+					<key>properties</key>
+					<dict>
+						<key>QSObjectName</key>
+						<string>/Users/bilen/src/other/Spotify-Scripts-for-QuickSilver/PreviousTrack.scpt</string>
+						<key>QSObjectType</key>
+						<string>public.utf8-plain-text</string>
+					</dict>
+				</dict>
 				<key>directID</key>
 				<string>/Users/bilen/src/other/Spotify-Scripts-for-QuickSilver/PreviousTrack.scpt</string>
 			</dict>
@@ -110,6 +144,23 @@
 			<dict>
 				<key>actionID</key>
 				<string>AppleScriptRunAction</string>
+				<key>directArchive</key>
+				<dict>
+					<key>class</key>
+					<string>QSObject</string>
+					<key>data</key>
+					<dict>
+						<key>public.utf8-plain-text</key>
+						<string>/Users/bilen/src/other/Spotify-Scripts-for-QuickSilver/PlayPause.scpt</string>
+					</dict>
+					<key>properties</key>
+					<dict>
+						<key>QSObjectName</key>
+						<string>/Users/bilen/src/other/Spotify-Scripts-for-QuickSilver/PlayPause.scpt</string>
+						<key>QSObjectType</key>
+						<string>public.utf8-plain-text</string>
+					</dict>
+				</dict>
 				<key>directID</key>
 				<string>/Users/bilen/src/other/Spotify-Scripts-for-QuickSilver/PlayPause.scpt</string>
 			</dict>
@@ -189,6 +240,23 @@
 			<dict>
 				<key>actionID</key>
 				<string>AppleScriptRunAction</string>
+				<key>directArchive</key>
+				<dict>
+					<key>class</key>
+					<string>QSObject</string>
+					<key>data</key>
+					<dict>
+						<key>public.utf8-plain-text</key>
+						<string>/Users/bilen/src/other/Spotify-Scripts-for-QuickSilver/NextTrack.scpt</string>
+					</dict>
+					<key>properties</key>
+					<dict>
+						<key>QSObjectName</key>
+						<string>/Users/bilen/src/other/Spotify-Scripts-for-QuickSilver/NextTrack.scpt</string>
+						<key>QSObjectType</key>
+						<string>public.utf8-plain-text</string>
+					</dict>
+				</dict>
 				<key>directID</key>
 				<string>/Users/bilen/src/other/Spotify-Scripts-for-QuickSilver/NextTrack.scpt</string>
 			</dict>
