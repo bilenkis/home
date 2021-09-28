@@ -216,6 +216,13 @@ nmap <leader>F :Find <c-r>=expand("<cword>")<CR><CR>
 " let g:go_fmt_experimental = 1
 
 """"""""""""""""""""""""""""""
+" vim-yankstack
+""""""""""""""""""""""""""""""
+" Also, if you want to load yankstack without the default key mappings, just
+let g:yankstack_map_keys = 0
+let g:yankstack_yank_keys = ['y', 'd']
+
+""""""""""""""""""""""""""""""
 " vim-terraform
 """"""""""""""""""""""""""""""
 let g:terraform_fmt_on_save = 1
