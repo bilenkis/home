@@ -247,6 +247,7 @@ alias t='terraform'
 alias ti='terraform init'
 alias tp='terraform plan'
 alias ta='terraform apply'
+alias taa='terraform apply -auto-approve'
 alias vim='nvim'
 
 # plugin: zsh-dircolors-solarized
@@ -279,6 +280,8 @@ eval "$(pyenv init -)"
 # kubectl plugins
 PATH="${PATH}:${HOME}/.krew/bin"
 
+# awless completion
+export BASH_VERSION="5.1.12(1)-release"
 test -e /usr/local/share/zsh/site-functions/_awless && source /usr/local/share/zsh/site-functions/_awless
 
 # Use all the symbols including - and _ as word delimiters

@@ -68,23 +68,6 @@
 			<dict>
 				<key>actionID</key>
 				<string>FileOpenAction</string>
-				<key>directArchive</key>
-				<dict>
-					<key>class</key>
-					<string>QSObject</string>
-					<key>data</key>
-					<dict>
-						<key>public.utf8-plain-text</key>
-						<string>/Applications/Spotify.app</string>
-					</dict>
-					<key>properties</key>
-					<dict>
-						<key>QSObjectName</key>
-						<string>/Applications/Spotify.app</string>
-						<key>QSObjectType</key>
-						<string>public.utf8-plain-text</string>
-					</dict>
-				</dict>
 				<key>directID</key>
 				<string>/Applications/Spotify.app</string>
 			</dict>
@@ -106,23 +89,6 @@
 			<dict>
 				<key>actionID</key>
 				<string>AppleScriptRunAction</string>
-				<key>directArchive</key>
-				<dict>
-					<key>class</key>
-					<string>QSObject</string>
-					<key>data</key>
-					<dict>
-						<key>public.utf8-plain-text</key>
-						<string>/Users/bilen/src/other/Spotify-Scripts-for-QuickSilver/PreviousTrack.scpt</string>
-					</dict>
-					<key>properties</key>
-					<dict>
-						<key>QSObjectName</key>
-						<string>/Users/bilen/src/other/Spotify-Scripts-for-QuickSilver/PreviousTrack.scpt</string>
-						<key>QSObjectType</key>
-						<string>public.utf8-plain-text</string>
-					</dict>
-				</dict>
 				<key>directID</key>
 				<string>/Users/bilen/src/other/Spotify-Scripts-for-QuickSilver/PreviousTrack.scpt</string>
 			</dict>
@@ -132,8 +98,12 @@
 			<integer>43</integer>
 			<key>modifiers</key>
 			<integer>1310985</integer>
+			<key>name</key>
+			<string>Run as AppleScript: /Users/bilen/src/other/Spotify-Scripts-for-QuickSilver/PreviousTrack.scpt</string>
 			<key>onPress</key>
 			<true/>
+			<key>showWindow</key>
+			<false/>
 			<key>type</key>
 			<string>QSHotKeyTrigger</string>
 		</dict>
@@ -144,23 +114,6 @@
 			<dict>
 				<key>actionID</key>
 				<string>AppleScriptRunAction</string>
-				<key>directArchive</key>
-				<dict>
-					<key>class</key>
-					<string>QSObject</string>
-					<key>data</key>
-					<dict>
-						<key>public.utf8-plain-text</key>
-						<string>/Users/bilen/src/other/Spotify-Scripts-for-QuickSilver/PlayPause.scpt</string>
-					</dict>
-					<key>properties</key>
-					<dict>
-						<key>QSObjectName</key>
-						<string>/Users/bilen/src/other/Spotify-Scripts-for-QuickSilver/PlayPause.scpt</string>
-						<key>QSObjectType</key>
-						<string>public.utf8-plain-text</string>
-					</dict>
-				</dict>
 				<key>directID</key>
 				<string>/Users/bilen/src/other/Spotify-Scripts-for-QuickSilver/PlayPause.scpt</string>
 			</dict>
@@ -170,8 +123,12 @@
 			<integer>35</integer>
 			<key>modifiers</key>
 			<integer>1310985</integer>
+			<key>name</key>
+			<string>Run as AppleScript: /Users/bilen/src/other/Spotify-Scripts-for-QuickSilver/PlayPause.scpt</string>
 			<key>onPress</key>
 			<true/>
+			<key>showWindow</key>
+			<false/>
 			<key>type</key>
 			<string>QSHotKeyTrigger</string>
 		</dict>
@@ -240,23 +197,6 @@
 			<dict>
 				<key>actionID</key>
 				<string>AppleScriptRunAction</string>
-				<key>directArchive</key>
-				<dict>
-					<key>class</key>
-					<string>QSObject</string>
-					<key>data</key>
-					<dict>
-						<key>public.utf8-plain-text</key>
-						<string>/Users/bilen/src/other/Spotify-Scripts-for-QuickSilver/NextTrack.scpt</string>
-					</dict>
-					<key>properties</key>
-					<dict>
-						<key>QSObjectName</key>
-						<string>/Users/bilen/src/other/Spotify-Scripts-for-QuickSilver/NextTrack.scpt</string>
-						<key>QSObjectType</key>
-						<string>public.utf8-plain-text</string>
-					</dict>
-				</dict>
 				<key>directID</key>
 				<string>/Users/bilen/src/other/Spotify-Scripts-for-QuickSilver/NextTrack.scpt</string>
 			</dict>
@@ -266,8 +206,12 @@
 			<integer>47</integer>
 			<key>modifiers</key>
 			<integer>1310985</integer>
+			<key>name</key>
+			<string>Run as AppleScript: /Users/bilen/src/other/Spotify-Scripts-for-QuickSilver/NextTrack.scpt</string>
 			<key>onPress</key>
 			<true/>
+			<key>showWindow</key>
+			<false/>
 			<key>type</key>
 			<string>QSHotKeyTrigger</string>
 		</dict>
