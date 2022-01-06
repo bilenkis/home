@@ -327,3 +327,6 @@ autocmd InsertLeave * if &readonly==0 && filereadable(bufname('%')) | silent upd
 
 " always open a file in the write mode
 autocmd SwapExists * let v:swapchoice = "e"
+
+set wildmenu
+set wildmode=longest:full,full
