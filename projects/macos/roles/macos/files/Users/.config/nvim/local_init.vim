@@ -314,6 +314,8 @@ let loaded_delimitMate = 0
 set noignorecase
 
 " Name a tab with the current directory
+set titlestring=%{getcwd()}
+
 augroup dirchange
     autocmd!
     autocmd DirChanged * let &titlestring=v:event['cwd']
