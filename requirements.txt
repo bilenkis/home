@@ -1,4 +1,4 @@
-ansible==2.8.11
+ansible==2.12.4
 docker-compose
 ipython
 pgcli
