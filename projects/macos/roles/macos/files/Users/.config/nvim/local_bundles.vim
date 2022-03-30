@@ -8,3 +8,6 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'tpope/vim-dispatch'
 Plug 'stsewd/fzf-checkout.vim'
 Plug 'maxbrunsfeld/vim-yankstack'
+
+Plug 'ggandor/lightspeed.nvim'
+Plug 'tpope/vim-repeat'

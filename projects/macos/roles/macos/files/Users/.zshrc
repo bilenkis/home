@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
   export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
   export PATH=/usr/local/sbin:$PATH
@@ -18,18 +25,7 @@
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
 
-# theme: powerlevel9k
-  ZSH_THEME="powerlevel9k/powerlevel9k"
-  POWERLEVEL9K_DISABLE_RPROMPT=true
-  POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-  POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator kube_ps1 virtualenv dir vcs)
-# kube-ps1 fix for powerlevel9k
-  source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
-  prompt_kube_ps1(){
-     echo -n `kube_ps1`
-  }
-# To avoid VirtualEnvs activate command from interfering with Powerlevel9k
-  VIRTUAL_ENV_DISABLE_PROMPT=1
+  ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -100,23 +96,18 @@ plugins=(
 git
 fzf
 gnu-utils
-ansible
-kops
 kubectl
 helm
-kube-ps1
+ansible
 docker
 docker-compose
 ssh-agent
-colored-man-pages
-minikube
 extract
 zsh-dircolors-solarized
 pip
 tmux
 z
 fzf-z
-pyenv
 encode64
 common-aliases
 github
@@ -249,14 +240,14 @@ alias tp='terraform plan'
 alias ta='terraform apply'
 alias taa='terraform apply -auto-approve'
 alias vim='nvim'
+alias helm2='helmswitch 2.17.0'
+alias helm3='helmswitch 3.8.1'
+alias cp='cp'
+alias kg='kubectl get'
 
 # plugin: zsh-dircolors-solarized
 export DIRCOLORTHEME='dircolors.256dark'
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-
-# enable mitogen
-export ANSIBLE_STRATEGY=mitogen_linear
-export ANSIBLE_STRATEGY_PLUGINS=~/src/bilenkis/home/plugins/mitogen/ansible_mitogen/plugins/strategy
 
 # set GOPATH
 export GOPATH=$HOME/go
@@ -267,11 +258,6 @@ export PATH=$HOME/.vendor/bundle/ruby/2.3.0/bin:$PATH
 export PATH=$HOME/.gem/ruby/2.6.0/bin:$PATH
 
 # pyenv
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
 [ -z ${PYENV_ACTIVATE_SHELL} ] && pyenv activate dh
 
 # Work related environment
@@ -288,3 +274,6 @@ test -e /usr/local/share/zsh/site-functions/_awless && source /usr/local/share/z
 export WORDCHARS=''
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
