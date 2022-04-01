@@ -1,16 +1,5 @@
 ---
 
-- name: Create pyenv main virtualenv
-  shell: >
-    pyenv virtualenv {{ virtualenv_version }} main
-  args:
-    creates: "{{ ansible_user_dir }}/.pyenv/versions/{{ virtualenv_version }}/envs/main/"
-
-- name: Install python libs only for localhost
-  pip:
-    requirements: "{{ playbook_dir }}/../../requirements.txt"
-    virtualenv: "{{ ansible_user_dir }}/.pyenv/versions/{{ virtualenv_version }}/envs/main/"
-
 - name: Install oh-my-zsh
   shell: >
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -46,6 +35,13 @@
     repo: https://github.com/bhilburn/powerlevel9k.git
     dest: "{{ ansible_user_dir }}/.oh-my-zsh/custom/themes/powerlevel9k"
     update: false
+
+- name: Install powerlevel10k theme
+  git:
+    repo: https://github.com/romkatv/powerlevel10k.git
+    dest: "{{ ansible_user_dir }}/.oh-my-zsh/custom/themes/powerlevel10k"
+    update: false
+    depth: 1
 
 - name: Install fzf-z
   git:

@@ -1,13 +1,13 @@
 #!/bin/bash
 set -xe
 
-PYTHON_VERSION="3.7.5"
+PYTHON_VERSION="3.10.3"
 
 #xcode-select --install
 #ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-brew install zsh postgresql pyenv pyenv-virtualenv
-pyenv install $PYTHON_VERSION
+#brew install zsh pyenv pyenv-virtualenv
+#pyenv install $PYTHON_VERSION
 pyenv global $PYTHON_VERSION
 
 curl -Lo /tmp/get-pip.py https://bootstrap.pypa.io/get-pip.py

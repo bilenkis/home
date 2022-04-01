@@ -113,6 +113,9 @@ common-aliases
 github
 )
 
+# Uncomment the following line if pasting URLs and other text is messed up.
+DISABLE_MAGIC_FUNCTIONS="true"
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -258,7 +261,8 @@ export PATH=$HOME/.vendor/bundle/ruby/2.3.0/bin:$PATH
 export PATH=$HOME/.gem/ruby/2.6.0/bin:$PATH
 
 # pyenv
-[ -z ${PYENV_ACTIVATE_SHELL} ] && pyenv activate dh
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+[ -z ${PYENV_ACTIVATE_SHELL} ] && pyenv activate main
 
 # Work related environment
 [ -f ~/.work.env ] && source ~/.work.env
