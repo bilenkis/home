@@ -202,9 +202,7 @@ let g:nerdtree_tabs_open_on_console_startup=0
 " ripgrep
 """"""""""""""""""""""""""""""
 if executable('rg')
-  let $FZF_DEFAULT_COMMAND = 'rg --files --no-ignore --hidden --follow --glob "!.git/*" --glob "!.terraform/*"'
-  set grepprg=rg\ --vimgrep
-  command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "\!.git/*" --glob "\!.terraform/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+  let $FZF_DEFAULT_COMMAND = 'rg --files --no-ignore --hidden --follow --glob "!.git" --glob "!.terraform"'
 endif
 
 nmap <leader>f :Find <c-r><CR>

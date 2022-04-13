@@ -15,6 +15,7 @@ fi
   export PATH=/usr/local/opt/ncurses/bin:$PATH
   export PATH=/usr/local/opt/openssl@1.1/bin:$PATH
   export PATH=$HOME/bin:$PATH
+  export PATH="/Users/bilen/Library/Python/3.8/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
   export ZSH="/Users/bilen/.oh-my-zsh"
@@ -177,6 +178,7 @@ setopt share_history
 
 # Disable globbing
 setopt no_bare_glob_qual
+setopt +o nomatch
 
 ## ZLE tweaks ##
 ## use the vi navigation keys (hjkl) besides cursor keys in menu completion
