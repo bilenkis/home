@@ -1,9 +1,9 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+  export XDG_CACHE_HOME="$HOME/.cache"
+  export XDG_CONFIG_HOME="$HOME/.config"
+  source "$XDG_CACHE_HOME/p10k-instant-prompt-${(%):-%n}.zsh"
 
 # If you come from bash you might have to change your $PATH.
   export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
@@ -84,6 +84,7 @@ setopt HIST_FIND_NO_DUPS
 # plugin: ssh-agent
   zstyle :omz:plugins:ssh-agent identities id_rsa
   zstyle :omz:plugins:ssh-agent agent-forwarding on
+  zstyle :omz:plugins:ssh-agent lazy yes
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -239,16 +240,20 @@ alias ht="helm template . --set 'global.cluster=lw,global.env=test'"
 alias test='nocorrect test'
 alias aplay='aplaybook'
 alias sed='gsed'
-alias t='terraform'
-alias ti='terraform init'
-alias tp='terraform plan'
-alias ta='terraform apply'
-alias taa='terraform apply -auto-approve'
 alias vim='nvim'
 alias helm2='helmswitch 2.17.0'
 alias helm3='helmswitch 3.8.1'
 alias cp='cp'
 alias kg='kubectl get'
+alias tg='terragrunt'
+alias t='terraform'
+alias ti='terraform init'
+alias tp='terraform plan'
+alias ta='terraform apply'
+alias taa='terraform apply -auto-approve'
+alias tgp='terragrunt plan'
+alias tga='terragrunt apply'
+alias tgaa='terragrunt apply -auto-approve'
 
 # plugin: zsh-dircolors-solarized
 export DIRCOLORTHEME='dircolors.256dark'
