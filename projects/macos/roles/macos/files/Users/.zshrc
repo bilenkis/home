@@ -251,9 +251,11 @@ alias ti='terraform init'
 alias tp='terraform plan'
 alias ta='terraform apply'
 alias taa='terraform apply -auto-approve'
+alias tgi='terragrunt init'
 alias tgp='terragrunt plan'
 alias tga='terragrunt apply'
 alias tgaa='terragrunt apply -auto-approve'
+alias fd='fd -H'
 
 # plugin: zsh-dircolors-solarized
 export DIRCOLORTHEME='dircolors.256dark'

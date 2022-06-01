@@ -303,7 +303,7 @@ let g:airline#extensions#tabline#enabled = 0
 let no_buffers_menu=0
 set expandtab softtabstop=2 shiftwidth=2 tabstop=2
 set history=10000        " keep lines of command line history
-set relativenumber
+set number
 set scrolloff=10
 set autoread
 set nohlsearch
