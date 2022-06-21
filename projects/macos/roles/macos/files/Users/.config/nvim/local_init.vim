@@ -238,7 +238,7 @@ set undodir=~/.vim/undodir
 " vim-rhubarb
 """"""""""""""""""""""""""""""
 " open current line on GitHub
-nnoremap <leader>gB :.GBrowse<CR>
+nnoremap <leader>gB :.GBrowse!<CR>
 
 """"""""""""""""""""""""""""""
 " Jsonnet
