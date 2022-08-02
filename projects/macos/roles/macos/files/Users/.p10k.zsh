@@ -291,7 +291,7 @@
 
   # The default icon shown next to non-writable and non-existent directories when
   # POWERLEVEL9K_DIR_SHOW_WRITABLE is set to v3.
-  typeset -g POWERLEVEL9K_LOCK_ICON='∅'
+  # typeset -g POWERLEVEL9K_LOCK_ICON='⭐'
 
   # POWERLEVEL9K_DIR_CLASSES allows you to specify custom icons and colors for different
   # directories. It must be an array with 3 * N elements. Each triplet consists of:
@@ -558,7 +558,7 @@
   # Don't show the number of background jobs.
   typeset -g POWERLEVEL9K_BACKGROUND_JOBS_VERBOSE=false
   # Custom icon.
-  typeset -g POWERLEVEL9K_BACKGROUND_JOBS_VISUAL_IDENTIFIER_EXPANSION='≡'
+  # typeset -g POWERLEVEL9K_BACKGROUND_JOBS_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
   #######################[ direnv: direnv status (https://direnv.net/) ]########################
   # Direnv color.
@@ -733,14 +733,14 @@
   typeset -g POWERLEVEL9K_NORDVPN_{DISCONNECTED,CONNECTING,DISCONNECTING}_CONTENT_EXPANSION=
   typeset -g POWERLEVEL9K_NORDVPN_{DISCONNECTED,CONNECTING,DISCONNECTING}_VISUAL_IDENTIFIER_EXPANSION=
   # Custom icon.
-  typeset -g POWERLEVEL9K_NORDVPN_VISUAL_IDENTIFIER_EXPANSION='nord'
+  # typeset -g POWERLEVEL9K_NORDVPN_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
   #################[ ranger: ranger shell (https://github.com/ranger/ranger) ]##################
   # Ranger shell color.
   typeset -g POWERLEVEL9K_RANGER_FOREGROUND=3
   typeset -g POWERLEVEL9K_RANGER_BACKGROUND=0
   # Custom icon.
-  typeset -g POWERLEVEL9K_RANGER_VISUAL_IDENTIFIER_EXPANSION='▲'
+  # typeset -g POWERLEVEL9K_RANGER_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
   ######################[ nnn: nnn shell (https://github.com/jarun/nnn) ]#######################
   # Nnn shell color.
@@ -1299,12 +1299,12 @@
   # typeset -g POWERLEVEL9K_TERRAFORM_VERSION_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
   ################[ terraform_version: It shows active terraform version (https://www.terraform.io) ]#################
-  typeset -g POWERLEVEL9K_TERRAFORM_VERSION_SHOW_ON_COMMAND='terraform|tf'
+  typeset -g POWERLEVEL9K_TERRAFORM_VERSION_SHOW_ON_COMMAND='terraform|tf|terragrunt|tg'
 
   #############[ kubecontext: current kubernetes context (https://kubernetes.io/) ]#############
   # Show kubecontext only when the command you are typing invokes one of these tools.
   # Tip: Remove the next line to always show kubecontext.
-  # typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='kubectl|helm|kubens|kubectx|oc|istioctl|kogito|k9s|helmfile|flux|fluxctl|stern'
+  typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='kubectl|helm|kubens|kubectx|oc|istioctl|kogito|k9s|helmfile|flux|fluxctl|stern'
 
   # Kubernetes context classes for the purpose of using different colors, icons and expansions with
   # different contexts.
@@ -1334,12 +1334,19 @@
   #   typeset -g POWERLEVEL9K_KUBECONTEXT_TEST_VISUAL_IDENTIFIER_EXPANSION='⭐'
   #   typeset -g POWERLEVEL9K_KUBECONTEXT_TEST_CONTENT_EXPANSION='> ${P9K_CONTENT} <'
   typeset -g POWERLEVEL9K_KUBECONTEXT_CLASSES=(
-      # '*prod*'  PROD    # These values are examples that are unlikely
-      # '*test*'  TEST    # to match your needs. Customize them as needed.
+      '*prd*'         PROD    # These values are examples that are unlikely
+      '*production*'  PROD    # These values are examples that are unlikely
+      '*stg*'  TEST    # to match your needs. Customize them as needed.
+      '*qa*'  TEST    # to match your needs. Customize them as needed.
+      '*load-tests*'  TEST    # to match your needs. Customize them as needed.
+      '*staging*'  TEST    # to match your needs. Customize them as needed.
       '*'       DEFAULT)
   typeset -g POWERLEVEL9K_KUBECONTEXT_DEFAULT_FOREGROUND=7
   typeset -g POWERLEVEL9K_KUBECONTEXT_DEFAULT_BACKGROUND=5
   typeset -g POWERLEVEL9K_KUBECONTEXT_DEFAULT_VISUAL_IDENTIFIER_EXPANSION='○'
+
+  typeset -g POWERLEVEL9K_KUBECONTEXT_PROD_FOREGROUND=2
+  typeset -g POWERLEVEL9K_KUBECONTEXT_PROD_BACKGROUND=15
 
   # Use POWERLEVEL9K_KUBECONTEXT_CONTENT_EXPANSION to specify the content displayed by kubecontext
   # segment. Parameter expansions are very flexible and fast, too. See reference:
@@ -1437,7 +1444,7 @@
   typeset -g POWERLEVEL9K_AWS_EB_ENV_FOREGROUND=2
   typeset -g POWERLEVEL9K_AWS_EB_ENV_BACKGROUND=0
   # Custom icon.
-  typeset -g POWERLEVEL9K_AWS_EB_ENV_VISUAL_IDENTIFIER_EXPANSION='eb'
+  # typeset -g POWERLEVEL9K_AWS_EB_ENV_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
   ##########[ azure: azure account name (https://docs.microsoft.com/en-us/cli/azure) ]##########
   # Show azure only when the command you are typing invokes one of these tools.
@@ -1447,7 +1454,7 @@
   typeset -g POWERLEVEL9K_AZURE_FOREGROUND=7
   typeset -g POWERLEVEL9K_AZURE_BACKGROUND=4
   # Custom icon.
-  typeset -g POWERLEVEL9K_AZURE_VISUAL_IDENTIFIER_EXPANSION='az'
+  # typeset -g POWERLEVEL9K_AZURE_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
   ##########[ gcloud: google cloud account and project (https://cloud.google.com/) ]###########
   # Show gcloud only when the command you are typing invokes one of these tools.
@@ -1620,7 +1627,7 @@
   # Show battery in yellow when it's discharging.
   typeset -g POWERLEVEL9K_BATTERY_DISCONNECTED_FOREGROUND=3
   # Battery pictograms going from low to high level of charge.
-  typeset -g POWERLEVEL9K_BATTERY_STAGES=('%K{232}▁' '%K{232}▂' '%K{232}▃' '%K{232}▄' '%K{232}▅' '%K{232}▆' '%K{232}▇' '%K{232}█')
+  typeset -g POWERLEVEL9K_BATTERY_STAGES='\uf58d\uf579\uf57a\uf57b\uf57c\uf57d\uf57e\uf57f\uf580\uf581\uf578'
   # Don't show the remaining time to charge/discharge.
   typeset -g POWERLEVEL9K_BATTERY_VERBOSE=false
   typeset -g POWERLEVEL9K_BATTERY_BACKGROUND=0
