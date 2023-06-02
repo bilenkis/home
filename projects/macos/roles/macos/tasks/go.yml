@@ -4,8 +4,6 @@
   file:
     path: "{{ ansible_user_dir }}/go"
     state: directory
-  tags:
-    - hugo
 
 - name: Install hugo
   shell: >
@@ -13,14 +11,19 @@
   tags:
     - hugo
 
-- name: Install terragrunt-atlantis-config
+- name: Install Go packages
   shell: >
-    go install github.com/transcend-io/terragrunt-atlantis-config@v1.16.0
-  tags:
-    - terragrunt-atlantis-config
+    go install "{{ item }}"
+  loop: "{{ go_packages }}"
+  register: _go_packages_installation
+  async: 60
+  poll: 0
 
-- name: Install staticcheck
-  shell: >
-    go install honnef.co/go/tools/cmd/staticcheck@2022.1
-  tags:
-    - staticcheck
+- name: Wait for go packages installation task to finish
+  async_status:
+    jid: "{{ item.ansible_job_id }}"
+  register: _jobs_go_packages_installation
+  retries: 600
+  delay: 2
+  until: _jobs_go_packages_installation.finished
+  loop: "{{ _go_packages_installation.results }}"

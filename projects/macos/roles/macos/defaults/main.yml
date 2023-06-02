@@ -1,1 +1,6 @@
 ---
+
+go_packages:
+  - github.com/transcend-io/terragrunt-atlantis-config@v1.16.0
+  - honnef.co/go/tools/cmd/staticcheck@2022.1
+  - github.com/wallix/awless@latest
