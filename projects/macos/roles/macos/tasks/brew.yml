@@ -35,7 +35,7 @@
       - reattach-to-user-namespace
 #      - awless
       - kubectl
-      - kube-ps1
+#      - kube-ps1
       - kubectx
       - subnetcalc
       - iproute2mac
@@ -44,14 +44,13 @@
       - pyenv-virtualenv
       - fd
       - nvim
-      - ed
+#      - ed
       - findutils
       - gnu-indent
       - gnu-sed
       - gnu-tar
       - gnu-which
       - grep
-      - awscli
       - hugo
       - warrensbox/tap/tfswitch
       - tokiwong/tap/helm-switcher
@@ -60,8 +59,8 @@
 
 - name: Check if maccy is installed
   stat:
-    path: "/Applications/Maccy.app"
-  register: maccy
+    path: "/Applications/Raycast.app"
+  register: raycast
 
 - name: Install apps with brew cask
   homebrew:
@@ -69,5 +68,5 @@
     install_options: "cask"
   vars:
     packages:
-      - maccy
-  when: not maccy.stat.exists
+      - raycast
+  when: not raycast.stat.exists

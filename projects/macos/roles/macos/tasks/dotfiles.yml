@@ -30,11 +30,11 @@
     path: "{{ ansible_user_dir }}/fonts"
     state: absent
 
-- name: Install powerlevel9k theme
-  git:
-    repo: https://github.com/bhilburn/powerlevel9k.git
-    dest: "{{ ansible_user_dir }}/.oh-my-zsh/custom/themes/powerlevel9k"
-    update: false
+#- name: Install powerlevel9k theme
+#  git:
+#    repo: https://github.com/bhilburn/powerlevel9k.git
+#    dest: "{{ ansible_user_dir }}/.oh-my-zsh/custom/themes/powerlevel9k"
+#    update: false
 
 - name: Install powerlevel10k theme
   git:

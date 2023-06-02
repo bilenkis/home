@@ -1,0 +1,26 @@
+---
+
+- name: Create GOPATH directory
+  file:
+    path: "{{ ansible_user_dir }}/go"
+    state: directory
+  tags:
+    - hugo
+
+- name: Install hugo
+  shell: >
+    go install -tags extended github.com/gohugoio/hugo@latest
+  tags:
+    - hugo
+
+- name: Install terragrunt-atlantis-config
+  shell: >
+    go install github.com/transcend-io/terragrunt-atlantis-config@v1.16.0
+  tags:
+    - terragrunt-atlantis-config
+
+- name: Install staticcheck
+  shell: >
+    go install honnef.co/go/tools/cmd/staticcheck@2022.1
+  tags:
+    - staticcheck

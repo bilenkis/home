@@ -5,6 +5,8 @@
 - import_tasks: os.yml
 - import_tasks: dotfiles.yml
   tags: dotfiles
+- import_tasks: go.yml
+  tags: go
 
 - name: Synchronize configs
   synchronize:
