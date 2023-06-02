@@ -1,6 +1,13 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
   export XDG_CACHE_HOME="$HOME/.cache"
   export XDG_CONFIG_HOME="$HOME/.config"
   source "$XDG_CACHE_HOME/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -9,11 +16,11 @@
   export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
   export PATH=/usr/local/sbin:$PATH
   export PATH=/usr/local/opt:$PATH
-  export PATH=/usr/local/opt/curl/bin:$PATH
-  export PATH=/usr/local/opt/icu4c/bin:$PATH
-  export PATH=/usr/local/opt/gettext/bin:$PATH
-  export PATH=/usr/local/opt/ncurses/bin:$PATH
-  export PATH=/usr/local/opt/openssl@1.1/bin:$PATH
+  # export PATH=/usr/local/opt/curl/bin:$PATH
+  # export PATH=/usr/local/opt/icu4c/bin:$PATH
+  # export PATH=/usr/local/opt/gettext/bin:$PATH
+  # export PATH=/usr/local/opt/ncurses/bin:$PATH
+  # export PATH=/usr/local/opt/openssl@1.1/bin:$PATH
   export PATH=$HOME/bin:$PATH
   export PATH="/Users/bilen/Library/Python/3.8/bin:$PATH"
 
@@ -85,6 +92,7 @@ setopt HIST_FIND_NO_DUPS
   zstyle :omz:plugins:ssh-agent identities id_rsa
   zstyle :omz:plugins:ssh-agent agent-forwarding on
   zstyle :omz:plugins:ssh-agent lazy yes
+  zstyle :omz:plugins:ssh-agent quiet yes
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -179,7 +187,6 @@ setopt share_history
 
 # Disable globbing
 setopt no_bare_glob_qual
-setopt +o nomatch
 
 ## ZLE tweaks ##
 ## use the vi navigation keys (hjkl) besides cursor keys in menu completion
@@ -200,18 +207,18 @@ alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
 alias dex="docker exec -i -t"
 alias drun="docker run --rm -i -t"
 alias dl="docker logs -ft --tail=100"
-# Remove all <none> images
-drminone() { docker rmi $(docker images -f 'dangling=true' -q) }
-# Remove all containers
-drm() { docker rm $(docker ps -a -q); }
-# Remove all images
-dri() { docker rmi $(docker images -q); }
-# Sh into running container
-dsh() { docker exec -it "$1" /bin/sh; }
-# Bash into running container
-dbash() { docker exec -it "$1" /bin/bash; }
-dins() { docker inspect "$1" | less; }
-
+# # Remove all <none> images
+# drminone() { docker rmi $(docker images -f 'dangling=true' -q) }
+# # Remove all containers
+# drm() { docker rm $(docker ps -a -q); }
+# # Remove all images
+# dri() { docker rmi $(docker images -q); }
+# # Sh into running container
+# dsh() { docker exec -it "$1" /bin/sh; }
+# # Bash into running container
+# dbash() { docker exec -it "$1" /bin/bash; }
+# dins() { docker inspect "$1" | less; }
+ 
 # personal git aliases
 alias gs='gst'
 alias gp='ggpush'
@@ -220,7 +227,7 @@ alias grbo='git rebase origin/master --autostash'
 alias grbm='git rebase master --autostash'
 alias gcb='git checkout --track -b'
 alias gpf='git push --force origin $(git_current_branch)'
-alias gup='gfa;git pull --verbose --rebase --prune --autostash --tags origin "$(git_current_branch)"'
+alias gup='gfa;git pull --verbose --no-rebase --prune --autostash --tags origin "$(git_current_branch)"'
 alias gcof='gco $(gb --all | fzf)'
 
 # personal aliases
@@ -252,10 +259,11 @@ alias tp='terraform plan'
 alias ta='terraform apply'
 alias taa='terraform apply -auto-approve'
 alias tgi='terragrunt init'
+alias tgir='terragrunt init -reconfigure'
 alias tgp='terragrunt plan'
 alias tga='terragrunt apply'
 alias tgaa='terragrunt apply -auto-approve'
-alias fd='fd -H'
+alias fd='fd -H -I'
 
 # plugin: zsh-dircolors-solarized
 export DIRCOLORTHEME='dircolors.256dark'
@@ -279,14 +287,27 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 # kubectl plugins
 PATH="${PATH}:${HOME}/.krew/bin"
 
-# awless completion
-export BASH_VERSION="5.1.12(1)-release"
-test -e /usr/local/share/zsh/site-functions/_awless && source /usr/local/share/zsh/site-functions/_awless
-
+# # awless completion
+# export BASH_VERSION="5.1.12(1)-release"
+# test -e /usr/local/share/zsh/site-functions/_awless && source /usr/local/share/zsh/site-functions/_awless
+ 
 # Use all the symbols including - and _ as word delimiters
 export WORDCHARS=''
 
+export HELM_DIFF_COLOR=true
+export HELM_DIFF_THREE_WAY_MERGE=true
+
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+boundarytargets() { 
+  for org in `boundary scopes list -format=json | jq -r '.items[] | .id'`; \
+  do \
+    for project in `boundary scopes list -scope-id=$org -format=json | jq -r '.items[] | .id'`; \
+      do \
+        boundary targets list -scope-id=$project -format=json | jq -r '.items[] | .id + " " + .scope.name + " " + .name';
+      done
+  done
+} 2> /dev/null
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
