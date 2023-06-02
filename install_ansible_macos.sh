@@ -1,7 +1,7 @@
 #!/bin/bash
 set -xe
 
-PYTHON_VERSION="3.10.3"
+PYTHON_VERSION="3.11.3"
 
 #xcode-select --install
 #ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
