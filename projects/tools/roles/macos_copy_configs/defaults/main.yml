@@ -3,7 +3,4 @@
 repo_configs_destination: '{{ playbook_dir }}/../macos/roles/macos/files/Users/Library'
 
 sync_apps:
-  - 'Application Support/Quicksilver/Triggers.plist'
-  - 'Preferences/com.blacktree.Quicksilver.plist'
-  - 'Preferences/com.pigigaldi.pock.plist'
   - 'Preferences/com.googlecode.iterm2.plist'
