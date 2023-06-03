@@ -57,7 +57,15 @@
       - tokiwong/tap/helm-switcher
       - helmfile
       - jq
+
+- name: Install fonts
+  homebrew:
+    name: "{{ packages }}"
+  vars:
+    packages:
       - font-hack-nerd-font
+  # Plugin exits with error however the fonts are installed
+  ignore_errors: true
 
 - name: Install apps with brew cask
   homebrew:
