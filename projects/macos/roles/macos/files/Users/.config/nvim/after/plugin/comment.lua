@@ -7,3 +7,10 @@ require('Comment').setup({
   },
   ignore = '^$'
 })
+
+local ft = require('Comment.ft')
+
+ft({
+  'yaml',
+  'helm',
+}, '#%s')
