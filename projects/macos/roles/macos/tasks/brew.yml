@@ -1,71 +1,73 @@
 ---
 
-# - name: Install general packages
-#   homebrew:
-#     name: "{{ packages }}"
-#     update_homebrew: true
-#   vars:
-#     packages:
-#       - bash
-#       - coreutils
-#       - binutils
-#       - diffutils
-#       - gawk
-#       - gnutls
-#       - gzip
-#       - watch
-#       - wget
-#       - file-formula
-#       - git
-#       - openssh
-#       - postgresql
-#       - perl
-#       - rsync
-#       - unzip
-#       - zsh
-#       - sshuttle
-#       - nmap
-#       - ripgrep
-#       - bat
-#       - tmux
-#       - p7zip
-#       - htop
-#       - mosh
-#       - pwgen
-#       - reattach-to-user-namespace
-# #      - awless
-#       - kubectl
-# #      - kube-ps1
-#       - kubectx
-#       - subnetcalc
-#       - iproute2mac
-#       - tree
-#       - pyenv
-#       - pyenv-virtualenv
-#       - fd
-#       - nvim
-# #      - ed
-#       - findutils
-#       - gnu-indent
-#       - gnu-sed
-#       - gnu-tar
-#       - gnu-which
-#       - grep
-#       - hugo
-#       - warrensbox/tap/tfswitch
-#       - tokiwong/tap/helm-switcher
-#       - helmfile
-#       - jq
-
-- name: Check if Raycast is installed
-  stat:
-    path: "/Applications/{{ item }}.app"
-  register: cask_apps
-  loop: "{{ brew_cask_apps }}"
+- name: Install general packages
+  homebrew:
+    name: "{{ packages }}"
+    update_homebrew: true
+  vars:
+    packages:
+      - bash
+      - coreutils
+      - binutils
+      - diffutils
+      - gawk
+      - gnutls
+      - gzip
+      - watch
+      - wget
+      - file-formula
+      - git
+      - openssh
+      - postgresql
+      - perl
+      - rsync
+      - unzip
+      - zsh
+      - sshuttle
+      - nmap
+      - ripgrep
+      - bat
+      - tmux
+      - p7zip
+      - htop
+      - mosh
+      - pwgen
+      - reattach-to-user-namespace
+      - kubectl
+      - kubectx
+      - subnetcalc
+      - iproute2mac
+      - tree
+      - pyenv
+      - pyenv-virtualenv
+      - fd
+      - nvim
+      - findutils
+      - gnu-indent
+      - gnu-sed
+      - gnu-tar
+      - gnu-which
+      - grep
+      - hugo
+      - warrensbox/tap/tfswitch
+      - tokiwong/tap/helm-switcher
+      - helmfile
+      - jq
 
 - name: Install apps with brew cask
   homebrew:
-    name: "{{ item }}"
+    name: "{{ packages }}"
     install_options: "cask"
-  loop: "{{ cask_apps.results }}"
-  when: not item.stat.exists
+  # Plugin exits with error although the app is installed correctly
+  ignore_errors: true
+  vars:
+    packages:
+      - raycast
+      - spotify
+      - whatsapp
+      - iterm2
+      - telegram-desktop
+      - google-chrome
+      - skype
+      - logi-options-plus
+      - vlc
