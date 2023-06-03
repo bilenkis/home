@@ -6,36 +6,6 @@
   args:
     creates: "{{ ansible_user_dir }}/.oh-my-zsh"
 
-- name: Check for existing powerline fonts
-  stat:
-    path: "{{ ansible_user_dir }}/Library/Fonts/Droid Sans Mono Dotted for Powerline.ttf"
-  register: fonts
-
-- name: Clone powerline fonts
-  git:
-    repo: https://github.com/powerline/fonts.git
-    dest: "{{ ansible_user_dir }}/fonts"
-    depth: 1
-  when: not fonts.stat.exists
-
-- name: Install powerline fonts
-  shell: >
-    ./install.sh
-  args:
-    chdir: "{{ ansible_user_dir }}/fonts"
-  when: not fonts.stat.exists
-
-- name: Cleanup powerline repo
-  file:
-    path: "{{ ansible_user_dir }}/fonts"
-    state: absent
-
-#- name: Install powerlevel9k theme
-#  git:
-#    repo: https://github.com/bhilburn/powerlevel9k.git
-#    dest: "{{ ansible_user_dir }}/.oh-my-zsh/custom/themes/powerlevel9k"
-#    update: false
-
 - name: Install powerlevel10k theme
   git:
     repo: https://github.com/romkatv/powerlevel10k.git
@@ -61,3 +31,9 @@
     state: touch
     owner: "{{ ansible_user_id }}"
     group: "staff"
+
+- name: Install Neovim Packer
+  git:
+    repo: https://github.com/wbthomason/packer.nvim
+    dest: "{{ ansible_user_dir }}/.local/share/nvim/site/pack/packer/start/packer.nvim"
+    depth: 1
