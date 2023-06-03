@@ -1,5 +1,9 @@
 ---
 
+- name: Tap brew packages
+  homebrew_tap:
+    name: homebrew/cask-fonts
+
 - name: Install general packages
   homebrew:
     name: "{{ packages }}"
@@ -53,6 +57,7 @@
       - tokiwong/tap/helm-switcher
       - helmfile
       - jq
+      - font-hack-nerd-font
 
 - name: Install apps with brew cask
   homebrew:
