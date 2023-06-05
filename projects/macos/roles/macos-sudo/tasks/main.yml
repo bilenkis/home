@@ -1,15 +1,16 @@
 ---
-- name: Unlink gnu-ls without color
-  file:
-    path: '/usr/local/opt/coreutils/libexec/gnubin/ls'
-    state: absent
+
+- name: Get brew prefix
+  shell: >
+    brew --prefix
+  register: brew_prefix
 
 - name: Add zsh to official shell
   lineinfile:
     path: "/etc/shells"
-    line: "/usr/local/bin/zsh"
+    line: "{{ brew_prefix.stdout }}/bin/zsh"
 
 - name: Change users shell
   user:
     name: "{{ ansible_env.SUDO_USER }}"
-    shell: "/usr/local/bin/zsh"
+    shell: "{{ brew_prefix.stdout }}/bin/zsh"

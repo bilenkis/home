@@ -13,6 +13,10 @@
     update: false
     depth: 1
 
+- name: Install fzf useful completions
+  shell: >
+    {{ brew_prefix }}/opt/fzf/install
+
 - name: Install fzf-z
   git:
     repo: https://github.com/andrewferrier/fzf-z.git
@@ -30,10 +34,18 @@
     path: "{{ ansible_user_dir }}/.z"
     state: touch
     owner: "{{ ansible_user_id }}"
-    group: "staff"
+    group: "{{ ansible_user_gid }}"
 
 - name: Install Neovim Packer
   git:
     repo: https://github.com/wbthomason/packer.nvim
     dest: "{{ ansible_user_dir }}/.local/share/nvim/site/pack/packer/start/packer.nvim"
     depth: 1
+
+- name: Template .zshrc
+  ansible.builtin.template:
+    src: .zshrc
+    dest: "{{ ansible_user_dir }}/.zshrc"
+  tags:
+    - dotfiles
+    - sync

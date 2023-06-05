@@ -13,19 +13,15 @@ fi
   source "$XDG_CACHE_HOME/p10k-instant-prompt-${(%):-%n}.zsh"
 
 # If you come from bash you might have to change your $PATH.
-  export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
-  export PATH=/usr/local/sbin:$PATH
+  export PATH={{ brew_prefix }}/bin:$PATH
+  export PATH={{ brew_prefix }}/sbin:$PATH
+  export PATH={{ brew_prefix }}/opt/coreutils/libexec/gnubin:$PATH
   export PATH=/usr/local/opt:$PATH
-  # export PATH=/usr/local/opt/curl/bin:$PATH
-  # export PATH=/usr/local/opt/icu4c/bin:$PATH
-  # export PATH=/usr/local/opt/gettext/bin:$PATH
-  # export PATH=/usr/local/opt/ncurses/bin:$PATH
-  # export PATH=/usr/local/opt/openssl@1.1/bin:$PATH
+  export PATH="/Users/$USER/Library/Python/3.11/bin:$PATH"
   export PATH=$HOME/bin:$PATH
-  export PATH="/Users/bilen/Library/Python/3.8/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
-  export ZSH="/Users/bilen/.oh-my-zsh"
+  export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -203,7 +199,6 @@ export LANG=en_US.UTF-8
 alias dps="docker ps"
 alias dpa="docker ps -a"
 alias di="docker images"
-alias dip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
 alias dex="docker exec -i -t"
 alias drun="docker run --rm -i -t"
 alias dl="docker logs -ft --tail=100"
@@ -218,7 +213,7 @@ alias dl="docker logs -ft --tail=100"
 # # Bash into running container
 # dbash() { docker exec -it "$1" /bin/bash; }
 # dins() { docker inspect "$1" | less; }
- 
+
 # personal git aliases
 alias gs='gst'
 alias gp='ggpush'
@@ -278,6 +273,9 @@ export PATH=$HOME/.vendor/bundle/ruby/2.3.0/bin:$PATH
 export PATH=$HOME/.gem/ruby/2.6.0/bin:$PATH
 
 # pyenv
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 [ -z ${PYENV_ACTIVATE_SHELL} ] && pyenv activate main
 
@@ -290,7 +288,7 @@ PATH="${PATH}:${HOME}/.krew/bin"
 # # awless completion
 # export BASH_VERSION="5.1.12(1)-release"
 # test -e /usr/local/share/zsh/site-functions/_awless && source /usr/local/share/zsh/site-functions/_awless
- 
+
 # Use all the symbols including - and _ as word delimiters
 export WORDCHARS=''
 
@@ -299,7 +297,7 @@ export HELM_DIFF_THREE_WAY_MERGE=true
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-boundarytargets() { 
+boundarytargets() {
   for org in `boundary scopes list -format=json | jq -r '.items[] | .id'`; \
   do \
     for project in `boundary scopes list -scope-id=$org -format=json | jq -r '.items[] | .id'`; \

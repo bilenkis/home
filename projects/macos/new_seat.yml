@@ -1,5 +1,5 @@
 ---
 # ansible-playbook new_seat.yml -K
 
-- import_playbook: macos-sudo.yml
 - import_playbook: macos.yml
+- import_playbook: macos-sudo.yml

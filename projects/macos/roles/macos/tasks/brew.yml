@@ -2,7 +2,13 @@
 
 - name: Tap brew packages
   homebrew_tap:
-    name: homebrew/cask-fonts
+    name: "{{ packages }}"
+  vars:
+    packages:
+      - homebrew/core
+      - homebrew/cask-fonts
+      # work
+      - drone/drone
 
 - name: Install general packages
   homebrew:
@@ -57,6 +63,12 @@
       - tokiwong/tap/helm-switcher
       - helmfile
       - jq
+      - fzf
+      - parallel
+      - go
+      # work
+      - drone
+      - saml2aws
 
 - name: Install fonts
   homebrew:
@@ -68,9 +80,8 @@
   ignore_errors: true
 
 - name: Install apps with brew cask
-  homebrew:
+  homebrew_cask:
     name: "{{ packages }}"
-    install_options: "cask"
   # Plugin exits with error although the app is installed correctly
   ignore_errors: true
   vars:
@@ -80,7 +91,24 @@
       - whatsapp
       - iterm2
       - telegram-desktop
-      - google-chrome
+      # - google-chrome
       - skype
       - logi-options-plus
       - vlc
+  tags:
+    - cask
+
+- name: Get brew prefix
+  shell: >
+    brew --prefix
+  register: _brew_prefix
+  tags:
+    - dotfiles
+    - sync
+
+- name: Set brew_prefix
+  set_fact:
+    brew_prefix: "{{ _brew_prefix.stdout }}"
+  tags:
+    - dotfiles
+    - sync
