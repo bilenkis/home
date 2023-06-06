@@ -73,6 +73,8 @@
       # work
       - drone
       - saml2aws
+      - jsonnet-bundler
+      - go-jsonnet
 
 - name: Install fonts
   homebrew:
