@@ -30,3 +30,14 @@
     - ControlPersist 10m
     - Include ~/.ssh/config.d/*
   when: not ssh_config.stat.exists
+
+- name: Create docker plugins directory
+  file:
+    path: "{{ ansible_user_id }}/.docker/cli-plugins"
+    state: directory
+
+- name: Create symlink for docker-buildx plugin
+  file:
+    path: "{{ brew_prefix }}/opt/docker-buildx/bin/docker-buildx"
+    src: "{{ ansible_user_id }}/.docker/cli-plugins/docker-buildx"
+    state: link

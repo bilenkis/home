@@ -66,6 +66,10 @@
       - fzf
       - parallel
       - go
+      - docker
+      - docker-buildx
+      - docker-compose
+      - colima
       # work
       - drone
       - saml2aws
