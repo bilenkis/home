@@ -1,38 +1,10 @@
--- local lsp = require('lsp-zero')
---
--- lsp.preset('recommended')
---
--- lsp.ensure_installed({
---   'sumneko_lua',
---   'gopls',
---   'tflint',
--- })
---
--- local cmp = require('cmp')
--- local cmp_select = {behavior = cmp.SelectBehavior.Select}
---
--- lsp.setup_nvim_cmp({
---   mapping = lsp.defaults.cmp_mappings({
---     ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
---     ['<C-j>'] = cmp.mapping.select_next_item(cmp_select),
---   })
--- })
---
--- lsp.setup()
---
--- require("cmp").setup {
---   sources = {
---     {
---       name = 'buffer',
---       option = {
---         get_bufnrs = function()
---           return vim.api.nvim_list_bufs()
---         end
---       }
---     }
---   }
--- }
-
+Servers = {
+  'gopls',
+  'lua_ls',
+  'jsonnet_ls',
+  'terraformls',
+  'tflint',
+}
 
 -- Defaults from lsp-config
 -- Mappings.
@@ -76,20 +48,10 @@ local lsp_flags = {
 
 -- My config
 local nvim_lsp = require('lspconfig')
-local servers = {
-  'gopls',
-  'lua_ls',
-  'jsonnet_ls',
-}
 
-for _, s in ipairs(servers) do
+for _, s in ipairs(Servers) do
   nvim_lsp[s].setup {
     on_attach = on_attach,
     flags = lsp_flags,
   }
 end
-
--- require'lspconfig'.gopls.setup{
---     on_attach = on_attach,
---     flags = lsp_flags,
--- }

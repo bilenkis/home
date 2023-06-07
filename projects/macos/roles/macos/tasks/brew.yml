@@ -70,6 +70,10 @@
       - docker-buildx
       - docker-compose
       - colima
+      - go-task/tap/go-task
+      - tflint
+      - hashicorp/tap/terraform-ls
+      - warrensbox/tap/tfswitch
       # work
       - drone
       - saml2aws

@@ -61,7 +61,8 @@ return require('packer').startup(function(use)
 
   use("ggandor/lightspeed.nvim")
 
-  use("juliosueiras/vim-terraform-completion")
+  -- use("juliosueiras/vim-terraform-completion")
+  use("hashivim/vim-terraform")
 
   use {
     'gennaro-tedesco/nvim-jqx',
