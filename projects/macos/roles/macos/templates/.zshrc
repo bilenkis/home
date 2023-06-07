@@ -18,6 +18,7 @@ fi
   export PATH={{ brew_prefix }}/opt/coreutils/libexec/gnubin:$PATH
   export PATH=/usr/local/opt:$PATH
   export PATH="/Users/$USER/Library/Python/3.11/bin:$PATH"
+  export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
   export PATH=$HOME/bin:$PATH
 
 # Path to your oh-my-zsh installation.

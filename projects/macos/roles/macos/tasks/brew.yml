@@ -72,8 +72,11 @@
       - colima
       - go-task/tap/go-task
       - tflint
+      - terragrunt
       - hashicorp/tap/terraform-ls
       - warrensbox/tap/tfswitch
+      - krew
+      - gh
       # work
       - drone
       - saml2aws
