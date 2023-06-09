@@ -3,6 +3,7 @@
 - name: Get brew prefix
   shell: >
     brew --prefix
+  changed_when: false
   register: brew_prefix
 
 - name: Add zsh to official shell

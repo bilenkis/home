@@ -74,9 +74,13 @@
       - tflint
       - terragrunt
       - hashicorp/tap/terraform-ls
+      - kreuzwerker/taps/m1-terraform-provider-helper
       - warrensbox/tap/tfswitch
       - krew
+      - mtr
+      - tcpdump
       - gh
+      - node # Needed for Github Copilot
       # work
       - drone
       - saml2aws
@@ -115,6 +119,7 @@
   shell: >
     brew --prefix
   register: _brew_prefix
+  changed_when: false
   tags:
     - dotfiles
     - sync

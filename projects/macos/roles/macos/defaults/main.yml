@@ -5,3 +5,4 @@ go_packages:
   - honnef.co/go/tools/cmd/staticcheck@2022.1
   - github.com/wallix/awless@latest
   - github.com/grafana/jsonnet-language-server@latest
+  - honnef.co/go/tools/cmd/staticcheck@latest
