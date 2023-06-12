@@ -80,12 +80,14 @@
       - mtr
       - tcpdump
       - gh
+      - derailed/k9s/k9s
       - node # Needed for Github Copilot
       # work
       - drone
       - saml2aws
       - jsonnet-bundler
       - go-jsonnet
+      - conftest
 
 - name: Install fonts
   homebrew:
