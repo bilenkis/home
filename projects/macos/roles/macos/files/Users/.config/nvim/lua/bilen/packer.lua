@@ -61,8 +61,6 @@ return require('packer').startup(function(use)
 
   use("ggandor/lightspeed.nvim")
 
-  use("github/copilot.vim")
-
   use {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
