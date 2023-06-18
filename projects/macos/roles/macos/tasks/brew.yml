@@ -7,6 +7,7 @@
     packages:
       - homebrew/core
       - homebrew/cask-fonts
+      - johanhaleby/kubetail
       # work
       - drone/drone
 
@@ -41,10 +42,12 @@
       - p7zip
       - htop
       - mosh
+      - ncdu
       - pwgen
       - reattach-to-user-namespace
       - kubectl
       - kubectx
+      - kubetail
       - subnetcalc
       - iproute2mac
       - tree
