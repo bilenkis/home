@@ -118,6 +118,8 @@ fzf-z
 encode64
 common-aliases
 github
+nvm
+direnv
 )
 
 # Uncomment the following line if pasting URLs and other text is messed up.
@@ -243,7 +245,6 @@ alias ht="helm template . --set 'global.cluster=lw,global.env=test'"
 alias test='nocorrect test'
 alias aplay='aplaybook'
 alias sed='gsed'
-alias vim='nvim'
 alias helm2='helmswitch 2.17.0'
 alias helm3='helmswitch 3.8.1'
 alias cp='cp'
@@ -260,6 +261,8 @@ alias tgp='terragrunt plan'
 alias tga='terragrunt apply'
 alias tgaa='terragrunt apply -auto-approve'
 alias fd='fd -H -I'
+alias vim='nvim'
+alias v='nvim'
 
 # plugin: zsh-dircolors-solarized
 export DIRCOLORTHEME='dircolors.256dark'
@@ -285,6 +288,9 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
 # kubectl plugins
 PATH="${PATH}:${HOME}/.krew/bin"
+
+# nvm + node.js
+zstyle ':omz:plugins:nvm' lazy yes
 
 # # awless completion
 # export BASH_VERSION="5.1.12(1)-release"

@@ -66,6 +66,7 @@
       - tokiwong/tap/helm-switcher
       - helmfile
       - jq
+      - yq
       - fzf
       - parallel
       - go
