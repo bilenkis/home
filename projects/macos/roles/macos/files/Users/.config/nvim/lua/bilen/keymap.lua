@@ -25,3 +25,10 @@ vim.keymap.set('v', 'p', 'p:let @+=@0<CR>')
 
 vim.keymap.set('n', '<leader>dl', ':diffget //3<cr>')
 vim.keymap.set('n', '<leader>dh', ':diffget //2<cr>')
+
+-- Command mode keymap
+vim.keymap.set('c', '<M-a>', '<Home>')
+vim.keymap.set('c', '<M-e>', '<End>')
+vim.keymap.set('c', '<M-d>', '<S-Right><C-w>')
+vim.keymap.set('c', '<M-b>', '<S-Left>')
+vim.keymap.set('c', '<M-f>', '<S-Right>')
